@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USA Today Replica</title>
+    <!-- Mobile Metadata -->
+    <link rel="apple-touch-icon" href="https://placehold.co/180x180/png">
+    <link rel="shortcut icon" type="image/webp" href="https://placehold.co/32x32/webp">
+    <meta name="description" content="A layout-only replica built with core HTML/CSS for academic purposes.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <!-- CSS & JS -->
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="index.js"></script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebPage",
+      "name": "USA Today Replica Placeholder",
+      "description": "A layout-only replica built with core HTML/CSS for academic purposes.",
+      "mainEntity": {
+        "@type": "NewsArticle",
+        "headline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "datePublished": "2026-04-19T08:00:00Z",
+        "author": {
+          "@type": "Person",
+          "name": "Academic Student"
+        }
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Accessibility Skip Link -->
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="header" role="banner">
+        <div class="header__top-bar">
+            <button class="header__menu-btn" data-js="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open side menu">
+                <span class="header__menu-icon"></span>
+            </button>
+            <div class="header__logo">
+                <a href="#main" aria-label="USA Today Home" class="header__logo-link">
+                    <span class="header__logo-circle"></span>
+                    <div class="header__logo-text">
+                        <span class="header__logo-usa">USA</span>
+                        <span class="header__logo-today">TODAY</span>
+                    </div>
+                </a>
+            </div>
+            <!-- Top Nav inline in desktop -->
+            <nav class="header__nav" aria-label="Primary Navigation">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Home</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">U.S.</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Politics</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Sports</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Entertainment</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Life</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Money</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Tech</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Travel</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Opinion</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Crossword</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Side navigation menu" aria-hidden="true" data-js="mobile-nav">
+        <div class="mobile-nav__header">
+            <span class="mobile-nav__logo">USA TODAY</span>
+            <button class="mobile-nav__close-btn" data-js="menu-close" aria-label="Close side menu">X</button>
+        </div>
+        <ul class="mobile-nav__list">
+            <li class="mobile-nav__item"><a href="#" class="mobile-nav__link">News</a></li>
+            <li class="mobile-nav__item"><a href="#" class="mobile-nav__link">Sports</a></li>
+            <li class="mobile-nav__item"><a href="#" class="mobile-nav__link">Entertainment</a></li>
+        </ul>
+    </nav>
+    
+    <div class="mobile-nav__overlay" aria-hidden="true" data-js="menu-overlay"></div>
+
+    <main id="main">
+        <h1 class="visually-hidden">USA Today Top Stories</h1>
+        
+        <!-- TOP SECTION: Hero and Trending News -->
+        <section class="top-stories">
+            <h2 class="visually-hidden">Featured and Trending Articles</h2>
+            <div class="top-stories__grid">
+                
+                <!-- Main Hero (Left Column) -->
+                <article class="hero-card" data-js="news-article">
+                    <picture class="hero-card__picture">
+                        <source media="(min-width: 1200px)" srcset="https://placehold.co/800x450/jpeg">
+                        <source media="(min-width: 992px)" srcset="https://placehold.co/700x400/jpeg">
+                        <source media="(min-width: 768px)" srcset="https://placehold.co/768x400/jpeg">
+                        <img src="https://placehold.co/576x300/jpeg" alt="Placeholder image for smart glasses article" class="hero-card__image">
+                    </picture>
+                    <div class="hero-card__content">
+                        <h3 class="hero-card__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
+                        <p class="hero-card__excerpt">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <time class="hero-card__time visually-hidden" datetime="2026-04-19T08:00">Apr 19, 2026</time>
+                    </div>
+                </article>
+
+                <!-- Secondary News (Middle Column) -->
+                <div class="top-stories__secondary">
+                    <article class="story-card" data-js="news-article">
+                        <picture class="story-card__picture">
+                            <img src="https://placehold.co/400x250/jpeg" alt="Placeholder for Louisiana reporting" class="story-card__image">
+                        </picture>
+                        <div class="story-card__content">
+                            <h3 class="story-card__title">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</h3>
+                            <time class="visually-hidden" datetime="2026-04-19T09:00">Apr 19, 2026</time>
+                        </div>
+                    </article>
+
+                    <article class="story-card" data-js="news-article">
+                        <picture class="story-card__picture">
+                            <img src="https://placehold.co/400x250/jpeg" alt="Placeholder for political article" class="story-card__image">
+                        </picture>
+                        <div class="story-card__content">
+                            <h3 class="story-card__title">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</h3>
+                            <time class="visually-hidden" datetime="2026-04-19T10:00">Apr 19, 2026</time>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Tertiary News List (Right Column) -->
+                <div class="top-stories__tertiary">
+                    <article class="text-card" data-js="news-article">
+                        <h3 class="text-card__title">Curabitur pretium tincidunt lacus. Nulla gravida orci a odio</h3>
+                        <div class="text-card__meta">
+                            <span class="text-card__category">Lorem</span> | <time datetime="2026-04-19T10:55" class="text-card__time">5 minutes ago</time>
+                        </div>
+                    </article>
+                    
+                    <article class="text-card" data-js="news-article">
+                        <h3 class="text-card__title">Nullam varius, turpis et commodo pharetra, est eros bibendum elit</h3>
+                        <div class="text-card__meta">
+                            <span class="text-card__category">Ipsum</span> | <time datetime="2026-04-19T01:00" class="text-card__time">10 hours ago</time>
+                        </div>
+                    </article>
+
+                    <article class="text-card" data-js="news-article">
+                        <h3 class="text-card__title">Pellentesque habitant morbi tristique senectus et netus et malesuada</h3>
+                        <div class="text-card__meta">
+                            <span class="text-card__category">Dolor</span> | <time datetime="2026-04-19T10:00" class="text-card__time">1 hour ago</time>
+                        </div>
+                    </article>
+
+                    <article class="text-card" data-js="news-article">
+                        <h3 class="text-card__title">Aenean dignissim pellentesque felis. Vestibulum suscipit nulla quis</h3>
+                        <div class="text-card__meta">
+                            <span class="text-card__category">Sit</span> | <time datetime="2026-04-19T05:00" class="text-card__time">6 hours ago</time>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Advertisement Banner -->
+        <section class="ad-banner">
+            <h2 class="visually-hidden">Advertisement</h2>
+            <picture class="ad-banner__picture">
+                <source media="(min-width: 768px)" srcset="https://placehold.co/970x90/jpeg?text=Advertisement">
+                <img src="https://placehold.co/320x50/jpeg?text=Advertisement" alt="Ad Banner" class="ad-banner__image">
+            </picture>
+        </section>
+
+        <!-- MAIN FEED AND SIDEBAR SECTION -->
+        <div class="layout-split">
+            <!-- Sidebar (Feedback, Ads) -->
+            <aside class="sidebar-left">
+                <section class="feedback-card">
+                    <h2 class="visually-hidden">Feedback</h2>
+                    <div class="feedback-card__content">
+                        <strong>Share your feedback</strong> to help improve our site!
+                    </div>
+                    <button class="feedback-card__btn" aria-label="Submit Feedback">&rarr;</button>
+                </section>
+                <div class="sidebar-ad">
+                    <span class="sidebar-ad__label">Advertisement</span>
+                </div>
+            </aside>
+
+            <!-- Main Feed list -->
+            <section class="feed-section">
+                <h2 class="visually-hidden">Latest News Feed</h2>
+                
+                <div class="list-feed">
+                    <!-- Feed Item 1 -->
+                    <article class="list-card" data-js="news-article">
+                        <div class="list-card__content">
+                            <h3 class="list-card__title">Mauris aliquet mattis metus, id pellentesque metus rhoncus non</h3>
+                            <div class="list-card__meta">
+                                <span class="list-card__category">Lorem</span> | <time datetime="2026-04-19T02:00" class="list-card__time">6 hours ago</time>
+                            </div>
+                        </div>
+                        <picture class="list-card__picture">
+                            <img src="https://placehold.co/200x120/jpeg" alt="Placeholder list image 1" class="list-card__image">
+                        </picture>
+                    </article>
+
+                    <!-- Feed Item 2 -->
+                    <article class="list-card" data-js="news-article">
+                        <div class="list-card__content">
+                            <h3 class="list-card__title">Nam in suscipit odio. Vivamus ornare nisl a nisl congue</h3>
+                            <div class="list-card__meta">
+                                <span class="list-card__category">Ipsum</span> | <time datetime="2026-04-19T08:00" class="list-card__time">26 minutes ago</time>
+                            </div>
+                        </div>
+                        <picture class="list-card__picture">
+                            <img src="https://placehold.co/200x120/jpeg" alt="Placeholder list image 2" class="list-card__image">
+                        </picture>
+                    </article>
+                    
+                    <!-- Feed Item 3 -->
+                    <article class="list-card" data-js="news-article">
+                        <div class="list-card__content">
+                            <h3 class="list-card__title">Fusce vulputate eleifend sapien, id commodo sem vulputate id</h3>
+                            <div class="list-card__meta">
+                                <span class="list-card__category">Sit</span> | <time datetime="2026-04-18T20:00" class="list-card__time">12 hours ago</time>
+                            </div>
+                        </div>
+                        <picture class="list-card__picture">
+                            <img src="https://placehold.co/200x120/jpeg" alt="Placeholder list image 3" class="list-card__image">
+                        </picture>
+                    </article>
+                </div>
+
+                <!-- CATEGORY BLOCK: NEWS -->
+                <div class="category-block category-block--news">
+                    <h2 class="category-block__header">
+                        <span class="category-block__indicator"></span> News
+                    </h2>
+                    
+                    <div class="category-block__grid">
+                        <!-- Featured Sub-card -->
+                        <article class="featured-sub-card" data-js="news-article">
+                            <picture class="featured-sub-card__picture">
+                                <img src="https://placehold.co/500x300/jpeg" alt="Placeholder category block image 1" class="featured-sub-card__image">
+                            </picture>
+                            <div class="featured-sub-card__content">
+                                <h3 class="featured-sub-card__title">Praesent sollicitudin dolor in orci pulvinar rutrum vel at mi</h3>
+                                <div class="featured-sub-card__meta">
+                                    <span class="featured-sub-card__category">Money</span> | <time datetime="2026-04-19T04:00" class="featured-sub-card__time">4 hours ago</time>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <div class="category-list">
+                            <article class="mini-card" data-js="news-article">
+                                <picture class="mini-card__picture">
+                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder category block image 2" class="mini-card__image">
+                                </picture>
+                                <h3 class="mini-card__title">Curabitur efficitur ligula magna, nec lacinia elit rutrum quis</h3>
+                            </article>
+                            <article class="mini-card" data-js="news-article">
+                                <picture class="mini-card__picture">
+                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder category block image 3" class="mini-card__image">
+                                </picture>
+                                <h3 class="mini-card__title">Sed elementum ipsum sed nisl scelerisque, nec varius libero condimentum</h3>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CATEGORY BLOCK: SPORTS -->
+                <div class="category-block category-block--sports">
+                    <h2 class="category-block__header">
+                        <span class="category-block__indicator"></span> Sports
+                    </h2>
+                    
+                    <div class="category-block__grid">
+                        <article class="featured-sub-card" data-js="news-article">
+                            <picture class="featured-sub-card__picture">
+                                <img src="https://placehold.co/500x300/jpeg" alt="Placeholder sports block image 1" class="featured-sub-card__image">
+                            </picture>
+                            <div class="featured-sub-card__content">
+                                <h3 class="featured-sub-card__title">Morbi eu sapien sodales, tristique nunc eleifend, malesuada nulla</h3>
+                                <div class="featured-sub-card__meta">
+                                    <span class="featured-sub-card__category">NFL Mock</span> | <time datetime="2026-04-18T19:00" class="featured-sub-card__time">13 hours ago</time>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <h2 class="visually-hidden">Footer Information</h2>
+        <nav class="footer__nav" aria-label="Footer Navigation">
+            <ul class="footer__nav-list">
+                <li class="footer__nav-item"><a href="#">Help</a></li>
+                <li class="footer__nav-item"><a href="#">Terms of Service</a></li>
+                <li class="footer__nav-item"><a href="#">Subscription Terms &amp; Conditions</a></li>
+                <li class="footer__nav-item"><a href="#">Privacy Policy</a></li>
+                <li class="footer__nav-item"><a href="#">Site Map</a></li>
+                <li class="footer__nav-item"><a href="#">Accessibility</a></li>
+                <li class="footer__nav-item"><a href="#">Our Ethical Principles</a></li>
+                <li class="footer__nav-item"><a href="#">Responsible Disclosure</a></li>
+                <li class="footer__nav-item"><a href="#">Your Privacy Choices</a></li>
+            </ul>
+        </nav>
+        <div class="footer__socials" aria-label="Social Media links">
+            <a href="#" class="footer__social-link" aria-label="Placeholder Social 1"></a>
+            <a href="#" class="footer__social-link" aria-label="Placeholder Social 2"></a>
+            <a href="#" class="footer__social-link" aria-label="Placeholder Social 3"></a>
+            <a href="#" class="footer__social-link" aria-label="Placeholder Social 4"></a>
+            <a href="#" class="footer__social-link" aria-label="Placeholder Social 5"></a>
+            <a href="#" class="footer__social-link" aria-label="Placeholder Social 6"></a>
+        </div>
+        <p class="footer__copy">&copy; Copyright Gannett <time datetime="2026">2026</time></p>
+    </footer>
+</body>
+</html>
