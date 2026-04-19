@@ -124,8 +124,8 @@ button {
 
 .header__menu-icon {
   display: block;
-  width: 26px;
-  height: 3px;
+  width: 24px;
+  height: 2px;
   background-color: #000;
   position: relative;
 }
@@ -133,13 +133,13 @@ button {
 .header__menu-icon::after {
   content: '';
   position: absolute;
-  width: 26px;
-  height: 3px;
+  width: 24px;
+  height: 2px;
   background-color: #000;
   left: 0;
 }
-.header__menu-icon::before { top: -8px; }
-.header__menu-icon::after { top: 8px; }
+.header__menu-icon::before { top: -7px; }
+.header__menu-icon::after { top: 7px; }
 
 .header__logo {
   flex-shrink: 0;
@@ -148,13 +148,13 @@ button {
 .header__logo-link {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .header__logo-circle {
   display: block;
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   background-color: var(--color-primary);
   border-radius: 50%;
 }
@@ -169,13 +169,13 @@ button {
 }
 
 .header__logo-usa {
-  font-size: 1.4rem;
+  font-size: 1.15rem;
   line-height: 0.9;
-  letter-spacing: 0.2px;
+  letter-spacing: -0.2px;
 }
 
 .header__logo-today {
-  font-size: 0.95rem;
+  font-size: 0.75rem;
   line-height: 0.9;
   letter-spacing: -0.2px;
 }
@@ -188,19 +188,19 @@ button {
   .header__nav {
     display: block;
     padding: var(--spacing-xs) 0;
-    margin-left: 2.5rem;
+    margin-left: 2rem;
   }
   
   .header__nav-list {
     display: flex;
     justify-content: flex-start;
-    gap: 1.8rem;
+    gap: 1.5rem;
   }
   
   .header__nav-link {
     font-weight: 700;
     font-family: var(--font-primary);
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: #4a4a4a;
   }
   .header__nav-link:hover,
@@ -343,11 +343,23 @@ button {
 
 .hero-card__picture {
   width: 100%;
+  position: relative;
+  display: block;
+}
+
+.hero-card__picture::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  height: 60px;
+  background-color: var(--color-bg-main);
 }
 
 .hero-card__image { width: 100%; height: auto; object-fit: cover; }
 .hero-card__content {
-  padding: var(--spacing-md) 0;
+  padding: var(--spacing-sm) 0;
 }
 
 .hero-card__title {
@@ -383,14 +395,14 @@ button {
   display: block;
 }
 
-.story-card__picture::after {
+.story-card:first-child .story-card__picture::after {
   content: "";
   position: absolute;
-  bottom: -15px;
-  right: 20px;
-  border-width: 15px 15px 0 0;
-  border-style: solid;
-  border-color: var(--color-text-main) transparent transparent transparent;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background-color: var(--color-bg-main);
 }
 
 .story-card__image {
