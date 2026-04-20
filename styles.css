@@ -2,8 +2,7 @@
    CSS Variables & Configuration
    ========================================================================== */
 :root {
-  /* Colors */
-  --color-primary: #009bff; /* USA Today blue */
+  --color-primary: #009bff;
   --color-text-main: #231f20;
   --color-text-muted: #666666;
   --color-bg-main: #ffffff;
@@ -11,22 +10,17 @@
   --color-border: #e0e0e0;
   --color-overlay: rgba(0, 0, 0, 0.5);
 
-  /* Typography */
   --font-primary: 'Roboto', sans-serif;
   --font-headline: 'Oswald', sans-serif;
-  
-  /* Layout */
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+
   --max-width: 1200px;
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 1.5rem;
   --spacing-lg: 2rem;
   --spacing-xl: 3rem;
-  
-  /* Breakpoints (emulati min-width) */
-  /* sm: 576px, md: 768px, lg: 992px, xl: 1200px */
 
-  /* Timing */
   --transition-speed: 0.3s;
 }
 
@@ -68,7 +62,7 @@ button {
   background: transparent;
 }
 
-/* Accessibility: Visually Hidden but available to screen readers */
+/* Visually Hidden (screen readers only) */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -81,28 +75,13 @@ button {
   border: 0;
 }
 
-/* Accessibility: Skip Link */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--color-primary);
-  color: white;
-  padding: 8px;
-  z-index: 100;
-  transition: top 0.2s;
-}
 
-.skip-link:focus {
-  top: 0;
-}
 
 /* ==========================================================================
    Header Component (BEM)
    ========================================================================== */
 .header {
   border-bottom: 1px solid var(--color-border);
-  padding: 0 var(--spacing-sm);
   background: var(--color-bg-main);
   position: sticky;
   top: 0;
@@ -112,34 +91,36 @@ button {
 .header__top-bar {
   display: flex;
   align-items: center;
-  height: 64px;
+  height: 55px; /* Dato esatto: 55px */
+  padding: 0 45px;
+  gap: 12px;
 }
 
 .header__menu-btn {
   padding: var(--spacing-xs);
-  margin-right: var(--spacing-md);
-  font-size: 1.2rem;
-  color: var(--color-text-main);
+  flex-shrink: 0;
 }
 
 .header__menu-icon {
   display: block;
-  width: 24px;
-  height: 2px;
-  background-color: #000;
+  width: 24px; /* Dato esatto: 24px width */
+  height: 2px; /* Dato esatto: 2px spessore */
+  background-color: rgba(0, 0, 0, 0.87); /* Colore esatto */
   position: relative;
 }
+
 .header__menu-icon::before,
 .header__menu-icon::after {
   content: '';
   position: absolute;
   width: 24px;
   height: 2px;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.87);
   left: 0;
 }
-.header__menu-icon::before { top: -7px; }
-.header__menu-icon::after { top: 7px; }
+
+.header__menu-icon::before { top: -6px; }
+.header__menu-icon::after  { top: 6px; }
 
 .header__logo {
   flex-shrink: 0;
@@ -148,15 +129,16 @@ button {
 .header__logo-link {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 3px;
 }
 
 .header__logo-circle {
   display: block;
-  width: 32px;
-  height: 32px;
-  background-color: var(--color-primary);
+  width: 28px; /* Dato esatto: Diametro 28px */
+  height: 28px;
+  background-color: #009bff; /* Colore esatto */
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .header__logo-text {
@@ -164,45 +146,42 @@ button {
   flex-direction: column;
   justify-content: center;
   font-family: var(--font-primary);
-  font-weight: 900;
+  font-weight: 1000;
   color: #000;
 }
 
-.header__logo-usa {
-  font-size: 1.15rem;
-  line-height: 0.9;
-  letter-spacing: -0.2px;
-}
-
+.header__logo-usa,
 .header__logo-today {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   line-height: 0.9;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.1px; 
+  color: #404040; /* Colore esatto: Grigio scuro #404040 */
 }
 
 .header__nav {
   display: none;
+  flex: 1;
 }
 
 @media (min-width: 992px) {
   .header__nav {
     display: block;
-    padding: var(--spacing-xs) 0;
-    margin-left: 2rem;
+    margin-left: 48px; /* Increased gap */
   }
-  
+
   .header__nav-list {
     display: flex;
     justify-content: flex-start;
-    gap: 1.5rem;
   }
   
   .header__nav-link {
-    font-weight: 700;
+    font-weight: 600; /* Dato esatto: Semi-bold 600 */
     font-family: var(--font-primary);
-    font-size: 0.85rem;
-    color: #4a4a4a;
+    font-size: 14px; /* Dato esatto: 14px */
+    color: #626262; /* Dato esatto: rgb(98,98,98) */
+    padding: 0 12px; /* Dato esatto: padding al posto del gap */
   }
+
   .header__nav-link:hover,
   .header__nav-link:focus {
     color: #000;
@@ -285,37 +264,43 @@ button {
 }
 
 /* ==========================================================================
-   Main Layout & Grid System
+   Main Layout
    ========================================================================== */
 #main {
   display: flex;
   flex-direction: column;
 }
 
-.top-stories {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-lg);
-  width: 100%;
-}
-
-.bottom-section {
-  background-color: var(--color-bg-alt);
-  padding: var(--spacing-xl) var(--spacing-sm);
-  width: 100%;
-}
-
+/* Layout split: sidebar + main feed */
 .layout-split {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-lg);
   max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 var(--spacing-sm) var(--spacing-xl);
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .layout-split {
+    grid-template-columns: 250px 1fr;
+  }
 }
 
 /* ==========================================================================
-   Top Section (Hero & Trending)
+   Top Stories Section
    ========================================================================== */
+.top-stories {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-top: 0;
+  padding-right: var(--spacing-sm);
+  padding-bottom: var(--spacing-lg);
+  padding-left: 80px; /* <--- GIOCA CON QUESTO VALORE! */
+  width: 100%;
+}
+
 .top-stories__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -330,12 +315,12 @@ button {
 
 @media (min-width: 992px) {
   .top-stories__grid {
-    grid-template-columns: 5fr 3fr 2.2fr;
-    gap: var(--spacing-lg);
+    grid-template-columns: 1.2fr 0.95fr 1.05fr;
+    gap: var(--spacing-md);
   }
 }
 
-/* Col 1: Hero Block */
+/* Hero Card */
 .hero-card {
   display: flex;
   flex-direction: column;
@@ -343,42 +328,51 @@ button {
 
 .hero-card__picture {
   width: 100%;
-  position: relative;
   display: block;
 }
 
-.hero-card__picture::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 90px;
-  height: 90px;
-  background-color: var(--color-bg-main);
+.hero-card__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
-.hero-card__image { width: 100%; height: auto; object-fit: cover; }
 .hero-card__content {
-  padding: var(--spacing-sm) 0;
+  background-color: var(--color-bg-main);
+  padding: 15px 25px 0 0;
+  margin-top: -35px; /* Deeper overlap into the image */
+  position: relative;
+  z-index: 10;
+  width: 91%; /* Wider cutout */
 }
 
 .hero-card__title {
-  font-family: var(--font-primary);
-  font-size: 1.8rem;
+  font-family: var(--font-primary); /* Torniamo al Sans-Serif! */
+  font-weight: 550; /* Bello spesso, come l'originale */
+  font-size: 1.4rem; 
   line-height: 1.15;
-  font-weight: 800;
-  margin-bottom: 8px;
   letter-spacing: -0.2px;
+  color: #000;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.hero-card__title:hover {
+  text-decoration: underline;
+  text-decoration-color: #009bff; /* Blu USA Today */
+  text-underline-offset: 4px;
+  text-decoration-thickness: 3px;
 }
 
 .hero-card__excerpt {
-  color: var(--color-text-main);
-  font-family: Georgia, serif;
-  font-size: 1rem;
-  line-height: 1.45;
+  font-family: var(--font-serif);
+  font-size: 1rem; 
+  line-height: 1.3;
+  margin-top: 12px;
+  color: #333;
 }
 
-/* Col 2: Secondary Block */
+/* Secondary Story Cards */
 .top-stories__secondary {
   display: flex;
   flex-direction: column;
@@ -395,19 +389,9 @@ button {
   display: block;
 }
 
-.story-card:first-child .story-card__picture::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 40px;
-  height: 40px;
-  background-color: var(--color-bg-main);
-}
-
 .story-card__image {
   width: 100%;
-  aspect-ratio: 16/9;
+  /*aspect-ratio: 16/9;*/
   object-fit: cover;
 }
 
@@ -417,13 +401,30 @@ button {
 
 .story-card__title {
   font-family: var(--font-primary);
-  font-weight: 800;
+  font-weight: 900;
   font-size: 1.15rem;
   line-height: 1.25;
-  letter-spacing: -0.2px;
+  transition: color 0.2s ease;
 }
 
-/* Col 3: Tertiary Texts Block */
+.story-card__title:hover {
+  text-decoration: underline;
+  text-decoration-color: #009bff;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.story-card--overlap .story-card__content {
+  background-color: var(--color-bg-main);
+  padding: 15px 20px 0 0; /* <--- 20px sopra, 20px a destra, 0 sotto, 0 sinistra */
+  margin-top: -25px;
+  position: relative;
+  z-index: 10;
+  width: 92%;
+}
+
+/* Tertiary Text List */
 .top-stories__tertiary {
   display: flex;
   flex-direction: column;
@@ -453,17 +454,23 @@ button {
   font-size: 0.95rem;
   font-weight: 800;
   line-height: 1.35;
-  letter-spacing: -0.1px;
 }
 
-.text-card__meta, .list-card__meta, .featured-sub-card__meta {
+.text-card__meta,
+.list-card__meta,
+.featured-sub-card__meta,
+.sports-hero__meta,
+.sports-strip__meta {
   font-size: 0.75rem;
   color: #666;
   font-weight: 400;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
-.text-card__category, .list-card__category, .featured-sub-card__category {
+.text-card__category,
+.list-card__category,
+.featured-sub-card__category,
+.sports-hero__category {
   color: #000;
   font-weight: 700;
 }
@@ -476,26 +483,25 @@ button {
   background: var(--color-bg-alt);
   padding: var(--spacing-md) 0;
   margin: var(--spacing-lg) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
+
+.ad-banner__label {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
 .ad-banner__image {
   margin: 0 auto;
 }
 
 /* ==========================================================================
-   Layout Split (Sidebar + Feed)
+   Sidebar
    ========================================================================== */
-.layout-split {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-lg);
-}
-
-@media (min-width: 992px) {
-  .layout-split {
-    grid-template-columns: 250px 1fr;
-  }
-}
-
 .sidebar-left {
   display: flex;
   flex-direction: column;
@@ -519,13 +525,19 @@ button {
   right: 10px;
 }
 
+.sidebar-ad__label {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  display: block;
+  margin-top: var(--spacing-sm);
+}
+
 /* ==========================================================================
-   Lists & Categories Feed
+   List Feed
    ========================================================================== */
 .list-feed {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
 }
 
@@ -535,13 +547,20 @@ button {
   gap: var(--spacing-md);
   align-items: center;
   border-bottom: 1px solid var(--color-border);
-  padding-bottom: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
 }
 
 .list-card__title {
   font-family: var(--font-headline);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   line-height: 1.2;
+}
+
+.list-card__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5/3;
+  object-fit: cover;
 }
 
 @media (max-width: 576px) {
@@ -553,7 +572,9 @@ button {
   }
 }
 
-/* Category Blocks */
+/* ==========================================================================
+   Category Blocks (common)
+   ========================================================================== */
 .category-block {
   margin-top: var(--spacing-xl);
 }
@@ -563,23 +584,32 @@ button {
   align-items: center;
   font-family: var(--font-headline);
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   border-bottom: 2px solid var(--color-border);
   padding-bottom: var(--spacing-xs);
   margin-bottom: var(--spacing-md);
+  letter-spacing: 0.5px;
 }
 
 .category-block__indicator {
   width: 20px;
   height: 10px;
-  background: var(--color-text-main);
   display: inline-block;
   margin-right: var(--spacing-xs);
+  flex-shrink: 0;
 }
 
-.category-block--news .category-block__indicator { background: var(--color-primary); }
-.category-block--sports .category-block__indicator { background: red; }
+/* Category colours */
+.category-block--news         .category-block__indicator { background: var(--color-primary); }
+.category-block--sports       .category-block__indicator { background: #e31837; }
+.category-block--entertainment .category-block__indicator { background: #963cff; }
+.category-block--life         .category-block__indicator { background: #ffaa00; }
+.category-block--money        .category-block__indicator { background: #00b140; }
+.category-block--tech         .category-block__indicator { background: #ff6600; }
+.category-block--travel       .category-block__indicator { background: #00aacc; }
+.category-block--opinion      .category-block__indicator { background: #cc0000; }
 
+/* Standard category grid (featured + mini-list) */
 .category-block__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -592,23 +622,30 @@ button {
   }
 }
 
+/* Featured sub-card */
 .featured-sub-card {
   display: flex;
   flex-direction: column;
-  position: relative;
+}
+
+.featured-sub-card__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .featured-sub-card__content {
-  background: var(--color-bg-main);
   padding: var(--spacing-sm) 0;
 }
 
 .featured-sub-card__title {
   font-family: var(--font-headline);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  line-height: 1.2;
   margin-bottom: var(--spacing-xs);
 }
 
+/* Mini-card list */
 .category-list {
   display: flex;
   flex-direction: column;
@@ -621,18 +658,177 @@ button {
   gap: var(--spacing-xs);
 }
 
+.mini-card__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .mini-card__title {
   font-family: var(--font-headline);
-  font-size: 1.1rem;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+/* Show more link */
+.category-block__show-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: var(--spacing-md);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 6px 14px;
+  border-radius: 2px;
+}
+
+.category-block__show-more:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.category-block__show-more-arrow {
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   Sports — special layout
+   ========================================================================== */
+.sports-hero {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-md);
+}
+
+.sports-hero__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+.sports-hero__content {
+  padding: var(--spacing-sm) 0;
+}
+
+.sports-hero__title {
+  font-family: var(--font-headline);
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+/* Horizontal strip of 3 cards */
+.sports-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 576px) {
+  .sports-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.sports-strip__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.sports-strip__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+}
+
+.sports-strip__title {
+  font-family: var(--font-headline);
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+/* ==========================================================================
+   Media Sections: Videos & Galleries
+   ========================================================================== */
+.media-section {
+  margin-top: var(--spacing-xl);
+}
+
+.media-section__header {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-headline);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 0.5px;
+}
+
+.category-block__indicator--videos   { background: #cc0000; }
+.category-block__indicator--galleries { background: #231f20; }
+
+/* Horizontal scrollable strip */
+.media-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .media-strip {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.media-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  position: relative;
+}
+
+.media-card__image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.media-card__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  width: 36px;
+  height: 36px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+.media-card__title {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  color: var(--color-text-main);
 }
 
 /* ==========================================================================
    Footer Component
    ========================================================================== */
 .footer {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: var(--spacing-xl) var(--spacing-sm);
+  padding: var(--spacing-xl) 24px var(--spacing-lg);
   border-top: 1px solid var(--color-border);
 }
 
@@ -640,25 +836,27 @@ button {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--spacing-xs) var(--spacing-sm);
-  margin-bottom: var(--spacing-lg);
+  gap: 4px 0;
+  margin-bottom: var(--spacing-md);
 }
 
 .footer__nav-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  white-space: nowrap;
 }
 
 .footer__nav-item:not(:last-child)::after {
-  content: '\00B7'; /* Middle dot */
-  margin-left: var(--spacing-sm);
+  content: '\00B7';
+  margin: 0 10px;
   color: var(--color-text-main);
   font-weight: bold;
+  font-size: 1.1rem;
 }
 
 .footer__nav-item a {
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 400;
   color: var(--color-text-main);
 }
 
@@ -667,28 +865,47 @@ button {
   text-decoration: underline;
 }
 
+.footer__nav-item--privacy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer__privacy-icon {
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
 .footer__socials {
   display: flex;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-lg);
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--spacing-md);
 }
 
 .footer__social-link {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background-color: var(--color-border);
-  border-radius: 4px;
-  transition: background-color var(--transition-speed);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  transition: opacity var(--transition-speed);
 }
 
 .footer__social-link:hover,
 .footer__social-link:focus {
-  background-color: var(--color-primary);
+  opacity: 0.7;
 }
 
+.footer__social-link--facebook  { color: #1877f2; }
+.footer__social-link--x         { color: #000;    }
+.footer__social-link--snapchat  { color: #f7c600; }
+.footer__social-link--instagram { color: #e4405f; }
+.footer__social-link--linkedin  { color: #0a66c2; }
+.footer__social-link--pinterest { color: #bd081c; }
+
 .footer__copy {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   color: var(--color-text-main);
-  font-weight: 500;
+  font-weight: 400;
 }
