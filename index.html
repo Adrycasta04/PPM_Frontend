@@ -70,7 +70,11 @@
     <header class="header" role="banner">
         <div class="header__top-bar">
             <button class="header__menu-btn" data-js="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
-                <span class="header__menu-icon"></span>
+                <svg class="header__menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3,13 L3,11 L21,11 L21,13 L3,13 Z
+                            M3,7 L3,5 L21,5 L21,7 L3,7 Z
+                            M3,19 L3,17 L21,17 L21,19 L3,19 Z" />
+                </svg>
             </button>
             <div class="header__logo">
                 <a href="#main" aria-label="USA Today Home" class="header__logo-link">
@@ -116,26 +120,26 @@
                         <img src="https://placehold.co/576x324/jpeg" alt="Placeholder image for top story" class="hero-card__image">
                     </picture>
                     <div class="hero-card__content">
-                        <h3 class="hero-card__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
-                        <p class="hero-card__excerpt">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <h3 class="hero-card__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod</h3>
+                        <p class="hero-card__excerpt">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
                         <time class="hero-card__time visually-hidden" datetime="2026-04-19T08:00">Apr 19, 2026</time>
                     </div>
                 </article>
 
                 <!-- Col 2: Secondary Stories -->
                 <div class="top-stories__secondary">
-                    <article class="story-card" data-js="news-article">
+                    <article class="story-card story-card--overlap" data-js="news-article">
                         <picture class="story-card__picture">
-                            <img src="https://placehold.co/260x146/jpeg" alt="Placeholder secondary story 1" class="story-card__image">
+                            <img src="https://placehold.co/300x180/jpeg" alt="Placeholder secondary story 1" class="story-card__image">
                         </picture>
                         <div class="story-card__content">
-                            <h3 class="story-card__title">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</h3>
+                            <h3 class="story-card__title">Duis aute irure dolor in reprehenderit in voluptate velit esse</h3>
                             <time class="visually-hidden" datetime="2026-04-19T09:00">Apr 19, 2026</time>
                         </div>
                     </article>
                     <article class="story-card story-card--overlap" data-js="news-article">
                         <picture class="story-card__picture">
-                            <img src="https://placehold.co/260x146/jpeg" alt="Placeholder secondary story 2" class="story-card__image">
+                            <img src="https://placehold.co/300x180/jpeg" alt="Placeholder secondary story 2" class="story-card__image">
                         </picture>
                         <div class="story-card__content">
                             <h3 class="story-card__title">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</h3>
@@ -159,7 +163,7 @@
                         </div>
                     </article>
                     <article class="text-card" data-js="news-article">
-                        <h3 class="text-card__title">Pellentesque habitant morbi tristique senectus et netus et malesuada</h3>
+                        <h3 class="text-card__title">Pellentesque habitant morbi tristique senectus et netus</h3>
                         <div class="text-card__meta">
                             <span class="text-card__category">Dolor</span> | <time datetime="2026-04-19T10:00" class="text-card__time">1 hour ago</time>
                         </div>

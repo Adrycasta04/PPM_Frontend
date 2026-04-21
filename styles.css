@@ -103,24 +103,12 @@ button {
 
 .header__menu-icon {
   display: block;
-  width: 24px; /* Dato esatto: 24px width */
-  height: 2px; /* Dato esatto: 2px spessore */
-  background-color: rgba(0, 0, 0, 0.87); /* Colore esatto */
-  position: relative;
-}
-
-.header__menu-icon::before,
-.header__menu-icon::after {
-  content: '';
-  position: absolute;
   width: 24px;
-  height: 2px;
-  background-color: rgba(0, 0, 0, 0.87);
-  left: 0;
+  height: 24px;
+  color: #333; /* Grigio scuro per l'hamburger */
 }
 
-.header__menu-icon::before { top: -6px; }
-.header__menu-icon::after  { top: 6px; }
+
 
 .header__logo {
   flex-shrink: 0;
@@ -184,7 +172,8 @@ button {
 
   .header__nav-link:hover,
   .header__nav-link:focus {
-    color: #000;
+    font-weight: 800; 
+    color: #616161;   
   }
 }
 
@@ -350,7 +339,7 @@ button {
   font-family: var(--font-primary); /* Torniamo al Sans-Serif! */
   font-weight: 550; /* Bello spesso, come l'originale */
   font-size: 1.4rem; 
-  line-height: 1.15;
+  line-height: 1.1;
   letter-spacing: -0.2px;
   color: #000;
   transition: color 0.2s ease;
@@ -377,6 +366,8 @@ button {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
+  margin-left: 20px; /* <--- 1. SPINGE L'INIZIO VERSO "MONEY" */
+  margin-right: 43px; /* <--- 2. TIRA LA FINE VERSO "CROSSWORD" (Opzionale) */
 }
 
 .story-card {
@@ -402,8 +393,8 @@ button {
 .story-card__title {
   font-family: var(--font-primary);
   font-weight: 900;
-  font-size: 1.15rem;
-  line-height: 1.25;
+  font-size: 1.05rem;
+  line-height: 1.15;
   transition: color 0.2s ease;
 }
 
@@ -428,21 +419,26 @@ button {
 .top-stories__tertiary {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 35px; /* Spazio maggiore tra le notizie */
   border-top: 1px solid #eee;
 }
 
 @media (min-width: 768px) {
   .top-stories__tertiary {
     border-top: none;
-    border-left: 1px solid #eee;
-    padding-left: 20px;
+    border-left: none; /* Linea verticale rimossa! */
+    /* 1. ABBASSA LE NOTIZIE RISPETTO ALLA BARRA */
+    padding-top: 30px;   /* Aumenta questo numero per mandarle più in basso */
+    
+    /* 2. ALLINEA TRA LA 'O' E LA 'R' DI CROSSWORD */
+    padding-left: 0;  /* Gioca con questo valore per spostarle a destra o sinistra */
+    margin-left: -35px; /* <--- Prova con -20px, -30px o -40px */
   }
 }
 
 .text-card {
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
+  padding-bottom: 0; /* Rimosso padding */
+  border-bottom: none; /* Nessuna linea orizzontale */
 }
 
 .text-card:last-child {
@@ -451,9 +447,20 @@ button {
 
 .text-card__title {
   font-family: var(--font-primary);
-  font-size: 0.95rem;
-  font-weight: 800;
-  line-height: 1.35;
+  font-size: 1rem; /*Gandezza testo*/
+  font-weight: 700;   /* Più spessi */
+  line-height: 1.25;
+  color: #222;
+  transition: color 0.2s ease;
+  max-width: 255px; /* <--- GIOCA CON QUESTO VALORE! */
+}
+
+.text-card__title:hover {
+  text-decoration: underline;
+  text-decoration-color: #009bff;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  cursor: pointer;
 }
 
 .text-card__meta,
@@ -461,18 +468,18 @@ button {
 .featured-sub-card__meta,
 .sports-hero__meta,
 .sports-strip__meta {
-  font-size: 0.75rem;
+  font-size: 0.90rem; /* Meta leggermente più grandi */
   color: #666;
   font-weight: 400;
-  margin-top: 6px;
+  margin-top: 5px;
 }
 
 .text-card__category,
 .list-card__category,
 .featured-sub-card__category,
 .sports-hero__category {
-  color: #000;
-  font-weight: 700;
+  color: #626262; /* Grigio USA Today, non nero */
+  font-weight: 800;
 }
 
 /* ==========================================================================
