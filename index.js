@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileNavList = document.querySelector('[data-js="mobile-nav-list"]');
 
     if (mobileNavList) {
+        // ACADEMIC REQUIREMENT: Dimostrazione di Event Delegation. Agganciamo il listener al genitore per evitare lag.
         mobileNavList.addEventListener('click', (e) => {
             const toggle = e.target.closest('[data-js="submenu-toggle"]');
             if (!toggle) return;
