@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USA TODAY Replica</title> 
+    <title>USA TODAY - Replica</title> 
     <meta name="description" content="A layout-only replica built with core HTML/CSS for academic purposes.">
+    <link rel="icon" href="data:,">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Oswald:wght@500;700&family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     
     <!-- ACADEMIC REQUIREMENT: Defer used for non-blocking Javascript loading -->
@@ -128,7 +129,7 @@
                         <img src="https://placehold.co/576x324/jpeg" alt="Placeholder image for top story" class="hero-card__image">
                     </picture>
                     <div class="hero-card__content">
-                        <h3 class="hero-card__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod</h3>
+                        <h3 class="hero-card__title">Lorem ipsum dolor sit amet, elite adipiscing elit sed do eiusmod</h3>
                         <p class="hero-card__excerpt">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
                         <!-- ACADEMIC REQUIREMENT: Utilizzo corretto del tag <time> e attributo datetime -->
                         <time class="hero-card__time visually-hidden" datetime="2026-04-19T08:00">Apr 19, 2026</time>
@@ -215,461 +216,1225 @@
             <section class="feed-section">
                 <h2 class="visually-hidden">Latest News Feed</h2>
 
-                <div class="list-feed">
-                    <article class="list-card" data-js="news-article">
-                        <div class="list-card__content">
-                            <h3 class="list-card__title">Mauris aliquet mattis metus, id pellentesque metus rhoncus non</h3>
-                            <div class="list-card__meta">
-                                <span class="list-card__category">Lorem</span> | <time datetime="2026-04-19T02:00">6 hours ago</time>
+                <div class="list-feed">                    <a class="story" href="#" aria-label="Read story: Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus">
+                        <div class="story-title">
+                            <h1>Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus</h1>
+                            <div class="type-time">
+                                <h2>Dolor</h2>
+                                <h3>14 hours ago</h3>
                             </div>
                         </div>
-                        <picture class="list-card__picture">
-                            <img src="https://placehold.co/200x120/jpeg" alt="Placeholder news image 1" class="list-card__image">
-                        </picture>
-                    </article>
-                    <article class="list-card" data-js="news-article">
-                        <div class="list-card__content">
-                            <h3 class="list-card__title">Nam in suscipit odio. Vivamus ornare nisl a nisl congue</h3>
-                            <div class="list-card__meta">
-                                <span class="list-card__category">Ipsum</span> | <time datetime="2026-04-19T08:00">26 minutes ago</time>
-                            </div>
+                        <div class="image-container">
+                            <img src="https://placehold.co/187x105/jpeg" alt=""/>
                         </div>
-                        <picture class="list-card__picture">
-                            <img src="https://placehold.co/200x120/jpeg" alt="Placeholder news image 2" class="list-card__image">
-                        </picture>
-                    </article>
-                    <article class="list-card" data-js="news-article">
-                        <div class="list-card__content">
-                            <h3 class="list-card__title">Fusce vulputate eleifend sapien, id commodo sem vulputate id</h3>
-                            <div class="list-card__meta">
-                                <span class="list-card__category">Sit</span> | <time datetime="2026-04-18T20:00">12 hours ago</time>
-                            </div>
-                        </div>
-                        <picture class="list-card__picture">
-                            <img src="https://placehold.co/200x120/jpeg" alt="Placeholder news image 3" class="list-card__image">
-                        </picture>
-                    </article>
-                    <article class="list-card" data-js="news-article">
-                        <div class="list-card__content">
-                            <h3 class="list-card__title">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin</h3>
-                            <div class="list-card__meta">
-                                <span class="list-card__category">Amet</span> | <time datetime="2026-04-19T07:30">1 hour ago</time>
-                            </div>
-                        </div>
-                        <picture class="list-card__picture">
-                            <img src="https://placehold.co/200x120/jpeg" alt="Placeholder news image 4" class="list-card__image">
-                        </picture>
-                    </article>
-                    <article class="list-card" data-js="news-article">
-                        <div class="list-card__content">
-                            <h3 class="list-card__title">Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus</h3>
-                            <div class="list-card__meta">
-                                <span class="list-card__category">Dolor</span> | <time datetime="2026-04-18T18:00">14 hours ago</time>
-                            </div>
-                        </div>
-                        <picture class="list-card__picture">
-                            <img src="https://placehold.co/200x120/jpeg" alt="Placeholder news image 5" class="list-card__image">
-                        </picture>
-                    </article>
-                    <article class="list-card" data-js="news-article">
-                        <div class="list-card__content">
-                            <h3 class="list-card__title">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices</h3>
-                            <div class="list-card__meta">
-                                <span class="list-card__category">Consectetur</span> | <time datetime="2026-04-18T16:00">16 hours ago</time>
-                            </div>
-                        </div>
-                        <picture class="list-card__picture">
-                            <img src="https://placehold.co/200x120/jpeg" alt="Placeholder news image 6" class="list-card__image">
-                        </picture>
-                    </article>
-                    <article class="list-card" data-js="news-article">
-                        <div class="list-card__content">
-                            <h3 class="list-card__title">Curabitur pretium tincidunt lacus. Nulla gravida orci a odio</h3>
-                            <div class="list-card__meta">
-                                <span class="list-card__category">Adipiscing</span> | <time datetime="2026-04-18T14:00">18 hours ago</time>
-                            </div>
-                        </div>
-                        <picture class="list-card__picture">
-                            <img src="https://placehold.co/200x120/jpeg" alt="Placeholder news image 7" class="list-card__image">
-                        </picture>
-                    </article>
-                    <article class="list-card" data-js="news-article">
-                        <div class="list-card__content">
-                            <h3 class="list-card__title">Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna</h3>
-                            <div class="list-card__meta">
-                                <span class="list-card__category">Elit</span> | <time datetime="2026-04-18T12:00">20 hours ago</time>
-                            </div>
-                        </div>
-                        <picture class="list-card__picture">
-                            <img src="https://placehold.co/200x120/jpeg" alt="Placeholder news image 8" class="list-card__image">
-                        </picture>
-                    </article>
-                </div>
-
-                <!-- ======== CATEGORY: NEWS ======== -->
-                <div class="category-block category-block--news">
-                    <h2 class="category-block__header">
-                        <span class="category-block__indicator"></span> News
-                    </h2>
-                    <div class="category-block__grid">
-                        <article class="featured-sub-card" data-js="news-article">
-                            <picture class="featured-sub-card__picture">
-                                <img src="https://placehold.co/500x300/jpeg" alt="Placeholder news featured image" class="featured-sub-card__image">
-                            </picture>
-                            <div class="featured-sub-card__content">
-                                <h3 class="featured-sub-card__title">Praesent sollicitudin dolor in orci pulvinar rutrum vel at mi</h3>
-                                <div class="featured-sub-card__meta">
-                                    <span class="featured-sub-card__category">Money</span> | <time datetime="2026-04-19T04:00">4 hours ago</time>
-                                </div>
-                            </div>
-                        </article>
-                        <div class="category-list">
-                            <article class="mini-card" data-js="news-article">
-                                <picture class="mini-card__picture">
-                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder news mini image 1" class="mini-card__image">
-                                </picture>
-                                <h3 class="mini-card__title">Curabitur efficitur ligula magna, nec lacinia elit rutrum quis</h3>
-                            </article>
-                            <article class="mini-card" data-js="news-article">
-                                <picture class="mini-card__picture">
-                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder news mini image 2" class="mini-card__image">
-                                </picture>
-                                <h3 class="mini-card__title">Sed elementum ipsum sed nisl scelerisque, nec varius libero condimentum</h3>
-                            </article>
-                        </div>
-                    </div>
-                    <a href="#" class="category-block__show-more" data-js="show-more" data-category="news" aria-expanded="false">
-                        Show more News <span class="category-block__show-more-arrow">›</span>
                     </a>
-                </div>
-
-                <!-- ======== CATEGORY: SPORTS (special layout) ======== -->
-                <div class="category-block category-block--sports">
-                    <h2 class="category-block__header">
-                        <span class="category-block__indicator"></span> Sports
-                    </h2>
-                    <!-- Hero full-width -->
-                    <article class="sports-hero" data-js="news-article">
-                        <picture class="sports-hero__picture">
-                            <img src="https://placehold.co/860x480/jpeg" alt="Placeholder sports hero image" class="sports-hero__image">
-                        </picture>
-                        <div class="sports-hero__content">
-                            <h3 class="sports-hero__title">Winners, losers from opening weekend of NBA playoffs: Magic stun Pistons</h3>
-                            <div class="sports-hero__meta">
-                                <span class="sports-hero__category">NBA</span> | <time datetime="2026-04-19T06:00">2 hours ago</time>
+                    <a class="story" href="#" aria-label="Read story: Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna">
+                        <div class="story-title">
+                            <h1>Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna</h1>
+                            <div class="type-time">
+                                <h2>Elit</h2>
+                                <h3>20 hours ago</h3>
                             </div>
                         </div>
-                    </article>
-                    <!-- Horizontal strip of 3 small cards -->
-                    <div class="sports-strip">
-                        <article class="sports-strip__card" data-js="news-article">
-                            <picture class="sports-strip__picture">
-                                <img src="https://placehold.co/270x180/jpeg" alt="Placeholder sports strip image 1" class="sports-strip__image">
-                            </picture>
-                            <h3 class="sports-strip__title">NFL mock draft: Wide receiver picks after Lawrence deal</h3>
-                            <div class="sports-strip__meta"><time datetime="2026-04-18T20:00">13 hours ago</time></div>
-                        </article>
-                        <article class="sports-strip__card" data-js="news-article">
-                            <picture class="sports-strip__picture">
-                                <img src="https://placehold.co/270x180/jpeg" alt="Placeholder sports strip image 2" class="sports-strip__image">
-                            </picture>
-                            <h3 class="sports-strip__title">NBA updates: Driver who was among probable starters</h3>
-                            <div class="sports-strip__meta"><time datetime="2026-04-19T05:00">3 hours ago</time></div>
-                        </article>
-                        <article class="sports-strip__card" data-js="news-article">
-                            <picture class="sports-strip__picture">
-                                <img src="https://placehold.co/270x180/jpeg" alt="Placeholder sports strip image 3" class="sports-strip__image">
-                            </picture>
-                            <h3 class="sports-strip__title">Padres hit 5 HRs as 6-to-6 are in the race, will cut with distributions</h3>
-                            <div class="sports-strip__meta"><time datetime="2026-04-19T04:00">4 hours ago</time></div>
-                        </article>
-                    </div>
-                    <a href="#" class="category-block__show-more">Show more Sports <span class="category-block__show-more-arrow">›</span></a>
-                </div>
+                        <div class="image-container">
+                            <img src="https://placehold.co/187x105/jpeg" alt=""/>
+                        </div>
+                    </a>
+                    <a class="story" href="#" aria-label="Read story: Fusce vulputate eleifend sapien, id commodo sem vulputate id">
+                        <div class="story-title">
+                            <h1>Fusce vulputate eleifend sapien, id commodo sem vulputate id</h1>
+                            <div class="type-time">
+                                <h2>Sit</h2>
+                                <h3>12 hours ago</h3>
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="https://placehold.co/187x105/jpeg" alt=""/>
+                        </div>
+                    </a>
+                    <a class="story" href="#" aria-label="Read story: Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin">
+                        <div class="story-title">
+                            <h1>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin</h1>
+                            <div class="type-time">
+                                <h2>Amet</h2>
+                                <h3>1 hour ago</h3>
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="https://placehold.co/187x105/jpeg" alt=""/>
+                        </div>
+                    </a>
+                    <a class="story" href="#" aria-label="Read story: Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                        <div class="story-title">
+                            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
+                            <div class="type-time">
+                                <h2>News</h2>
+                                <h3>5 minutes ago</h3>
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="https://placehold.co/187x105/jpeg" alt=""/>
+                        </div>
+                    </a>
+                    <a class="story" href="#" aria-label="Read story: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices">
+                        <div class="story-title">
+                            <h1>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices</h1>
+                            <div class="type-time">
+                                <h2>Consectetur</h2>
+                                <h3>16 hours ago</h3>
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="https://placehold.co/187x105/jpeg" alt=""/>
+                        </div>
+                    </a>
+                    <a class="story" href="#" aria-label="Read story: Curabitur pretium tincidunt lacus. Nulla gravida orci a odio">
+                        <div class="story-title">
+                            <h1>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio</h1>
+                            <div class="type-time">
+                                <h2>Adipiscing</h2>
+                                <h3>18 hours ago</h3>
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="https://placehold.co/187x105/jpeg" alt=""/>
+                        </div>
+                    </a>
+                    <a class="story" href="#" aria-label="Read story: Donec convallis finibus feugiat. Aliquam ut neque at erat">
+                        <div class="story-title">
+                            <h1>Donec convallis finibus feugiat. Aliquam ut neque at erat</h1>
+                            <div class="type-time">
+                                <h2>Sports</h2>
+                                <h3>10 hours ago</h3>
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="https://placehold.co/187x105/jpeg" alt=""/>
+                        </div>
+                    </a>
+                    <a class="story" href="#" aria-label="Read story: Nunc feugiat mi a tellus consequat, in elementum tellus tristique">
+                        <div class="story-title">
+                            <h1>Nunc feugiat mi a tellus consequat, in elementum tellus tristique</h1>
+                            <div class="type-time">
+                                <h2>Tech</h2>
+                                <h3>1 hour ago</h3>
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="https://placehold.co/187x105/jpeg" alt=""/>
+                        </div>
+                    </a>
+                    <a class="story" href="#" aria-label="Read story: Integer non lacus sed justo finibus interdum vitae non nisl">
+                        <div class="story-title">
+                            <h1>Integer non lacus sed justo finibus interdum vitae non nisl</h1>
+                            <div class="type-time">
+                                <h2>Science</h2>
+                                <h3>1.5 hours ago</h3>
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="https://placehold.co/187x105/jpeg" alt=""/>
+                        </div>
+                    </a>
+                    <a class="story" href="#" aria-label="Read story: Nulla facilisi. Suspendisse potenti. Vivamus sodales convallis">
+                        <div class="story-title">
+                            <h1>Nulla facilisi. Suspendisse potenti. Vivamus sodales convallis</h1>
+                            <div class="type-time">
+                                <h2>World</h2>
+                                <h3>3 hours ago</h3>
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="https://placehold.co/187x105/jpeg" alt=""/>
+                        </div>
+                    </a>
 
-                <!-- ======== CATEGORY: ENTERTAINMENT ======== -->
-                <div class="category-block category-block--entertainment">
-                    <h2 class="category-block__header">
-                        <span class="category-block__indicator"></span> Entertainment
-                    </h2>
-                    <div class="category-block__grid">
-                        <article class="featured-sub-card" data-js="news-article">
-                            <picture class="featured-sub-card__picture">
-                                <img src="https://placehold.co/500x300/jpeg" alt="Placeholder entertainment featured image" class="featured-sub-card__image">
-                            </picture>
-                            <div class="featured-sub-card__content">
-                                <h3 class="featured-sub-card__title">Kate Hudson and Mindy Kaling 'bonded' over slight by male A-lister</h3>
-                                <div class="featured-sub-card__meta">
-                                    <span class="featured-sub-card__category">TV</span> | <time datetime="2026-04-19T09:00">1 hour ago</time>
+                </div>
+                <div class="block-notices" aria-label="News category">
+                    <a href="#" class="notice-container-type" aria-label="Open News category page">
+                        <h1> News</h1>
+                        <svg class="more">
+                            <polygon id="path-1" points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                        </svg>
+                    </a>
+                    <div class="news" role="list" aria-label="News articles list">
+                        <a href="#" class="news-principal" aria-label="Main news article">
+                            <div class="news-principal-img">
+                                <img src="https://placehold.co/473x266" alt=""/>
+                            </div>
+                            <div class="news-principal-title">
+                                <h1>Lorem ipsum dolor sit amet</h1>
+                                <div class="news-principal-subtitle">
+                                    <h2>Masters</h2>
+                                    <h3>1 hour ago</h3>
                                 </div>
                             </div>
-                        </article>
-                        <div class="category-list">
-                            <article class="mini-card" data-js="news-article">
-                                <picture class="mini-card__picture">
-                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder entertainment mini image 1" class="mini-card__image">
-                                </picture>
-                                <h3 class="mini-card__title">Riley Green on keeping his mustache filming 'Marshals,' that Alabama diss</h3>
-                            </article>
-                            <article class="mini-card" data-js="news-article">
-                                <picture class="mini-card__picture">
-                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder entertainment mini image 2" class="mini-card__image">
-                                </picture>
-                                <h3 class="mini-card__title">Jessica Chastain reveals one of her shortest haircuts yet</h3>
-                            </article>
+                        </a>
+                        <div class="three-news" role="group" aria-label="Secondary news articles">
+                            <a href="#" class="news-secondary" aria-label="Secondary news article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" aria-label="Secondary news article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" aria-label="Secondary news article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="show-more" aria-label="Expandable news section">
+                            <input type="checkbox" id="toggle-news-1" hidden>
+                            <input type="checkbox" id="toggle-news-2" hidden>
+                            <input type="checkbox" id="toggle-reset-1" hidden>
+                            <div class="three-news-two" aria-hidden="true" id="news-extra-1">
+                                <a href="#" class="news-secondary" aria-label="Secondary news article">
+                                    <img src="https://placehold.co/473x266" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" aria-label="Secondary news article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" aria-label="Secondary news article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="three-news-three" aria-hidden="true" id="news-extra-2">
+                                <a href="#" class="news-secondary" aria-label="Secondary news article">
+                                    <img src="https://placehold.co/473x266" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" aria-label="Secondary news article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" aria-label="Secondary news article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <label for="toggle-news-1" class="show-more-click" aria-controls="news-extra-1 news-extra-2">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-news-2" class="show-more-click" aria-controls="news-extra-1 news-extra-2">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-reset-1" class="show-more-click" aria-controls="news-extra-1 news-extra-2">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
                         </div>
                     </div>
-                    <a href="#" class="category-block__show-more">Show more Entertainment <span class="category-block__show-more-arrow">›</span></a>
                 </div>
-
-                <!-- ======== CATEGORY: LIFE ======== -->
-                <div class="category-block category-block--life">
-                    <h2 class="category-block__header">
-                        <span class="category-block__indicator"></span> Life
-                    </h2>
-                    <div class="category-block__grid">
-                        <article class="featured-sub-card" data-js="news-article">
-                            <picture class="featured-sub-card__picture">
-                                <img src="https://placehold.co/500x300/jpeg" alt="Placeholder life featured image" class="featured-sub-card__image">
-                            </picture>
-                            <div class="featured-sub-card__content">
-                                <h3 class="featured-sub-card__title">Are raisins good for you? What to know about sugar content</h3>
-                                <div class="featured-sub-card__meta">
-                                    <span class="featured-sub-card__category">Health And Wellness</span> | <time datetime="2026-04-18T14:00">21 hours ago</time>
+                <div class="block-notices" aria-label="Sports category">
+                    <a href="#" class="notice-container-type" aria-label="Open Sports category page">
+                        <h1 class="red"> Sports</h1>
+                        <svg class="more">
+                            <polygon id="path-1" points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                        </svg>
+                    </a>
+                    <div class="news" role="list" aria-label="Sports articles list">
+                        <a href="#" class="news-principal" aria-label="Main sports article">
+                            <div class="news-principal-img">
+                                <img src="https://placehold.co/473x266" alt=""/>
+                            </div>
+                            <div class="news-principal-title">
+                                <h1>Lorem ipsum dolor sit amet consectetur adipiscing elit.</h1>
+                                <div class="news-principal-subtitle">
+                                    <h2>Masters</h2>
+                                    <h3>1 hour ago</h3>
                                 </div>
                             </div>
-                        </article>
-                        <div class="category-list">
-                            <article class="mini-card" data-js="news-article">
-                                <picture class="mini-card__picture">
-                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder life mini image 1" class="mini-card__image">
-                                </picture>
-                                <h3 class="mini-card__title">Is oatmeal actually gluten-free?</h3>
-                            </article>
-                            <article class="mini-card" data-js="news-article">
-                                <picture class="mini-card__picture">
-                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder life mini image 2" class="mini-card__image">
-                                </picture>
-                                <h3 class="mini-card__title">Horoscopes Today, April 19, 2026</h3>
-                            </article>
+                        </a>
+                        <div class="three-news" role="group" aria-label="Secondary sports section">
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary sports article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary sports article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary sports article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="show-more" aria-label="Expandable sports section">
+                            <input type="checkbox" id="toggle-news-3" hidden>
+                            <input type="checkbox" id="toggle-news-4" hidden>
+                            <input type="checkbox" id="toggle-reset-2" hidden>
+                            <div class="three-news-two" aria-hidden="true" id="news-extra-3">
+                                <a href="#" class="news-secondary" aria-label="Secondary sports article">
+                                    <img src="https://placehold.co/473x266" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" aria-label="Secondary sports article">
+                                    <img src="https://placehold.co/473x266" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" aria-label="Secondary sports article">
+                                    <img src="https://placehold.co/473x266" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="three-news-three" aria-hidden="true" id="news-extra-4">
+                                <a href="#" class="news-secondary" aria-label="Secondary sports article">
+                                    <img src="https://placehold.co/473x266" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" aria-label="Secondary sports article">
+                                    <img src="https://placehold.co/473x266" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" aria-label="Secondary sports article">
+                                    <img src="https://placehold.co/473x266" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <label for="toggle-news-3" class="show-more-click" aria-controls="news-extra-3 news-extra-4">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-news-4" class="show-more-click" aria-controls="news-extra-3 news-extra-4">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-reset-2" class="show-more-click" aria-controls="news-extra-3 news-extra-4">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
                         </div>
                     </div>
-                    <a href="#" class="category-block__show-more">Show more Life <span class="category-block__show-more-arrow">›</span></a>
                 </div>
-
-                <!-- ======== CATEGORY: MONEY ======== -->
-                <div class="category-block category-block--money">
-                    <h2 class="category-block__header">
-                        <span class="category-block__indicator"></span> Money
-                    </h2>
-                    <div class="category-block__grid">
-                        <article class="featured-sub-card" data-js="news-article">
-                            <picture class="featured-sub-card__picture">
-                                <img src="https://placehold.co/500x300/jpeg" alt="Placeholder money featured image" class="featured-sub-card__image">
-                            </picture>
-                            <div class="featured-sub-card__content">
-                                <h3 class="featured-sub-card__title">Companies line up for tariff refunds as new portal goes live</h3>
-                                <div class="featured-sub-card__meta">
-                                    <span class="featured-sub-card__category">Economy</span> | <time datetime="2026-04-19T08:00">30 minutes ago</time>
+                <div class="block-notices" aria-label="Entertainment category">
+                    <a href="#" class="notice-container-type" aria-label="Open Entertainment category page">
+                        <h1 class="purple"> Entertainment</h1>
+                        <svg class="more">
+                            <polygon id="path-1" points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                        </svg>
+                    </a>
+                    <div class="news" role="list" aria-label="Entertainment articles list">
+                        <a href="#" class="news-principal" role="listitem" aria-label="Main entertainment article">
+                            <div class="news-principal-img">
+                                <img src="https://placehold.co/473x266" alt=""/>
+                            </div>
+                            <div class="news-principal-title">
+                                <h1>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus</h1>
+                                <div class="news-principal-subtitle">
+                                    <h2>Masters</h2>
+                                    <h3>1 hour ago</h3>
                                 </div>
                             </div>
-                        </article>
-                        <div class="category-list">
-                            <article class="mini-card" data-js="news-article">
-                                <picture class="mini-card__picture">
-                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder money mini image 1" class="mini-card__image">
-                                </picture>
-                                <h3 class="mini-card__title">Meta to lay off 5,000 employees in first round of cuts</h3>
-                            </article>
-                            <article class="mini-card" data-js="news-article">
-                                <picture class="mini-card__picture">
-                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder money mini image 2" class="mini-card__image">
-                                </picture>
-                                <h3 class="mini-card__title">Social Security COLA 2027: Why workers should brace for impact</h3>
-                            </article>
+                        </a>
+                        <div class="three-news" role="group" aria-label="Secondary entertainment articles">
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary entertainment article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary entertainment article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary entertainment article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="show-more" aria-label="Expandable entertainment section">
+                            <input type="checkbox" id="toggle-news-5" hidden>
+                            <input type="checkbox" id="toggle-news-6" hidden>
+                            <input type="checkbox" id="toggle-reset-3" hidden>
+                            <div class="three-news-two" id="news-extra-5">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary entertainment article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary entertainment article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary entertainment article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="three-news-three" id="news-extra-6">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary entertainment article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary entertainment article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary entertainment article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <label for="toggle-news-5" class="show-more-click" aria-controls="news-extra-5 news-extra-6">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-news-6" class="show-more-click" aria-controls="news-extra-5 news-extra-6">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-reset-3" class="show-more-click" aria-controls="news-extra-5 news-extra-6">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
                         </div>
                     </div>
-                    <a href="#" class="category-block__show-more">Show more Money <span class="category-block__show-more-arrow">›</span></a>
                 </div>
-
-                <!-- ======== CATEGORY: TECH ======== -->
-                <div class="category-block category-block--tech">
-                    <h2 class="category-block__header">
-                        <span class="category-block__indicator"></span> Tech
-                    </h2>
-                    <div class="category-block__grid">
-                        <article class="featured-sub-card" data-js="news-article">
-                            <picture class="featured-sub-card__picture">
-                                <img src="https://placehold.co/500x300/jpeg" alt="Placeholder tech featured image" class="featured-sub-card__image">
-                            </picture>
-                            <div class="featured-sub-card__content">
-                                <h3 class="featured-sub-card__title">'Dystopian?' Smart glasses may be watching (and recording) you</h3>
-                                <div class="featured-sub-card__meta">
-                                    <span class="featured-sub-card__category">Privacy</span> | <time datetime="2026-04-19T07:00">2 hours ago</time>
+                <div class="block-notices" aria-label="Life category">
+                    <a href="#" class="notice-container-type" aria-label="Open Life category section">
+                        <h1 class="purple"> Life</h1>
+                        <svg class="more">
+                            <polygon id="path-1" points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                        </svg>
+                    </a>
+                    <div class="news" role="list" aria-label="News articles list">
+                        <a href="#" class="news-principal" role="listitem" aria-label="Main life article">
+                            <div class="news-principal-img">
+                                <img src="https://placehold.co/473x266" alt=""/>
+                            </div>
+                            <div class="news-principal-title">
+                                <h1>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae</h1>
+                                <div class="news-principal-subtitle">
+                                    <h2>Masters</h2>
+                                    <h3>1 hour ago</h3>
                                 </div>
                             </div>
-                        </article>
-                        <div class="category-list">
-                            <article class="mini-card" data-js="news-article">
-                                <picture class="mini-card__picture">
-                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder tech mini image 1" class="mini-card__image">
-                                </picture>
-                                <h3 class="mini-card__title">Woman's health: Are you there? Here's what to know about phone charges</h3>
-                            </article>
-                            <article class="mini-card" data-js="news-article">
-                                <picture class="mini-card__picture">
-                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder tech mini image 2" class="mini-card__image">
-                                </picture>
-                                <h3 class="mini-card__title">I collapsed called in a database: check and done</h3>
-                            </article>
+                        </a>
+                        <div class="three-news" role="group" aria-label="Secondary life articles">
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary life article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary life article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary life article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="show-more" aria-label="Expandable life section">
+                            <input type="checkbox" id="toggle-news-7" hidden>
+                            <input type="checkbox" id="toggle-news-8" hidden>
+                            <input type="checkbox" id="toggle-reset-4" hidden>
+                            <div class="three-news-two" id="news-extra-7">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary life article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary life article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary life article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="three-news-three" id="news-extra-8">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary life article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary life article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary life article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <label for="toggle-news-7" class="show-more-click" aria-controls="news-extra-7 news-extra-8">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-news-8" class="show-more-click" aria-controls="news-extra-7 news-extra-8">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-reset-4" class="show-more-click" aria-controls="news-extra-7 news-extra-8">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
                         </div>
                     </div>
-                    <a href="#" class="category-block__show-more">Show more Tech <span class="category-block__show-more-arrow">›</span></a>
                 </div>
-
-                <!-- ======== CATEGORY: TRAVEL ======== -->
-                <div class="category-block category-block--travel">
-                    <h2 class="category-block__header">
-                        <span class="category-block__indicator"></span> Travel
-                    </h2>
-                    <div class="category-block__grid">
-                        <article class="featured-sub-card" data-js="news-article">
-                            <picture class="featured-sub-card__picture">
-                                <img src="https://placehold.co/500x300/jpeg" alt="Placeholder travel featured image" class="featured-sub-card__image">
-                            </picture>
-                            <div class="featured-sub-card__content">
-                                <h3 class="featured-sub-card__title">Skip Phuket: Why travelers are discovering Krabi instead</h3>
-                                <div class="featured-sub-card__meta">
-                                    <span class="featured-sub-card__category">Asia</span> | <time datetime="2026-04-19T05:00">4 hours ago</time>
+                <div class="block-notices" aria-label="Money category">
+                    <a href="#" class="notice-container-type" aria-label="Open Money category page">
+                        <h1 class="green"> Money</h1>
+                        <svg class="more">
+                            <polygon id="path-1" points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                        </svg>
+                    </a>
+                    <div class="news" role="list" aria-label="Money articles list">
+                        <a href="#" class="news-principal" role="listitem" aria-label="Main news article">
+                            <div class="news-principal-img">
+                                <img src="https://placehold.co/473x266" alt=""/>
+                            </div>
+                            <div class="news-principal-title">
+                                <h1>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae</h1>
+                                <div class="news-principal-subtitle">
+                                    <h2>Masters</h2>
+                                    <h3>1 hour ago</h3>
                                 </div>
                             </div>
-                        </article>
-                        <div class="category-list">
-                            <article class="mini-card" data-js="news-article">
-                                <picture class="mini-card__picture">
-                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder travel mini image 1" class="mini-card__image">
-                                </picture>
-                                <h3 class="mini-card__title">I took a solo trip to northern Italy. Here's the top ten places</h3>
-                            </article>
-                            <article class="mini-card" data-js="news-article">
-                                <picture class="mini-card__picture">
-                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder travel mini image 2" class="mini-card__image">
-                                </picture>
-                                <h3 class="mini-card__title">Disney World prices up: how to visit the best attractions on a budget</h3>
-                            </article>
+                        </a>
+                        <div class="three-news" role="group" aria-label="Secondary money articles">
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary money article">
+                                <img src="https://placehold.co/473x266" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary money article">
+                                <img src="https://placehold.co/473x266" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary money article">
+                                <img src="https://placehold.co/473x266" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="show-more" aria-label="Expandable money section">
+                            <input type="checkbox" id="toggle-news-9" hidden>
+                            <input type="checkbox" id="toggle-news-10" hidden>
+                            <input type="checkbox" id="toggle-reset-5" hidden>
+                            <div class="three-news-two" id="news-extra-9">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary money article">
+                                    <img src="https://placehold.co/473x266" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary money article">
+                                    <img src="https://placehold.co/473x266" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary money article">
+                                    <img src="https://placehold.co/473x266" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="three-news-three" id="news-extra-10">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary money article">
+                                    <img src="https://placehold.co/473x266" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary money article">
+                                    <img src="https://placehold.co/473x266" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary money article">
+                                    <img src="https://placehold.co/473x266" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <label for="toggle-news-9" class="show-more-click" aria-controls="news-extra-9 news-extra-10">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-news-10" class="show-more-click" aria-controls="news-extra-9 news-extra-10">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-reset-5" class="show-more-click" aria-controls="news-extra-9 news-extra-10">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
                         </div>
                     </div>
-                    <a href="#" class="category-block__show-more">Show more Travel <span class="category-block__show-more-arrow">›</span></a>
                 </div>
-
-                <!-- ======== CATEGORY: OPINION ======== -->
-                <div class="category-block category-block--opinion">
-                    <h2 class="category-block__header">
-                        <span class="category-block__indicator"></span> Opinion
-                    </h2>
-                    <div class="category-block__grid">
-                        <article class="featured-sub-card" data-js="news-article">
-                            <picture class="featured-sub-card__picture">
-                                <img src="https://placehold.co/500x300/jpeg" alt="Placeholder opinion featured image" class="featured-sub-card__image">
-                            </picture>
-                            <div class="featured-sub-card__content">
-                                <h3 class="featured-sub-card__title">We don't trust higher education anymore. That's not a surprise.</h3>
-                                <div class="featured-sub-card__meta">
-                                    <span class="featured-sub-card__category">Editorial</span> | <time datetime="2026-04-18T20:00">12 hours ago</time>
+                <div class="block-notices" aria-label="Tech category">
+                    <a href="#" class="notice-container-type" aria-label="Open Tech category page">
+                        <h1 class="orange"> Tech</h1>
+                        <svg class="more">
+                            <polygon id="path-1" points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                        </svg>
+                    </a>
+                    <div class="news" role="list" aria-label="Tech articles list">
+                        <a href="#" class="news-principal" role="listitem" aria-label="Main tech article">
+                            <div class="news-principal-img">
+                                <img src="https://placehold.co/473x266" alt=""/>
+                            </div>
+                            <div class="news-principal-title">
+                                <h1>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae</h1>
+                                <div class="news-principal-subtitle">
+                                    <h2>Masters</h2>
+                                    <h3>1 hour ago</h3>
                                 </div>
                             </div>
-                        </article>
-                        <div class="category-list">
-                            <article class="mini-card" data-js="news-article">
-                                <picture class="mini-card__picture">
-                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder opinion mini image 1" class="mini-card__image">
-                                </picture>
-                                <h3 class="mini-card__title">The reality chaos of all current politics — wait for the answer</h3>
-                            </article>
-                            <article class="mini-card" data-js="news-article">
-                                <picture class="mini-card__picture">
-                                    <img src="https://placehold.co/300x200/jpeg" alt="Placeholder opinion mini image 2" class="mini-card__image">
-                                </picture>
-                                <h3 class="mini-card__title">Politicians recently are not on familiar terms — what if we could trust them?</h3>
-                            </article>
+                        </a>
+                        <div class="three-news" role="group" aria-label="Secondary tech articles">
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary tech article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary tech article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary tech article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="show-more" aria-label="Expandable tech section">
+                            <input type="checkbox" id="toggle-news-11" hidden>
+                            <input type="checkbox" id="toggle-news-12" hidden>
+                            <input type="checkbox" id="toggle-reset-6" hidden>
+                            <div class="three-news-two" id="news-extra-11">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary tech article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary tech article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary tech article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="three-news-three" id="news-extra-12">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary tech article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary tech article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary tech article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <label for="toggle-news-11" class="show-more-click" aria-controls="news-extra-11 news-extra-12">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-news-12" class="show-more-click" aria-controls="news-extra-11 news-extra-12">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-reset-6" class="show-more-click" aria-controls="news-extra-11 news-extra-12">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
                         </div>
                     </div>
-                    <a href="#" class="category-block__show-more">Show more Opinion <span class="category-block__show-more-arrow">›</span></a>
                 </div>
-
-                <!-- ======== MOST RECENT VIDEOS ======== -->
-                <section class="media-section media-section--videos">
-                    <h2 class="media-section__header">
-                        <span class="category-block__indicator category-block__indicator--videos"></span> Most Recent Videos
-                    </h2>
-                    <div class="media-strip" role="list">
-                        <article class="media-card" role="listitem" data-js="news-article">
-                            <picture class="media-card__picture">
-                                <img src="https://placehold.co/280x158/jpeg" alt="Placeholder video thumbnail 1" class="media-card__image">
-                            </picture>
-                            <div class="media-card__play" aria-hidden="true">&#9654;</div>
-                            <h3 class="media-card__title">Wrestlemania Night Two: Roman Reigns and CM Punk deliver instant classic</h3>
-                        </article>
-                        <article class="media-card" role="listitem" data-js="news-article">
-                            <picture class="media-card__picture">
-                                <img src="https://placehold.co/280x158/jpeg" alt="Placeholder video thumbnail 2" class="media-card__image">
-                            </picture>
-                            <div class="media-card__play" aria-hidden="true">&#9654;</div>
-                            <h3 class="media-card__title">Riley Green on the Alabama diss and keeping his mustache on set</h3>
-                        </article>
-                        <article class="media-card" role="listitem" data-js="news-article">
-                            <picture class="media-card__picture">
-                                <img src="https://placehold.co/280x158/jpeg" alt="Placeholder video thumbnail 3" class="media-card__image">
-                            </picture>
-                            <div class="media-card__play" aria-hidden="true">&#9654;</div>
-                            <h3 class="media-card__title">Indonesian villagers rush to scene of a capsizing in river</h3>
-                        </article>
-                        <article class="media-card" role="listitem" data-js="news-article">
-                            <picture class="media-card__picture">
-                                <img src="https://placehold.co/280x158/jpeg" alt="Placeholder video thumbnail 4" class="media-card__image">
-                            </picture>
-                            <div class="media-card__play" aria-hidden="true">&#9654;</div>
-                            <h3 class="media-card__title">8 children killed in Shreveport mass shooting, 4 children injured</h3>
-                        </article>
+                <div class="block-notices" aria-label="Travel category">
+                    <a href="#" class="notice-container-type" aria-label="Open Travel category page">
+                        <h1 class="acquamarina"> Travel</h1>
+                        <svg class="more">
+                            <polygon id="path-1" points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                        </svg>
+                    </a>
+                    <div class="news" role="list" aria-label="Travel articles list">
+                        <a href="#" class="news-principal" role="listitem" aria-label="Main travel article">
+                            <div class="news-principal-img">
+                                <img src="https://placehold.co/473x266" alt=""/>
+                            </div>
+                            <div class="news-principal-title">
+                                <h1>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae</h1>
+                                <div class="news-principal-subtitle">
+                                    <h2>Masters</h2>
+                                    <h3>1 hour ago</h3>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="three-news" role="group" aria-label="Secondary travel articles">
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary travel article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary travel article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary travel article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="show-more" aria-label="Expandable travel section">
+                            <input type="checkbox" id="toggle-news-13" hidden>
+                            <input type="checkbox" id="toggle-news-14" hidden>
+                            <input type="checkbox" id="toggle-reset-7" hidden>
+                            <div class="three-news-two" id="news-extra-13">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary travel article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary travel article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary travel article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="three-news-three" id="news-extra-14">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary travel article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary travel article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary travel article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <label for="toggle-news-13" class="show-more-click" aria-controls="news-extra-13 news-extra-14">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-news-14" class="show-more-click" aria-controls="news-extra-13 news-extra-14">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-reset-7" class="show-more-click" aria-controls="news-extra-13 news-extra-14">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                        </div>
                     </div>
-                </section>
-
-                <!-- ======== MOST RECENT GALLERIES ======== -->
-                <section class="media-section media-section--galleries">
-                    <h2 class="media-section__header">
-                        <span class="category-block__indicator category-block__indicator--galleries"></span> Most Recent Galleries
-                    </h2>
-                    <div class="media-strip" role="list">
-                        <article class="media-card" role="listitem" data-js="news-article">
-                            <picture class="media-card__picture">
-                                <img src="https://placehold.co/280x158/jpeg" alt="Placeholder gallery thumbnail 1" class="media-card__image">
-                            </picture>
-                            <h3 class="media-card__title">Eight children killed in Shreveport: photos from the scene</h3>
-                        </article>
-                        <article class="media-card" role="listitem" data-js="news-article">
-                            <picture class="media-card__picture">
-                                <img src="https://placehold.co/280x158/jpeg" alt="Placeholder gallery thumbnail 2" class="media-card__image">
-                            </picture>
-                            <h3 class="media-card__title">NBA Playoffs opening weekend: best moments in pictures</h3>
-                        </article>
-                        <article class="media-card" role="listitem" data-js="news-article">
-                            <picture class="media-card__picture">
-                                <img src="https://placehold.co/280x158/jpeg" alt="Placeholder gallery thumbnail 3" class="media-card__image">
-                            </picture>
-                            <h3 class="media-card__title">Coachella 2026 weekend two: the best fashion looks on the grounds</h3>
-                        </article>
-                        <article class="media-card" role="listitem" data-js="news-article">
-                            <picture class="media-card__picture">
-                                <img src="https://placehold.co/280x158/jpeg" alt="Placeholder gallery thumbnail 4" class="media-card__image">
-                            </picture>
-                            <h3 class="media-card__title">Florence and the Machine tour: a torrent of emotions on stage</h3>
-                        </article>
+                </div>
+                <div class="block-notices" aria-label="Opinion category">
+                    <a href="#" class="notice-container-type" aria-label="Open Opinion category page">
+                        <h1 class="lilla"> Opinion</h1>
+                        <svg class="more">
+                            <polygon id="path-1" points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                        </svg>
+                    </a>
+                    <div class="news" role="list" aria-label="Opinion articles list">
+                        <a href="#" class="news-principal" role="listitem" aria-label="Main opinion article">
+                            <div class="news-principal-img">
+                                <img src="https://placehold.co/473x266" alt=""/>
+                            </div>
+                            <div class="news-principal-title">
+                                <h1>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae</h1>
+                                <div class="news-principal-subtitle">
+                                    <h2>Masters</h2>
+                                    <h3>1 hour ago</h3>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="three-news" role="group" aria-label="Secondary opinion articles">
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary opinion article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary opinion article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary opinion article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="show-more" aria-label="Expandable opinion section">
+                            <input type="checkbox" id="toggle-news-15" hidden>
+                            <input type="checkbox" id="toggle-news-16" hidden>
+                            <input type="checkbox" id="toggle-reset-8" hidden>
+                            <div class="three-news-two" id="news-extra-15">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary opinion article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary opinion article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary opinion article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="three-news-three" id="news-extra-16">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary opinion article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary opinion article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary opinion article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <label for="toggle-news-15" class="show-more-click" aria-controls="news-extra-15 news-extra-16">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-news-16" class="show-more-click" aria-controls="news-extra-15 news-extra-16">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-reset-8" class="show-more-click" aria-controls="news-extra-15 news-extra-16">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                        </div>
                     </div>
-                </section>
-
-            </section>
-        </div>
-    </main>
+                </div>
+                <div class="block-notices" aria-label="Most Recent Videos category">
+                    <a href="#" class="notice-container-type" aria-label="Open Most Recent Videos category page">
+                        <h1>Most Recent Videos</h1>
+                        <svg class="more">
+                            <polygon id="path-1" points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                        </svg>
+                    </a>
+                    <div class="news" role="list" aria-label="Most Recent Videos articles list">
+                        <a href="#" class="news-principal" role="listitem" aria-label="Main Most Recent Videos article">
+                            <div class="news-principal-img">
+                                <img src="https://placehold.co/473x266" alt=""/>
+                            </div>
+                            <div class="news-principal-title">
+                                <h1>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae</h1>
+                                <div class="news-principal-subtitle">
+                                    <h2>Masters</h2>
+                                    <h3>1 hour ago</h3>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="three-news" role="group" aria-label="Secondary Most Recent Videos articles">
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Videos article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Videos article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Videos article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="show-more" aria-label="Expandable Most Recent Videos section">
+                            <input type="checkbox" id="toggle-news-17" hidden>
+                            <input type="checkbox" id="toggle-news-18" hidden>
+                            <input type="checkbox" id="toggle-reset-9" hidden>
+                            <div class="three-news-two" id="news-extra-17">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Videos article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Videos article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Videos article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="three-news-three" id="news-extra-18">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Videos article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Videos article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Videos article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <label for="toggle-news-17" class="show-more-click" aria-controls="news-extra-17 news-extra-18">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-news-18" class="show-more-click" aria-controls="news-extra-17 news-extra-18">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-reset-9" class="show-more-click" aria-controls="news-extra-17 news-extra-18">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-notices" aria-label="Most Recent Galleries category">
+                    <a href="#" class="notice-container-type" aria-label="Open Most Recent Galleries category page">
+                        <h1> Most Recent Galleries</h1>
+                        <svg class="more">
+                            <polygon id="path-1" points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                        </svg>
+                    </a>
+                    <div class="news" aria-label="Most Recent Galleries articles list">
+                        <a href="#" class="news-principal" role="listitem" aria-label="Main Most Recent Galleries article">
+                            <div class="news-principal-img">
+                                <img src="https://placehold.co/473x266" alt=""/>
+                            </div>
+                            <div class="news-principal-title">
+                                <h1>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae</h1>
+                                <div class="news-principal-subtitle">
+                                    <h2>Masters</h2>
+                                    <h3>1 hour ago</h3>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="three-news" aria-label="Secondary Most Recent Galleries articles">
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Galleries article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Galleries article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Galleries article">
+                                <img src="https://placehold.co/223x125" alt=""/>
+                                <div class="news-secondary-title">
+                                    <h1>News</h1>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="show-more" aria-label="Expandable Most Recent Galleries section">
+                            <input type="checkbox" id="toggle-news-19" hidden>
+                            <input type="checkbox" id="toggle-news-20" hidden>
+                            <input type="checkbox" id="toggle-reset-10" hidden>
+                            <div class="three-news-two" id="news-extra-19">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Galleries article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Galleries article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Galleries article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="three-news-three" id="news-extra-20">
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Galleries article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Galleries article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                                <a href="#" class="news-secondary" role="listitem" aria-label="Secondary Most Recent Galleries article">
+                                    <img src="https://placehold.co/223x125" alt=""/>
+                                    <div class="news-secondary-title">
+                                        <h1>News</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <label for="toggle-news-19" class="show-more-click" aria-controls="news-extra-19 news-extra-20">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-news-20" class="show-more-click" aria-controls="news-extra-19 news-extra-20">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                            <label for="toggle-reset-10" class="show-more-click" aria-controls="news-extra-19 news-extra-20">
+                                <span class="title">Show more </span>
+                                <span class="title2">News</span>
+                                <svg class="more">
+                                    <polygon id="path-1" points="12 12.662045 8.16436384 9.25259068 6.83563616 10.7474093 12 15.337955 17.1643638 10.7474093 15.8356362 9.25259068"></polygon>
+                                </svg>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!--</div>-->
+            </div>
+        </section>
+    </div>
+</main>
 
     <footer class="footer" role="contentinfo">
         <h2 class="visually-hidden">Footer Information</h2>
@@ -684,34 +1449,23 @@
                 <li class="footer__nav-item"><a href="#">Our Ethical Principles</a></li>
                 <li class="footer__nav-item"><a href="#">Responsible Disclosure</a></li>
                 <li class="footer__nav-item footer__nav-item--privacy">
-                    <svg class="footer__privacy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 14" width="30" height="14" aria-hidden="true">
-                        <rect x="0" y="0" width="30" height="14" rx="7" fill="#007bff"/>
-                        <circle cx="8" cy="7" r="5" fill="#fff"/>
-                        <path d="M22,3 L22,11 L17,7 Z" fill="#fff"/>
+                    <svg class="footer__privacy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 14" width="30" height="14" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;">
+                        <rect x="0" y="0" width="30" height="14" rx="7" fill="#0060ff"/>
+                        <circle cx="7" cy="7" r="5" fill="#fff"/>
+                        <path d="M5 7 l1.5 1.5 l3 -3" fill="none" stroke="#0060ff" stroke-width="1.5"/>
+                        <path d="M20 5 l4 4 M24 5 l-4 4" fill="none" stroke="#fff" stroke-width="1.5"/>
                     </svg>
                     <a href="#">Your Privacy Choices</a>
                 </li>
             </ul>
         </nav>
         <div class="footer__socials" aria-label="Social Media links">
-            <a href="#" class="footer__social-link footer__social-link--facebook" aria-label="Facebook">
-                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-            </a>
-            <a href="#" class="footer__social-link footer__social-link--x" aria-label="X (Twitter)">
-                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="#" class="footer__social-link footer__social-link--snapchat" aria-label="Snapchat">
-                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12.922-.256.143-.076.284-.104.421-.104.276 0 .549.118.715.358.177.27.156.638-.053.87-.081.09-.448.453-1.401.569-.101.014-.21.03-.318.046-.16.023-.325.046-.476.09-.088.026-.174.07-.256.126-.12.092-.143.22-.11.379.09.439.318.903.548 1.326.31.561.678 1.083 1.079 1.528.283.307.592.561.886.774a.76.76 0 01.17.12c.06.06.118.141.118.26 0 .168-.132.345-.391.495-.466.271-1.127.455-1.634.559-.084.016-.157.074-.183.144-.044.12-.08.26-.148.39-.09.176-.234.286-.468.286h-.004a2.29 2.29 0 01-.397-.04c-.254-.043-.528-.088-.895-.088-.218 0-.448.017-.69.058-.632.106-1.066.56-1.551 1.074-.482.51-.99.974-1.747.974h-.03c-.757 0-1.265-.464-1.748-.974-.485-.514-.92-.968-1.551-1.074a4.07 4.07 0 00-.69-.058c-.367 0-.641.045-.895.088a2.29 2.29 0 01-.397.04h-.004c-.234 0-.378-.11-.468-.286a2.86 2.86 0 01-.148-.39c-.026-.07-.099-.128-.183-.144-.507-.104-1.168-.288-1.634-.559-.259-.15-.391-.327-.391-.495 0-.119.058-.2.118-.26a.76.76 0 01.17-.12c.294-.213.603-.467.886-.774.401-.445.769-.967 1.079-1.528.23-.423.458-.887.548-1.326.033-.159.01-.287-.11-.38a.95.95 0 00-.256-.125c-.151-.044-.316-.067-.476-.09a8.33 8.33 0 01-.318-.046c-.953-.116-1.32-.479-1.401-.569-.209-.232-.23-.6-.053-.87A.728.728 0 015.2 9.72c.137 0 .278.028.421.104.263.136.622.24.922.256.198 0 .326-.045.401-.09a6.37 6.37 0 01-.033-.57c-.104-1.628-.23-3.654.3-4.847C8.859 1.069 12.216.793 13.206.793h-1z"/></svg>
-            </a>
-            <a href="#" class="footer__social-link footer__social-link--instagram" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
-            </a>
-            <a href="#" class="footer__social-link footer__social-link--linkedin" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-            </a>
-            <a href="#" class="footer__social-link footer__social-link--pinterest" aria-label="Pinterest">
-                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M9.04 21.54c.96.29 1.93.46 2.96.46a10 10 0 0 0 10-10A10 10 0 0 0 12 2 10 10 0 0 0 2 12c0 4.25 2.67 7.9 6.44 9.34-.09-.78-.18-2.07 0-2.96l1.15-4.94s-.29-.58-.29-1.5c0-1.38.86-2.41 1.84-2.41.86 0 1.26.65 1.26 1.44 0 .86-.57 2.09-.86 3.27-.17.98.52 1.84 1.52 1.84 1.78 0 3.16-1.9 3.16-4.58 0-2.4-1.72-4.04-4.19-4.04-2.82 0-4.48 2.1-4.48 4.31 0 .86.28 1.73.74 2.3.09.06.09.14.06.29l-.29 1.09c0 .17-.11.23-.28.14-1.32-.57-2.18-2.64-2.18-4.27 0-3.47 2.53-6.64 7.28-6.64 3.82 0 6.8 2.72 6.8 6.37 0 3.82-2.4 6.9-5.74 6.9-1.13 0-2.18-.57-2.53-1.26l-.72 2.7c-.26.99-.96 2.21-1.44 2.96z"/></svg>
-            </a>
+            <a href="#" class="footer__social-placeholder" aria-label="Facebook"></a>
+            <a href="#" class="footer__social-placeholder" aria-label="X (Twitter)"></a>
+            <a href="#" class="footer__social-placeholder" aria-label="Snapchat"></a>
+            <a href="#" class="footer__social-placeholder" aria-label="Instagram"></a>
+            <a href="#" class="footer__social-placeholder" aria-label="LinkedIn"></a>
+            <a href="#" class="footer__social-placeholder" aria-label="Pinterest"></a>
         </div>
         <p class="footer__copy">&copy; Copyright Gannett <time datetime="2026">2026</time></p>
     </footer>

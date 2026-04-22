@@ -108,11 +108,30 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ====================================================================
        Keyboard: Close mobile nav with Escape key
        ==================================================================== */
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && mobileNav &&
-            mobileNav.classList.contains('mobile-nav--open')) {
-            closeMobileNav();
-        }
-    });
+    /* ====================================================================
+       ACADEMIC REQUIREMENT: Logica custom per la sparizione della Scritta "Advertisement"
+       (Disaccoppiata tramite Data-JS Attributes & Element Arrays)
+       ==================================================================== */
+    const sidebarAd = document.querySelector('.sidebar-ad');
+    const newsCards = document.querySelectorAll('.story'); // Seleziona le nuove Notizie Feed (.story)
+
+    // Intercetta l'elemento alla sesta posizione nell'Array (indice 5, cioè "Vestibulum ante ipsum...")
+    if (sidebarAd && newsCards.length >= 6) {
+        const sixthArticle = newsCards[5]; 
+
+        window.addEventListener('scroll', () => {
+            const articleRect = sixthArticle.getBoundingClientRect();
+            
+            // L'Advertisement è sticky a top: 85px.
+            // Quando il ritaglio superiore del 6° articolo (Vestibulum) raggiunge gli 85px di altezza,
+            // spingiamo la pubblicità gradualmente verso l'alto simulando uno sblocco naturale
+            if (articleRect.top <= 85) {
+                const offset = articleRect.top - 85; // Dà un numero negativo proporzionale allo scroll
+                sidebarAd.style.transform = `translateY(${offset}px)`;
+            } else {
+                sidebarAd.style.transform = 'translateY(0)'; // Rimane fissa
+            }
+        });
+    }
 
 });
