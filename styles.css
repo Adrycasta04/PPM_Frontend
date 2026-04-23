@@ -314,7 +314,7 @@ button {
   margin: 0 auto;
   padding-top: 0;
   padding-right: var(--spacing-sm);
-  padding-bottom: 77px;
+  padding-bottom: 78.5px; /* Ridotto notevolmente dai 77px precedenti per avvicinare i blocchi sottostanti */
   padding-left: 63px; 
   width: 100%;
   
@@ -623,7 +623,8 @@ button {
   padding: 0; /* Rimosso il padding per ottimizzare lo spazio superiore */
   display: flex;
   flex-direction: column;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
+  padding-bottom: 25px; /* Aumenta questo valore per avere più bianco in fondo */
 }
 
 /* Struttura Feed Principale (.story) */
@@ -1193,26 +1194,27 @@ button {
         display: flex;
         flex-direction: column;
         min-height: 335px;
-        margin: 0; /* Gestiamo il distacco con il padding del blocco grigio */
+        margin-bottom: 18px; /* Spessore grigio uniforme tra i blocchi */
     }
 
     .news {
-        background: #ffffff; /* Solo le notizie sono nel riquadro bianco */
-        padding: 24px;
+        background: #ffffff; /* Il bianco sarà solo per le vere schede/card */
+        padding: 0; /* Rimosso completamente il padding */
         display: flex;
         flex-direction: column;
     }
 
     .notice-container-type {
-        background: #f8f8f8; /* Grigio come lo sfondo base */
+        background: transparent; /* Il grigio dello sfondo passa attraverso il margin */
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-left: auto;
         margin-right: auto;
-        height: 80px; /* Un po' più alto per dare respiro */
+        height: auto; /* Allow natural height instead of rigid 80px */
         width: 100%;
-        padding: 40px 24px 20px 0; /* Più spazio sopra per il distacco grigio */
+        padding-top: 4px; /* Spazio grigio SOPRA la parola (es. Sports) */
+        padding-bottom: 12.5px; /* Spazio grigio SOTTO la parola, prima dell'immagine */
         cursor: pointer;
         text-decoration: none;
         border-bottom: none;
@@ -1286,7 +1288,7 @@ button {
         flex: 0 0 66.66666667%;
         height: auto;
         flex-direction: column;
-        padding: 0 10px 5px 0;
+        padding: 0; /* Rimuove il padding destro e inferiore sull'immagine principale per farla "uscire" al bordo */
         overflow: hidden;
     }
 
@@ -1304,12 +1306,32 @@ button {
         margin-left: -12%;
         background: #ffffff;
         max-width: 295px;
-        padding: 24px 20px 24px 34px;
-        margin-top: 24px;
+        padding: 24px 20px 55px 34px;
+        margin-top: 25px;
         line-height: 1.15;
         flex-direction: column;
-
     }
+
+    /* Personalizzazione specifica per Sports */
+    .section-sports .news-principal-title {
+        padding: 24px 20px 65px 34px; /* <--- REGOLA IL PADDING DI SPORTS QUI */
+    }
+
+    /* Personalizzazione specifica per Galleries */
+    .section-galleries .news-principal-title {
+        padding: 24px 20px 65px 34px; /* <--- REGOLA IL PADDING DI GALLERIES QUI */
+    }
+
+    /* Personalizzazione specifica per Travel */
+    .section-travel .news-principal-title {
+        padding: 24px 20px 30px 34px; /* <--- REGOLA IL PADDING DI TRAVEL QUI */
+    }
+
+    /* Personalizzazione specifica per Opinion */
+    .section-opinion .news-principal-title {
+        padding: 24px 20px 30px 34px; /* <--- REGOLA IL PADDING DI OPINION QUI */
+    }
+
 
 
     .news-principal-title h1 {
@@ -1318,6 +1340,12 @@ button {
         font-weight: 600;
         line-height: 1.15;
         color: #222222;
+        /* Limitazione a 4 righe per i titoli grandi */
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     @media (min-width: 1200px) {
@@ -1369,11 +1397,13 @@ button {
 
     .three-news {
         display: flex;
-        justify-content: center;
-        padding: 0 8px;
+        gap: 8.5px;
+        justify-content: space-between;
+        padding: 0 16px;
         flex-direction: row;
         min-height: 233px;
         width: 100%;
+        margin-top: 10px; /* Ripristinato il distacco originale dall'immagine Hero */
         margin-bottom: 4px;
     }
 
@@ -1381,43 +1411,47 @@ button {
         .three-news {
             display: flex;
             position: relative;
-            padding: 0 8px;
+            padding: 0 16px;
             flex-direction: row;
         }
 
         .three-news-two {
             display: none;
             position: relative;
-            padding: 0 8px;
+            padding: 0 16px;
             flex-direction: row;
         }
     }
 
     .three-news-two {
         display: none;
-        justify-content: center;
-        padding: 0 8px;
+        gap: 8.5px; /* Uniformato a 8.5px come la prima riga */
+        justify-content: space-between;
+        padding: 0 16px;
         flex-direction: row;
         min-height: 233px;
         width: 100%;
+        margin-top: 4px; 
         margin-bottom: 4px;
     }
 
     .three-news-three {
         display: none;
-        justify-content: center;
-        padding: 0 8px;
+        gap: 8.5px; /* Uniformato a 8.5px come la prima riga */
+        justify-content: space-between;
+        padding: 0 16px;
         flex-direction: row;
         min-height: 233px;
         width: 100%;
+        margin-top: 4px;
         margin-bottom: 4px;
     }
 
     .news-secondary {
         display: flex;
-        flex-basis: 33.3333%;
-        margin: 0 4px;
-        gap: 0;
+        flex: 1; /* Le card si dividono lo spazio in proporzioni uguali, il gap ora gestisce la distanza */
+        min-width: 0; /* Previene debordamenti se il testo è lungo */
+        margin: 0; /* Rimossa la margin per evitare disallineamenti laterali */
         width: auto;
         flex-direction: column;
         box-shadow: -2px 0 3px -2px rgba(0, 0, 0, 0.15), 2px 0 3px -1px rgba(0, 0, 0, 0.15);
@@ -1455,7 +1489,13 @@ button {
         font-family: 'Unify Sans', Helvetica, Arial, sans-serif;
         font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1200 - 320)));
         font-weight: 600;
-
+        /* Limitazione a 3 righe con puntini di sospensione (standard + webkit) */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1.3;
     }
 
     .show-more {
@@ -1465,8 +1505,8 @@ button {
         justify-content: center;
         height: auto;
         width: 100%;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 0 25px 0;
+        padding: 0; /* Rimosso il padding che creava il distacco eccessivo */
         flex-direction: column;
     }
 
