@@ -115,15 +115,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebarAd = document.querySelector('.sidebar-ad');
     const newsCards = document.querySelectorAll('.story'); // Seleziona le nuove Notizie Feed (.story)
 
-    // Intercetta l'elemento alla sesta posizione nell'Array (indice 5, cioè "Vestibulum ante ipsum...")
-    if (sidebarAd && newsCards.length >= 6) {
-        const sixthArticle = newsCards[5]; 
+    // Intercetta l'elemento alla settima posizione nell'Array (indice 6)
+    if (sidebarAd && newsCards.length >= 7) {
+        const seventhArticle = newsCards[6]; 
 
         window.addEventListener('scroll', () => {
-            const articleRect = sixthArticle.getBoundingClientRect();
+            const articleRect = seventhArticle.getBoundingClientRect();
             
             // L'Advertisement è sticky a top: 85px.
-            // Quando il ritaglio superiore del 6° articolo (Vestibulum) raggiunge gli 85px di altezza,
+            // Quando il ritaglio superiore del 7° articolo raggiunge gli 85px di altezza,
             // spingiamo la pubblicità gradualmente verso l'alto simulando uno sblocco naturale
             if (articleRect.top <= 85) {
                 const offset = articleRect.top - 85; // Dà un numero negativo proporzionale allo scroll
