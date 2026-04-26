@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Oswald:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Oswald:wght@400;700&family=Montserrat:wght@100..900&display=swap');
 
 /* ==========================================================================
    CSS Variables & Configuration
@@ -179,10 +179,31 @@ button {
   text-transform: uppercase;
 }
 
-.header__nav {
-  display: none; /* Nascondo la nav di default (Mobile/Tablet) */
-  margin-left: auto;
+@media (min-width: 768px) and (max-width: 1199px) {
+  .header__nav {
+    display: block; 
+  }
+
+  .header__nav-list {
+    display: flex;
+    gap: 1.4rem;
+    align-items: center;
+    justify-content: center;
+    padding-left: 55px; /* Solo per Tablet */
+  }
+
+  .header__nav-link {
+    font-size: 0.85rem; 
+    font-weight: 675;    
+    font-family: 'Montserrat', sans-serif; 
+    color: #525252;      
+  }
+
+  .header__nav-item:nth-child(n+8) {
+    display: none;
+  }
 }
+
 
 @media (min-width: 1200px) {
   .header__nav {
@@ -193,6 +214,7 @@ button {
   .header__nav-list {
     display: flex;
     justify-content: flex-start;
+    gap: 0; /* Ripristino lo spazio originale basato sui padding dei link */
   }
   
   .header__nav-link {
@@ -761,13 +783,18 @@ button {
   gap: var(--spacing-md);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1199px) {
   .top-stories__grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (min-width: 1200px) {
+  .top-stories {
+    padding-left: 63px;
+    padding-right: var(--spacing-sm);
+  }
+
   .top-stories__grid {
     grid-template-columns: 1.3fr 0.96fr 1.05fr;
     gap: var(--spacing-md);
