@@ -119,8 +119,14 @@ button {
   display: flex;
   align-items: center;
   height: 55px; /* Dato esatto: 55px */
-  padding: 0 40px;
+  padding: 0 15px; /* Padding ridotto per mobile */
   gap: 4px;
+}
+
+@media (min-width: 1200px) {
+  .header__top-bar {
+    padding: 0 40px; /* Padding originale per desktop */
+  }
 }
 
 .header__menu-btn {
@@ -174,13 +180,13 @@ button {
 }
 
 .header__nav {
-  display: none;
-  flex: 1;
+  display: none; /* Nascondo la nav di default (Mobile/Tablet) */
+  margin-left: auto;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .header__nav {
-    display: block;
+    display: block; /* La mostro solo su Desktop */
     margin-left: 45px; 
   }
 
@@ -642,9 +648,7 @@ button {
 }
 
 .menu-footer {
-    padding: 40px 40px;
-    background-color: #f8f8f8;
-    margin-top: 20px;
+    display: none;
 }
 
 .social-placeholders {
@@ -699,11 +703,18 @@ button {
   gap: var(--spacing-lg);
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--spacing-sm) var(--spacing-xl);
+  padding: 0 15px var(--spacing-xl); /* Padding mobile di base */
   width: 100%;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) and (max-width: 1199px) {
+  .layout-split {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 1200px) {
   .layout-split {
     grid-template-columns: 348px 1fr;
     gap: 20px; /* Canale grigio più stretto tra le colonne */
@@ -731,10 +742,10 @@ button {
   max-width: var(--max-width);
   margin: 0 auto;
   padding-top: 0;
-  padding-right: var(--spacing-sm);
+  padding-right: 15px;
   padding-bottom: 94px;
   margin-bottom: 15.5px;
-  padding-left: 63px; 
+  padding-left: 15px; /* Padding mobile */
   width: 100%;
   
   /* Copre il grigio del body nella parte alta */
@@ -756,7 +767,7 @@ button {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .top-stories__grid {
     grid-template-columns: 1.3fr 0.96fr 1.05fr;
     gap: var(--spacing-md);
@@ -792,7 +803,7 @@ button {
 .hero-card__title {
   font-family: var(--font-primary); /* Torniamo al Sans-Serif! */
   font-weight: 650; /* Bello spesso, come l'originale */
-  font-size: 1.4rem; 
+  font-size: 1.25rem; /* Più piccolo su mobile */
   line-height: 1.3;
   letter-spacing: 0px;
   color: #353232;
@@ -872,18 +883,17 @@ button {
 
 /* Tertiary Text List */
 .top-stories__tertiary {
-  display: flex;
+  display: none; /* Nascosto su Mobile e Tablet */
   flex-direction: column;
   gap: 35px; /* Spazio maggiore tra le notizie */
   border-top: 1px solid #eee;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .top-stories__tertiary {
+    display: flex; /* Appare solo su Desktop */
     border-top: none;
-    border-left: none; /* Linea verticale rimossa! */
-    padding-top: 32px;   /* Aumenta questo numero per mandarle più in basso */
-    padding-left: 0;  /* Gioca con questo valore per spostarle a destra o sinistra */
+    padding-top: 32px;
     margin-left: -18px; 
   }
 }
@@ -963,13 +973,19 @@ button {
    Sidebar
    ========================================================================== */
 .sidebar-left {
-  display: flex;
+  display: none; /* Nascosto su Mobile e Tablet */
   flex-direction: column;
   align-items: center; /* Centra orizzontalmente i box interni */
   gap: var(--spacing-md);
   background-color: transparent; /* Trasparente perché lo sfondo è gestito dal padre */
   padding: 16px;
   height: 100%; /* Forza il riempimento dell'altezza della riga */
+}
+
+@media (min-width: 1200px) {
+  .sidebar-left {
+    display: flex; /* Appare solo su Desktop */
+  }
 }
 
 .feedback-card {
@@ -1048,6 +1064,28 @@ button {
   flex-direction: column;
   margin-bottom: 22px;
   padding-bottom: 25px; /* Aumenta questo valore per avere più bianco in fondo */
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .list-feed {
+    padding-left: 38px; /* Ampi spazi bianchi laterali come nell'originale */
+    padding-right: 38px;
+  }
+  
+  .list-feed .story-title h1 {
+    font-size: 18px; /* Ora questo valore vincerà sempre su quello base! */
+    font-weight: 700;    
+  }
+
+  .list-feed .type-time h2 {
+    font-size: 12px; /* Dimensione categoria su tablet */
+    font-weight: 750;
+  }
+
+  .list-feed .type-time h3 {
+    font-size: 12px; /* Dimensione tempo su tablet */
+    font-weight: 500;
+  }
 }
 
 /* Struttura Feed Principale (.story) */
