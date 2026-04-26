@@ -35,40 +35,246 @@
     <a class="skip visually-hidden" href="#main">Salta al contenuto principale</a>
 
     <!-- Mobile Nav Overlay -->
-    <div class="mobile-nav__overlay" data-js="mobile-nav-overlay"></div>
-
-    <!-- Mobile Navigation Sidebar -->
-    <nav class="mobile-nav" id="mobile-nav" data-js="mobile-nav" aria-label="Side navigation menu" aria-hidden="true">
-        <div class="mobile-nav__header">
-            <span class="mobile-nav__logo">USA TODAY</span>
-            <button class="mobile-nav__close-btn" data-js="mobile-nav-close" aria-label="Close side menu">&times;</button>
+    <div id="overlay"></div>
+    <!--MENU A COMPARSA-->
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Side navigation menu" aria-hidden="true">
+        <div class="mobile-header">
+            <div class="logo-search">
+                <div class="mobile-nav__logo">
+                    <span class="mobile-nav__logo-circle"></span>
+                    <div class="mobile-nav__logo-text">
+                        <span class="mobile-nav__logo-usa">USA</span>
+                        <span class="mobile-nav__logo-today">TODAY</span>
+                    </div>
+                </div>
+                <button id="closeMenu" aria-label="Close side menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <polygon points="12 10.5857864 6.70710678 5.29289322 5.29289322 6.70710678 10.5857864 12 5.29289322 17.2928932 6.70710678 18.7071068 12 13.4142136 17.2928932 18.7071068 18.7071068 17.2928932 13.4142136 12 18.7071068 6.70710678 17.2928932 5.29289322 12 10.5857864"></polygon>
+                    </svg>
+                </button>
+            </div>
+            <div class="search-box" role="search">
+                <input type="text" id="searchInput" placeholder="What do you want to find?" />
+                <div class="search-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M15.7489008,14.3346872 L20.7071068,19.2928932 L19.2928932,20.7071068 L14.3346872,15.7489008 C13.2597335,16.5355664 11.9341039,17 10.5,17 C6.91014913,17 4,14.0898509 4,10.5 C4,6.91014913 6.91014913,4 10.5,4 C14.0898509,4 17,6.91014913 17,10.5 C17,11.9341039 16.5355664,13.2597335 15.7489008,14.3346872 Z M10.5,15 C12.9852814,15 15,12.9852814 15,10.5 C15,8.01471863 12.9852814,6 10.5,6 C8.01471863,6 6,8.01471863 6,10.5 C6,12.9852814 8.01471863,15 10.5,15 Z"></path>
+                    </svg>
+                </div>
+            </div>
         </div>
-        <ul class="mobile-nav__list" data-js="mobile-nav-list">
-            <li class="mobile-nav__item" data-js="submenu-parent">
-                <a href="#" class="mobile-nav__link" data-js="submenu-toggle" aria-expanded="false">News</a>
-            </li>
-            <li class="mobile-nav__item" data-js="submenu-parent">
-                <a href="#" class="mobile-nav__link" data-js="submenu-toggle" aria-expanded="false">Sports</a>
-            </li>
-            <li class="mobile-nav__item" data-js="submenu-parent">
-                <a href="#" class="mobile-nav__link" data-js="submenu-toggle" aria-expanded="false">Entertainment</a>
-            </li>
-            <li class="mobile-nav__item" data-js="submenu-parent">
-                <a href="#" class="mobile-nav__link" data-js="submenu-toggle" aria-expanded="false">Life</a>
-            </li>
-            <li class="mobile-nav__item" data-js="submenu-parent">
-                <a href="#" class="mobile-nav__link" data-js="submenu-toggle" aria-expanded="false">Money</a>
-            </li>
-            <li class="mobile-nav__item" data-js="submenu-parent">
-                <a href="#" class="mobile-nav__link" data-js="submenu-toggle" aria-expanded="false">Tech</a>
-            </li>
-            <li class="mobile-nav__item" data-js="submenu-parent">
-                <a href="#" class="mobile-nav__link" data-js="submenu-toggle" aria-expanded="false">Travel</a>
-            </li>
-            <li class="mobile-nav__item" data-js="submenu-parent">
-                <a href="#" class="mobile-nav__link" data-js="submenu-toggle" aria-expanded="false">Opinion</a>
-            </li>
-        </ul>
+        <div class="scroll-menu-news" id="menuContent">
+            <div class="scroll-menu-news-container">
+                <div class="container">
+                    <nav class="scroll-menu">
+                        <ul class="main-menu-list">
+                            <li class="main-menu-item">
+                                <div class="menu">
+                                    <a href="#">U.S.</a>
+                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                        <polygon points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                                    </svg>
+                                </div>
+                                <ul class="submenu inner">
+                                    <li><a href="#">Consectetur</a></li>
+                                    <li><a href="#">Adipiscing</a></li>
+                                    <li><a href="#">Elit sed</a></li>
+                                    <li><a href="#">Eiusmod</a></li>
+                                    <li><a href="#">Tempor</a></li>
+                                    <li><a href="#">Incididunt</a></li>
+                                    <li><a href="#">Labore et</a></li>
+                                    <li><a href="#">Dolore</a></li>
+                                    <li><a href="#">Magna</a></li>
+                                    <li><a href="#">Aliqua</a></li>
+                                    <li><a href="#">Veniam</a></li>
+                                    <li><a href="#">Nostrud</a></li>
+                                    <li><a href="#">Exercitation</a></li>
+                                    <li><a href="#">Ullamco</a></li>
+                                </ul>
+                            </li>
+                            <li class="main-menu-item">
+                                <div class="menu">
+                                    <a href="#">Politics</a>
+                                </div>
+                            </li>
+                            <li class="main-menu-item" style="--bar-color: #f03c4b">
+                                <div class="menu">
+                                    <a href="#">Sports</a>
+                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                        <polygon points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                                    </svg>
+                                </div>
+                                <ul class="submenu inner">
+                                    <li><a href="#">Voluptate</a></li>
+                                    <li><a href="#">Velit esse</a></li>
+                                    <li><a href="#">Cillum</a></li>
+                                    <li><a href="#">Eu fugiat</a></li>
+                                    <li><a href="#">Nulla</a></li>
+                                    <li><a href="#">Pariatur</a></li>
+                                    <li><a href="#">Excepteur</a></li>
+                                    <li><a href="#">Sint</a></li>
+                                    <li><a href="#">Occaecat</a></li>
+                                    <li><a href="#">Cupidatat</a></li>
+                                    <li><a href="#">Non proident</a></li>
+                                    <li><a href="#">Sunt in</a></li>
+                                    <li><a href="#">Culpa qui</a></li>
+                                    <li><a href="#">Officia</a></li>
+                                </ul>
+                            </li>
+                            <li class="main-menu-item" style="--bar-color: #aa50e6">
+                                <div class="menu">
+                                    <a href="#">Entertainment</a>
+                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                        <polygon points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                                    </svg>
+                                </div>
+                                <ul class="submenu inner">
+                                    <li><a href="#">Deserunt</a></li>
+                                    <li><a href="#">Mollit anim</a></li>
+                                    <li><a href="#">Id est</a></li>
+                                    <li><a href="#">Laborum</a></li>
+                                    <li><a href="#">Perspiciatis</a></li>
+                                    <li><a href="#">Unde omnis</a></li>
+                                    <li><a href="#">Iste natus</a></li>
+                                    <li><a href="#">Error sit</a></li>
+                                    <li><a href="#">Voluptatem</a></li>
+                                    <li><a href="#">Accusantium</a></li>
+                                    <li><a href="#">Doloremque</a></li>
+                                    <li><a href="#">Laudantium</a></li>
+                                    <li><a href="#">Totam rem</a></li>
+                                    <li><a href="#">Aperiam</a></li>
+                                </ul>
+                            </li>
+                            <li class="main-menu-item" style="--bar-color: #aa50e6">
+                                <div class="menu">
+                                    <a href="#">Life</a>
+                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                        <polygon points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                                    </svg>
+                                </div>
+                                <ul class="submenu inner">
+                                    <li><a href="#">Pellentesque</a></li>
+                                    <li><a href="#">Tristique</a></li>
+                                    <li><a href="#">Habitant morbi</a></li>
+                                    <li><a href="#">Senectus et</a></li>
+                                    <li><a href="#">Netus et</a></li>
+                                    <li><a href="#">Malesuada</a></li>
+                                    <li><a href="#">Fames ac</a></li>
+                                    <li><a href="#">Turpis egestas</a></li>
+                                    <li><a href="#">Vestibulum</a></li>
+                                </ul>
+                            </li>
+                            <li class="main-menu-item" style="--bar-color: #3cc37d">
+                                <div class="menu">
+                                    <a href="#">Money</a>
+                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                        <polygon points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                                    </svg>
+                                </div>
+                                <ul class="submenu inner">
+                                    <li><a href="#">Sapien</a></li>
+                                    <li><a href="#">Rutrum</a></li>
+                                    <li><a href="#">Dapibus</a></li>
+                                    <li><a href="#">Venenatis</a></li>
+                                    <li><a href="#">Fringilla</a></li>
+                                    <li><a href="#">Ultrices</a></li>
+                                    <li><a href="#">Posuere</a></li>
+                                </ul>
+                            </li>
+                            <li class="main-menu-item" style="--bar-color: #fa9632">
+                                <div class="menu">
+                                    <a href="#">Tech</a>
+                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                        <polygon points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                                    </svg>
+                                </div>
+                                <ul class="submenu inner">
+                                    <li><a href="#">Tellus</a></li>
+                                    <li><a href="#">Ulitrices</a></li>
+                                    <li><a href="#">Vehicula</a></li>
+                                    <li><a href="#">Venenatis</a></li>
+                                    <li><a href="#">Viverra</a></li>
+                                    <li><a href="#">Volutpat</a></li>
+                                    <li><a href="#">Vulputate</a></li>
+                                </ul>
+                            </li>
+                            <li class="main-menu-item" style="--bar-color: #00bcd4">
+                                <div class="menu">
+                                    <a href="#">Travel</a>
+                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                        <polygon points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                                    </svg>
+                                </div>
+                                <ul class="submenu inner">
+                                    <li><a href="#">Aenean</a></li>
+                                    <li><a href="#">Blandit</a></li>
+                                    <li><a href="#">Convallis</a></li>
+                                    <li><a href="#">Dignissim</a></li>
+                                    <li><a href="#">Egestas</a></li>
+                                    <li><a href="#">Faucibus</a></li>
+                                </ul>
+                            </li>
+                            <li class="main-menu-item" style="--bar-color: #7b68ee">
+                                <div class="menu">
+                                    <a href="#">Opinion</a>
+                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                        <polygon points="9.23177872 17.3598156 10.7682213 18.6401844 16.3017083 12 10.7682213 5.3598156 9.23177872 6.6401844 13.6982917 12"></polygon>
+                                    </svg>
+                                </div>
+                                <ul class="submenu inner">
+                                    <li><a href="#">Amet quis</a></li>
+                                    <li><a href="#">Augue eget</a></li>
+                                    <li><a href="#">Bibendum</a></li>
+                                    <li><a href="#">Condimentum</a></li>
+                                    <li><a href="#">Diam donec</a></li>
+                                    <li><a href="#">Eleifend</a></li>
+                                </ul>
+                            </li>
+                            <li class="main-menu-item">
+                                <div class="menu">
+                                    <a href="#">Crossword</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="recent-stories">
+                        <h4>MOST RECENT STORIES</h4>
+                        <div class="recent-story">
+                            <a href="#">
+                                <h5>Lorem</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod</p>
+                            </a>
+                        </div>
+                        <div class="recent-story">
+                            <a href="#">
+                                <h5>Ipsum</h5>
+                                <p>Ut enim ad minim veniam quis nostrud exercitation ullamco laboris</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="menu-footer">
+                        <div class="social-placeholders">
+                            <div class="social-box"></div>
+                            <div class="social-box"></div>
+                            <div class="social-box"></div>
+                            <div class="social-box"></div>
+                        </div>
+                        <div class="legal-links">
+                            <a href="#">Terms of Service</a>
+                            <span class="dot">•</span>
+                            <a href="#">Privacy Policy</a>
+                            <span class="dot">•</span>
+                            <a href="#">Accessibility</a>
+                            <span class="dot">•</span>
+                            <a href="#">Ethical Principles</a>
+                            <span class="dot">•</span>
+                            <a href="#">Sitemap</a>
+                        </div>
+                        <p class="menu-copyright">© Copyright Gannett 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <header class="header" role="banner">

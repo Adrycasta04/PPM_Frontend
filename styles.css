@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Oswald:wght@400;700&display=swap');
+
 /* ==========================================================================
    CSS Variables & Configuration
    ========================================================================== */
@@ -10,8 +12,8 @@
   --color-border: #e0e0e0;
   --color-overlay: rgba(0, 0, 0, 0.5);
 
-  --font-primary: 'Roboto', sans-serif;
-  --font-headline: 'Oswald', sans-serif;
+  --font-primary: 'Inter', sans-serif;
+  --font-headline: 'Inter', sans-serif;
   --font-serif: 'Georgia', 'Times New Roman', serif;
 
   --max-width: 1200px;
@@ -188,7 +190,7 @@ button {
   }
   
   .header__nav-link {
-    font-weight: 665; 
+    font-weight: 675; 
     font-family: 'Montserrat', sans-serif;
     font-size: 13.5px; 
     color: #525252; 
@@ -210,80 +212,484 @@ button {
   position: fixed;
   top: 0;
   left: 0;
-  width: 300px;
-  max-width: 80%;
+  width: 500px;
+  max-width: 85%;
   height: 100vh;
-  background-color: var(--color-bg-main);
+  background-color: #fff;
   z-index: 1000;
   transform: translateX(-100%);
-  transition: transform var(--transition-speed) ease-in-out;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.15);
 }
 
 .mobile-nav--open {
   transform: translateX(0);
 }
 
+/* Header: Logo + Close */
 .mobile-nav__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-md);
-  border-bottom: 1px solid var(--color-border);
+  padding: 24px 28px 16px 28px;
 }
 
 .mobile-nav__logo {
-  font-family: var(--font-headline);
-  font-weight: 700;
-  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-nav__logo-circle {
+  display: block;
+  width: 40px; /* Ripristinato a 40px */
+  height: 40px;
+  background-color: #009bff;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.mobile-nav__logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #404040;
+}
+
+.mobile-nav__logo-usa,
+.mobile-nav__logo-today {
+  font-size: 1.15rem;     /* Ripristinato a 1.05rem */
+  font-weight: 800;       
+  line-height: 0.95;      
+  letter-spacing: 0.1px; 
+  text-transform: uppercase;
 }
 
 .mobile-nav__close-btn {
-  font-size: 1.5rem;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: #333;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color 0.2s ease;
 }
 
+.mobile-nav__close-btn:hover {
+  color: #000;
+}
+
+/* Search Bar */
+.mobile-nav__search {
+  position: relative;
+  margin: 8px 28px 12px 28px;
+}
+
+.mobile-nav__search-input {
+  width: 100%;
+  padding: 12px 44px 12px 4px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #333;
+  background: transparent;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.mobile-nav__search-input::placeholder {
+  color: #aaa;
+  font-weight: 400;
+}
+
+.mobile-nav__search-input:focus {
+  border-bottom-color: #009bff;
+}
+
+.mobile-nav__search-icon {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Menu Items */
 .mobile-nav__list {
-  padding: var(--spacing-sm);
+  padding: 8px 0 0 0;
   overflow-y: auto;
+  flex: 1;
 }
 
 .mobile-nav__item {
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: none;
 }
 
 .mobile-nav__link {
-  display: block;
-  padding: var(--spacing-md) var(--spacing-sm);
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-.mobile-nav__overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--color-overlay);
-  z-index: 900;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease;
-}
-
-.mobile-nav__overlay--active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* ==========================================================================
-   Main Layout
-   ========================================================================== */
-#main {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #222;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.mobile-nav__link:hover {
+  background-color: #f5f5f5;
+}
+
+.mobile-nav__chevron {
+  color: #999;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.mobile-nav__item--open .mobile-nav__chevron {
+  transform: rotate(90deg);
+}
+
+/* Overlay */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 800;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 33.33333333%;
+    min-width: 398px;
+    background: #fff;
+    z-index: 900;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: visible; /* Consentiamo la fuoriuscita laterale */
+}
+
+.mobile-menu.open {
+    left: 0;
+}
+
+#closeMenu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#closeMenu svg {
+    fill: #333;
+}
+
+.mobile-header {
+    padding: 40px 40px 0 40px; /* Aumentato spazio sopra (40px) e ai lati (32px) */
+    border-bottom: none;
+    overflow: visible;
+}
+
+.logo-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px; /* Aumentato spazio sotto il logo */
+    padding: 0; /* Allineato perfettamente ai lati */
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    border-bottom: 1px solid #000; /* La linea ora è solo sotto l'input */
+    outline: none;
+    padding: 12px 0 16px 12px; /* Ridotto lo spazio "tab" da 24px a 12px */
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    background: transparent;
+    transition: background-color 0.2s;
+    margin-right: 10px; /* Spazio tra la linea e la lente */
+}
+
+.search-box input:hover {
+    background-color: #f8f8f8;
+}
+
+.search-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.search-btn svg {
+    fill: #000; /* Lente di ingrandimento nera */
+}
+
+.scroll-menu-news {
+    flex: 1;
+    width: calc(100% + 40px); /* Larghezza extra per evitare tagli al sottomenu */
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    position: relative;
+    padding-top: 12px;
+}
+
+.scroll-menu-news::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-menu-news-container {
+    width: 100%;
+    overflow: visible;
+}
+
+.container {
+    width: 100%;
+    padding-right: 40px; /* Compensa l'allargamento del contenitore padre */
+    overflow: visible;
+}
+
+.main-menu-list {
+    list-style: none;
+    padding: 0; 
+    overflow: visible;
+    z-index: 100;
+}
+
+.main-menu-item {
+    position: relative;
+    z-index: 10;
+}
+
+.main-menu-item:hover {
+    background: #f8f8f8;
+    z-index: 100;
+}
+
+.main-menu-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background: var(--bar-color, #009BFF);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.main-menu-item:hover::before,
+.main-menu-item.open::before {
+    transform: scaleX(1);
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 40px; /* Ridotto da 12px a 8px per avvicinare le parole */
+    cursor: pointer;
+    transition: background-color 0.2s;
+    z-index: 10;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #111;
+    font-size: 1.15rem; /* Aumentato per maggiore impatto visivo */
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.15;
+    transition: transform 0.3s ease;
+}
+
+.main-menu-item:hover .menu a {
+    transform: translateX(12px); /* Effetto scorrimento all'hover */
+}
+
+.menu svg {
+    fill: #999;
+}
+
+/* Submenu Panel */
+.submenu {
+    display: none;
+    list-style: none;
+    background: #fff;
+}
+
+@media (min-width: 500px) {
+    .main-menu-item:hover .submenu {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 50%; /* Inizia a metà del menu principale */
+        width: 60%; /* Sporge a destra nei 40px extra */
+        background: #fff;
+        box-shadow: 0 0 22px 0 rgba(0, 0, 0, 0.13);
+        padding: 10px 0;
+        z-index: 2000;
+    }
+
+    /* Freccia di puntamento */
+    .main-menu-item:hover .submenu::before {
+        content: '';
+        position: absolute;
+        top: 12px;
+        left: -10px;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid #fff;
+    }
+}
+
+@media (max-width: 499px) {
+    .mobile-menu {
+        width: 100%;
+        min-width: 0;
+    }
+    .main-menu-item.open .submenu {
+        display: block;
+        background: #fcfcfc;
+    }
+}
+
+.submenu li a {
+    display: block;
+    padding: 10px 24px;
+    text-decoration: none;
+    color: #666;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+}
+
+.submenu li a:hover {
+    color: var(--bar-color, #009BFF);
+    font-weight: 600;
+}
+
+/* Recent Stories */
+.recent-stories {
+    padding: 32px 40px; /* Allineato ai 40px delle categorie sopra */
+}
+
+.recent-stories h4 {
+    font-size: 0.8rem;
+    font-weight: 900;
+    color: rgba(0,0,0,0.7);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.recent-story {
+    margin-bottom: 24px;
+}
+
+.recent-story a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.recent-story h5 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 4px;
+    font-family: 'Inter', sans-serif;
+}
+
+.recent-story p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.4;
+    font-family: 'Georgia', serif;
+}
+
+.menu-footer {
+    padding: 40px 40px;
+    background-color: #f8f8f8;
+    margin-top: 20px;
+}
+
+.social-placeholders {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.social-box {
+    width: 35px;
+    height: 35px;
+    background-color: #ddd;
+    border-radius: 4px;
+}
+
+.legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.legal-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.legal-links a:hover {
+    text-decoration: underline;
+}
+
+.legal-links .dot {
+    color: #ccc;
+    font-size: 0.8rem;
+}
+
+.menu-copyright {
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 400;
+    margin: 0;
 }
 
 /* Layout split: sidebar + main feed */
@@ -301,7 +707,19 @@ button {
   .layout-split {
     grid-template-columns: 348px 1fr;
     gap: 20px; /* Canale grigio più stretto tra le colonne */
-    padding: 17px 62px var(--spacing-xl);
+    padding: 0px 62px 0;
+    align-items: stretch;
+    /* Effetto Faux Columns: disegna due binari bianchi sullo sfondo grigio */
+    background-image: 
+      linear-gradient(#fff, #fff), 
+      linear-gradient(#fff, #fff);
+    background-position: 
+      62px 0, 
+      calc(62px + 348px + 20px) 0;
+    background-size: 
+      348px 100%, 
+      calc(100% - 124px - 368px) 100%;
+    background-repeat: no-repeat;
   }
 }
 
@@ -314,7 +732,8 @@ button {
   margin: 0 auto;
   padding-top: 0;
   padding-right: var(--spacing-sm);
-  padding-bottom: 78.5px; /* Ridotto notevolmente dai 77px precedenti per avvicinare i blocchi sottostanti */
+  padding-bottom: 94px;
+  margin-bottom: 15.5px;
   padding-left: 63px; 
   width: 100%;
   
@@ -374,7 +793,7 @@ button {
   font-family: var(--font-primary); /* Torniamo al Sans-Serif! */
   font-weight: 650; /* Bello spesso, come l'originale */
   font-size: 1.4rem; 
-  line-height: 1.1;
+  line-height: 1.3;
   letter-spacing: 0px;
   color: #353232;
   transition: color 0.2s ease;
@@ -391,7 +810,7 @@ button {
 .hero-card__excerpt {
   font-family: var(--font-serif);
   font-size: 1rem; 
-  line-height: 1.3;
+  line-height: 1.35;
   margin-top: 12px;
   color: #333;
 }
@@ -426,10 +845,11 @@ button {
 }
 
 .story-card__title {
-  font-family: var(--font-primary);
-  font-weight: 900;
-  font-size: 1.05rem;
-  line-height: 1.15;
+  font-family: 'unify sans', Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  font-size: 0.97rem;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
   transition: color 0.2s ease;
 }
 
@@ -478,13 +898,13 @@ button {
 }
 
 .text-card__title {
-  font-family: var(--font-primary);
+  font-family: 'Inter', sans-serif;
   font-size: 1rem; /*Gandezza testo*/
   font-weight: 700;   /* Più spessi */
-  line-height: 1.25;
+  line-height: 1.2;
   color: #222;
   transition: color 0.2s ease;
-  max-width: 255px; /* <--- GIOCA CON QUESTO VALORE! */
+  max-width: 255px; 
 }
 
 .text-card__title:hover {
@@ -500,10 +920,11 @@ button {
 .featured-sub-card__meta,
 .sports-hero__meta,
 .sports-strip__meta {
+  font-family: var(--font-primary);
   font-size: 0.90rem; /* Meta leggermente più grandi */
   color: #666;
   font-weight: 400;
-  margin-top: 5px;
+  margin-top: 6px;
 }
 
 .text-card__category,
@@ -511,7 +932,7 @@ button {
 .featured-sub-card__category,
 .sports-hero__category {
   color: #626262; /* Grigio USA Today, non nero */
-  font-weight: 800;
+  font-weight: 700;
 }
 
 /* ==========================================================================
@@ -546,8 +967,9 @@ button {
   flex-direction: column;
   align-items: center; /* Centra orizzontalmente i box interni */
   gap: var(--spacing-md);
-  background-color: #fff; /* Blocco bianco */
-  padding: 20px;
+  background-color: transparent; /* Trasparente perché lo sfondo è gestito dal padre */
+  padding: 16px;
+  height: 100%; /* Forza il riempimento dell'altezza della riga */
 }
 
 .feedback-card {
@@ -616,6 +1038,7 @@ button {
 .feed-section {
   background-color: transparent;
   padding: 0;
+  height: 100%;
 }
 
 .list-feed {
@@ -652,10 +1075,10 @@ button {
 }
 
 .story-title h1 {
-    font-size: 22px;
+    font-size: 21px;
     font-family: "unify sans", Helvetica, Arial, sans-serif;
-    font-weight: 600;
-    line-height: 1.15;
+    font-weight: 675;
+    line-height: 1.4;
     color: rgba(0, 0, 0, .87);
     margin: 0;
 }
@@ -676,8 +1099,8 @@ button {
 
 .type-time h2 {
     font-size: 14px;
-    font-family: 'Unify Sans', Helvetica, Arial, sans-serif;
-    font-weight: 600;
+    font-family: 'Inter', Helvetica, Arial, sans-serif;
+    font-weight: 700;
     color: rgba(0, 0, 0, .6);
     margin: 0;
 }
@@ -685,15 +1108,15 @@ button {
 .type-time h3 {
     padding: 0 5px;
     font-size: 14px;
-    font-family: 'Unify Sans', Helvetica, Arial, sans-serif;
-    font-weight: 400;
+    font-family: 'Inter', Helvetica, Arial, sans-serif;
+    font-weight: 300;
     color: #505050;
     margin: 0;
 }
 
 .type-time h3:before {
-    padding-left: 3px;
-    padding-right: 5px;
+    padding-left: 2px;
+    padding-right: 4px;
     padding-bottom: 1px;
     content: '|';
 }
@@ -1062,7 +1485,11 @@ button {
    Footer Component
    ========================================================================== */
 .footer {
-  padding: var(--spacing-xl) 24px var(--spacing-lg);
+  padding: 40px 24px var(--spacing-lg);
+  background-color: #f8f8f8;
+  margin-top: -21px;
+  position: relative;
+  z-index: 100;
 }
 
 .footer__nav-list {
@@ -1088,15 +1515,15 @@ button {
 }
 
 .footer__nav-item a {
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
+  font-family: 'unify sans', Helvetica, Arial, sans-serif;
+  font-size: 15.8px;
+  font-weight: 500;
   color: #333;
 }
 
 .footer__nav-item a:hover,
 .footer__nav-item a:focus {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .footer__social-placeholder {
@@ -1153,6 +1580,7 @@ button {
 .footer__social-link--pinterest { color: #bd081c; }
 
 .footer__copy {
+  font-family: var(--font-primary);
   font-size: 0.8rem;
   color: var(--color-text-main);
   font-weight: 400;
@@ -1194,7 +1622,7 @@ button {
         display: flex;
         flex-direction: column;
         min-height: 335px;
-        margin-bottom: 18px; /* Spessore grigio uniforme tra i blocchi */
+        margin-bottom: 18px; 
     }
 
     .news {
@@ -1205,7 +1633,7 @@ button {
     }
 
     .notice-container-type {
-        background: transparent; /* Il grigio dello sfondo passa attraverso il margin */
+        background: #f8f8f8; /* Ripristina il grigio dello sfondo */
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -1213,8 +1641,8 @@ button {
         margin-right: auto;
         height: auto; /* Allow natural height instead of rigid 80px */
         width: 100%;
-        padding-top: 4px; /* Spazio grigio SOPRA la parola (es. Sports) */
-        padding-bottom: 12.5px; /* Spazio grigio SOTTO la parola, prima dell'immagine */
+        padding-top: 25px; /* Spazio grigio SOPRA la parola (es. Sports) */
+        padding-bottom: 15px; /* Spazio grigio SOTTO la parola, prima dell'immagine */
         cursor: pointer;
         text-decoration: none;
         border-bottom: none;
@@ -1337,7 +1765,7 @@ button {
     .news-principal-title h1 {
         font-family: "Unify Sans", Helvetica, Arial, sans-serif;
         font-size: calc(20px + (28 - 20) * ((100vw - 320px) / (1200 - 320)));
-        font-weight: 600;
+        font-weight: 650;
         line-height: 1.15;
         color: #222222;
         /* Limitazione a 4 righe per i titoli grandi */

@@ -14,64 +14,66 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ====================================================================
        Mobile Navigation: Hamburger Menu
        ==================================================================== */
-    const hamburgerBtn = document.querySelector('[data-js="hamburger-btn"]');
-    const mobileNav = document.querySelector('[data-js="mobile-nav"]');
-    const mobileNavClose = document.querySelector('[data-js="mobile-nav-close"]');
-    const mobileNavOverlay = document.querySelector('[data-js="mobile-nav-overlay"]');
-
-    function openMobileNav() {
-        if (!mobileNav || !mobileNavOverlay) return;
-        mobileNav.classList.add('mobile-nav--open');
-        mobileNavOverlay.classList.add('mobile-nav__overlay--active');
-        document.body.style.overflow = 'hidden';
-        if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'true');
-        mobileNav.setAttribute('aria-hidden', 'false');
-    }
-
-    function closeMobileNav() {
-        if (!mobileNav || !mobileNavOverlay) return;
-        mobileNav.classList.remove('mobile-nav--open');
-        mobileNavOverlay.classList.remove('mobile-nav__overlay--active');
-        document.body.style.overflow = '';
-        if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
-        mobileNav.setAttribute('aria-hidden', 'true');
-    }
-
-    if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileNav);
-    if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
-    if (mobileNavOverlay) mobileNavOverlay.addEventListener('click', closeMobileNav);
-
     /* ====================================================================
-       Event Delegation: Mobile Nav Submenu Toggles
-       Uses e.target.closest() on the parent list container.
+       Mobile Navigation
        ==================================================================== */
-    const mobileNavList = document.querySelector('[data-js="mobile-nav-list"]');
+    const hamburger = document.querySelector('[data-js="hamburger-btn"]');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenuButton = document.getElementById('closeMenu');
+    const overlay = document.getElementById('overlay');
+    const menuItems = document.querySelectorAll('.main-menu-item');
 
-    if (mobileNavList) {
-        // ACADEMIC REQUIREMENT: Dimostrazione di Event Delegation. Agganciamo il listener al genitore per evitare lag.
-        mobileNavList.addEventListener('click', (e) => {
-            const toggle = e.target.closest('[data-js="submenu-toggle"]');
-            if (!toggle) return;
-
-            e.preventDefault();
-            const parentItem = toggle.closest('[data-js="submenu-parent"]');
-            if (!parentItem) return;
-
-            const isOpen = parentItem.classList.contains('mobile-nav__item--open');
-
-            // Close all open submenus first
-            mobileNavList.querySelectorAll('[data-js="submenu-parent"]').forEach(item => {
-                item.classList.remove('mobile-nav__item--open');
-                const btn = item.querySelector('[data-js="submenu-toggle"]');
-                if (btn) btn.setAttribute('aria-expanded', 'false');
-            });
-
-            // Toggle the clicked one
-            if (!isOpen) {
-                parentItem.classList.add('mobile-nav__item--open');
-                toggle.setAttribute('aria-expanded', 'true');
-            }
+    if (hamburger && mobileMenu && closeMenuButton && overlay) {
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            hamburger.setAttribute('aria-expanded', 'true');
+            mobileMenu.setAttribute("aria-hidden", "false");
         });
+
+        const closeFunc = () => {
+            mobileMenu.classList.remove('open');
+            overlay.style.display = 'none';
+            document.body.style.overflow = '';
+            hamburger.setAttribute('aria-expanded', 'false');
+            mobileMenu.setAttribute("aria-hidden", "true");
+            // Reset submenus
+            menuItems.forEach(item => item.classList.remove('open'));
+        };
+
+        closeMenuButton.addEventListener('click', closeFunc);
+        overlay.addEventListener('click', closeFunc);
+
+        // Mobile specific submenu toggling
+        menuItems.forEach(item => {
+            const trigger = item.querySelector('.menu');
+            if (!trigger) return;
+
+            trigger.addEventListener('click', function (e) {
+                if (window.innerWidth <= 499) {
+                    const isOpen = item.classList.contains('open');
+                    // Close others
+                    menuItems.forEach(i => i.classList.remove('open'));
+                    // Toggle current
+                    if (!isOpen) {
+                        item.classList.add('open');
+                    }
+                }
+            });
+        });
+
+        // Search focus behavior
+        const searchInput = document.getElementById('searchInput');
+        const menuContent = document.getElementById('menuContent');
+        if (searchInput && menuContent) {
+            searchInput.addEventListener('focus', () => {
+                menuContent.style.visibility = 'hidden';
+            });
+            searchInput.addEventListener('blur', () => {
+                menuContent.style.visibility = 'visible';
+            });
+        }
     }
 
     /* ====================================================================
