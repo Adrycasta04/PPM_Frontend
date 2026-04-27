@@ -52,24 +52,7 @@ img, picture {
 /* ACADEMIC REQUIREMENT: Metodologia BEM (Block, Element, Modifier). 
    Impedisce le cascate non controllate, tenendo disaccoppiato UI e logica. */
 
-/* Utility per elementi invisibili ma leggibili dai Screen Reader (A11y) */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
 
-/* Skip Link invisibile ma funzionale */
-.skip {
-  position: absolute;
-  left: -9999px; /* Spostato fuori per non apparire mai visivamente */
-}
 a {
   color: inherit;
   text-decoration: none;
@@ -85,18 +68,6 @@ button {
   background: transparent;
 }
 
-/* Visually Hidden (screen readers only) */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
 
 
 
@@ -409,7 +380,8 @@ button {
     left: -100%;
     height: 100%;
     width: 33.33333333%;
-    min-width: 398px;
+    width: 85%;
+  max-width: 400px;
     background: #fff;
     z-index: 900;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
@@ -1100,24 +1072,26 @@ button {
     padding-right: 38px;
   }
   
-  .list-feed .story-title h1 {
+  .list-feed .feed-card__title {
     font-size: 18px; /* Ora questo valore vincerà sempre su quello base! */
     font-weight: 700;    
   }
 
-  .list-feed .type-time h2 {
+  .list-feed .feed-card__category {
     font-size: 12px; /* Dimensione categoria su tablet */
     font-weight: 750;
   }
 
-  .list-feed .type-time h3 {
+  .list-feed .feed-card__time {
     font-size: 12px; /* Dimensione tempo su tablet */
     font-weight: 500;
   }
 }
 
-/* Struttura Feed Principale (.story) */
-.story {
+/* ==========================================================================
+   Feed Card (Sostituisce .story, .news-principal, ecc.)
+   ========================================================================== */
+.feed-card {
     display: flex;
     flex-direction: row;
     width: auto;
@@ -1127,11 +1101,11 @@ button {
     align-items: flex-start;
 }
 
-.story:last-child {
+.feed-card:last-child {
     border-bottom: none;
 }
 
-.story-title {
+.feed-card__content {
     display: flex;
     flex-basis: 100%; /* Il testo occupa tutto lo spazio disponibile */
     height: auto;
@@ -1140,30 +1114,30 @@ button {
     overflow: hidden;
 }
 
-.story-title h1 {
+.feed-card__title {
     font-size: 21px;
-    font-family: "unify sans", Helvetica, Arial, sans-serif;
+    font-family: "Unify Sans", Helvetica, Arial, sans-serif;
     font-weight: 675;
     line-height: 1.4;
     color: rgba(0, 0, 0, .87);
     margin: 0;
 }
 
-.story:hover .story-title h1 {
+.feed-card:hover .feed-card__title {
     text-decoration: underline;
     text-decoration-color: #009BFF;
     text-underline-offset: 2px;
     text-decoration-thickness: 3px;
 }
 
-.type-time {
+.feed-card__meta {
     display: flex;
     flex-direction: row;
     margin-top: 4px; /* Valore esatto ispezionato */
     align-items: center;
 }
 
-.type-time h2 {
+.feed-card__category {
     font-size: 14px;
     font-family: 'Inter', Helvetica, Arial, sans-serif;
     font-weight: 700;
@@ -1171,7 +1145,7 @@ button {
     margin: 0;
 }
 
-.type-time h3 {
+.feed-card__time {
     padding: 0 5px;
     font-size: 14px;
     font-family: 'Inter', Helvetica, Arial, sans-serif;
@@ -1180,28 +1154,28 @@ button {
     margin: 0;
 }
 
-.type-time h3:before {
+.feed-card__time:before {
     padding-left: 2px;
     padding-right: 4px;
     padding-bottom: 1px;
     content: '|';
 }
 
-.image-container {
+.feed-card__image-wrapper {
     flex-basis: 187px; /* Larghezza fissa del placeholder originale */
     flex-shrink: 0;    /* Impedisce rimpicciolimenti */
     height: auto;
 }
 
-.image-container img {
+.feed-card__image {
     padding: 0 0 0 10px; /* Spazio a sinistra dell'immagine */
     height: auto;
     width: 100%;
     display: block;
 }
 
-@media (max-width: 768px) {
-    .story {
+@media (max-width: 767.98px) {
+    .feed-card {
         margin: 12px 24px;
     }
 }
@@ -1671,7 +1645,7 @@ button {
         flex-direction: column;
     }
 
-    .notice-container-type {
+    .category-block__header {
         background: #f8f8f8; /* Ripristina il grigio dello sfondo */
         display: flex;
         justify-content: space-between;
@@ -1687,7 +1661,7 @@ button {
         border-bottom: none;
     }
 
-    .notice-container-type h1 {
+    .category-block__title {
         display: flex;
         align-items: center; /* allinea il testo e la barretta verticalmente */
         font-size: 19px;
@@ -1697,7 +1671,7 @@ button {
         height: 24px;
     }
 
-    .notice-container-type h1::before {
+    .category-block__title::before {
         content: ' ';
         height: 12px;
         min-width: 24px;
@@ -1706,31 +1680,31 @@ button {
         background: #009bff;
     }
 
-    .notice-container-type h1.red::before {
+    .category-block--sports .category-block__title::before {
         background: #f03c4b;
     }
 
-    .notice-container-type h1.purple::before {
+    .category-block--entertainment .category-block__title::before {
         background: #aa50e6;
     }
 
-    .notice-container-type h1.green::before {
+    .category-block--money .category-block__title::before {
         background: #3cc37d;
     }
 
-    .notice-container-type h1.orange::before {
+    .category-block--tech .category-block__title::before {
         background: #fa9632;
     }
 
-    .notice-container-type h1.acquamarina::before {
+    .category-block--travel .category-block__title::before {
         background: #19c8d2;
     }
 
-    .notice-container-type h1.lilla::before {
+    .category-block--opinion .category-block__title::before {
         background: #7e7bf2;
     }
 
-    .news-principal {
+    .feed-card--principal {
         position: relative;
         flex-wrap: nowrap;
         display: flex;
@@ -1741,35 +1715,33 @@ button {
         text-decoration: none;
     }
 
-    .news-principal:hover {
-        .news-principal-title h1 {
-            text-decoration: underline;
-            text-decoration-color: #009BFF;
-            text-underline-offset: 2px;
-            text-decoration-thickness: 3px;
-        }
+    .feed-card--principal:hover .feed-card__title {
+        text-decoration: underline;
+        text-decoration-color: #009BFF;
+        text-underline-offset: 2px;
+        text-decoration-thickness: 3px;
     }
 
-    .news-principal-img {
+    .feed-card--principal .feed-card__image-wrapper {
         display: flex;
-        flex: 0 0 66.66666667%;
+        flex: 2;
         height: auto;
         flex-direction: column;
         padding: 0; /* Rimuove il padding destro e inferiore sull'immagine principale per farla "uscire" al bordo */
         overflow: hidden;
     }
 
-    .news-principal img {
+    .feed-card--principal img {
         display: block;
         width: 100%;
-        flex: 0 0 66.66666667%;
+        flex: 2;
     }
 
-    .news-principal-title {
+    .feed-card--principal .feed-card__content {
         display: flex;
         flex-wrap: nowrap;
         position: relative;
-        flex: 0 0 41.6667%;
+        flex: 1;
         margin-left: -12%;
         background: #ffffff;
         max-width: 295px;
@@ -1780,30 +1752,30 @@ button {
     }
 
     /* Personalizzazione specifica per Sports */
-    .section-sports .news-principal-title {
+    .section-sports .feed-card--principal .feed-card__content {
         padding: 24px 20px 65px 34px; /* <--- REGOLA IL PADDING DI SPORTS QUI */
     }
 
     /* Personalizzazione specifica per Galleries */
-    .section-galleries .news-principal-title {
+    .section-galleries .feed-card--principal .feed-card__content {
         padding: 24px 20px 65px 34px; /* <--- REGOLA IL PADDING DI GALLERIES QUI */
     }
 
     /* Personalizzazione specifica per Travel */
-    .section-travel .news-principal-title {
+    .section-travel .feed-card--principal .feed-card__content {
         padding: 24px 20px 30px 34px; /* <--- REGOLA IL PADDING DI TRAVEL QUI */
     }
 
     /* Personalizzazione specifica per Opinion */
-    .section-opinion .news-principal-title {
+    .section-opinion .feed-card--principal .feed-card__content {
         padding: 24px 20px 30px 34px; /* <--- REGOLA IL PADDING DI OPINION QUI */
     }
 
 
 
-    .news-principal-title h1 {
+    .feed-card--principal .feed-card__title {
         font-family: "Unify Sans", Helvetica, Arial, sans-serif;
-        font-size: calc(20px + (28 - 20) * ((100vw - 320px) / (1200 - 320)));
+        font-size: clamp(1.25rem, 2vw + 1rem, 1.75rem);
         font-weight: 650;
         line-height: 1.15;
         color: #222222;
@@ -1816,22 +1788,34 @@ button {
     }
 
     @media (min-width: 1200px) {
-        .news-principal-title h1 {
+        .feed-card--principal .feed-card__title {
             font-size: 28px;
         }
     }
-    @media (min-width: 960px) and (max-width: 1199px) {
-        .news-principal-title h1 {
+    @media (min-width: 768px) and (max-width: 1199px) {
+        .feed-card--principal .feed-card__title {
             font-size: 22px;
         }
     }
-    @media(max-width: 500px) {
-        .news-secondary-title h1{
+    @media (max-width: 575.98px) {
+    .category-block__sub-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 16px;
+        padding-bottom: 8px; /* For scrollbar */
+        scroll-snap-type: x mandatory;
+    }
+    .category-block__sub-grid > * {
+        scroll-snap-align: start;
+        flex: 0 0 85%;
+    }
+
+        .category-block__card-title h3{
             font-size: calc(14px + 0.909091vw);
         }
     }
 
-    .news-principal-subtitle {
+    .feed-card--principal .feed-card__meta {
         flex-direction: row;
         display: flex;
         color: rgba(0, 0, 0, 0.6);
@@ -1841,80 +1825,58 @@ button {
         text-align: center;
     }
 
-    .news-principal-subtitle h2 {
-        font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1200 - 320)));
+    .feed-card--principal .feed-card__category {
+        font-size: clamp(0.75rem, 0.5vw + 0.5rem, 0.875rem);
         font-family: 'Unify Sans', Helvetica, Arial, sans-serif;
         font-weight: 600;
     }
 
-    .news-principal-subtitle h3 {
+    .feed-card--principal .feed-card__time {
         padding: 0 5px;
-        font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1200 - 320)));
+        font-size: clamp(0.75rem, 0.5vw + 0.5rem, 0.875rem);
         font-family: 'Unify Sans', Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #505050;
     }
 
-    .news-principal-subtitle h3:before {
+    .feed-card--principal .feed-card__time:before {
         padding-left: 3px;
         padding-right: 5px;
         padding-bottom: 1px;
         content: '|';
     }
 
-    .three-news {
-        display: flex;
+    .category-block__sub-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 8.5px;
-        justify-content: space-between;
-        padding: 0 16px;
-        flex-direction: row;
-        min-height: 233px;
         width: 100%;
-        margin-top: 10px; /* Ripristinato il distacco originale dall'immagine Hero */
+        margin-top: 10px;
         margin-bottom: 4px;
+        min-height: 233px;
+        padding: 0 16px;
     }
 
     @media (max-width: 1200px) {
-        .three-news {
-            display: flex;
-            position: relative;
-            padding: 0 16px;
-            flex-direction: row;
-        }
-
-        .three-news-two {
-            display: none;
-            position: relative;
-            padding: 0 16px;
-            flex-direction: row;
-        }
-    }
-
-    .three-news-two {
-        display: none;
-        gap: 8.5px; /* Uniformato a 8.5px come la prima riga */
-        justify-content: space-between;
-        padding: 0 16px;
-        flex-direction: row;
-        min-height: 233px;
+        .category-block__sub-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8.5px;
         width: 100%;
-        margin-top: 4px; 
+        margin-top: 10px;
         margin-bottom: 4px;
-    }
-
-    .three-news-three {
-        display: none;
-        gap: 8.5px; /* Uniformato a 8.5px come la prima riga */
-        justify-content: space-between;
-        padding: 0 16px;
-        flex-direction: row;
         min-height: 233px;
-        width: 100%;
-        margin-top: 4px;
-        margin-bottom: 4px;
+        padding: 0 16px;
     }
 
-    .news-secondary {
+        
+    }
+
+    
+
+    
+
+    .category-block__card {
         display: flex;
         flex: 1; /* Le card si dividono lo spazio in proporzioni uguali, il gap ora gestisce la distanza */
         min-width: 0; /* Previene debordamenti se il testo è lungo */
@@ -1925,36 +1887,34 @@ button {
         text-decoration: none;
     }
 
-    .news-secondary:hover {
-        .news-secondary-title h1 {
-            text-decoration: underline;
-            text-decoration-color: #009BFF;
-            text-underline-offset: 2px;
-            text-decoration-thickness: 3px;
-        }
+    .category-block__card:hover .category-block__card-title h3 {
+        text-decoration: underline;
+        text-decoration-color: #009BFF;
+        text-underline-offset: 2px;
+        text-decoration-thickness: 3px;
     }
 
-    .news-secondary img {
+    .category-block__card img {
         width: 100%;
     }
 
     @media (max-width: 1200px) {
-        .news-secondary img {
+        .category-block__card img {
             width: 100%;
         }
     }
 
-    .news-secondary-title {
+    .category-block__card-title {
         text-align: start;
         width: auto;
         height: 100%;
         padding: 16px 16px;
     }
 
-    .news-secondary-title h1 {
+    .category-block__card-title h3 {
         color: rgba(0, 0, 0, .87);
         font-family: 'Unify Sans', Helvetica, Arial, sans-serif;
-        font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1200 - 320)));
+        font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
         font-weight: 600;
         /* Limitazione a 3 righe con puntini di sospensione (standard + webkit) */
         display: -webkit-box;
@@ -1963,6 +1923,7 @@ button {
         -webkit-box-orient: vertical;
         overflow: hidden;
         line-height: 1.3;
+        margin: 0;
     }
 
     .show-more {
@@ -1977,400 +1938,12 @@ button {
         flex-direction: column;
     }
 
-    .three-news-two,
-    .three-news-three,
-    .show-more-click:nth-of-type(2),
-    .show-more-click:nth-of-type(3) {
+    /* Gestione dinamica dei bottoni Show More tramite JS */
+    .news-extra {
         display: none;
     }
 
-    /*primo blocco news*/
-
-    #toggle-news-1:checked ~ .three-news-two {
-        display: flex;
-    }
-
-    #toggle-news-1:checked ~ label[for="toggle-news-2"] {
-        display: flex;
-    }
-
-    #toggle-news-1:checked ~ label[for="toggle-news-1"] {
-        display: none;
-    }
-
-    #toggle-news-2:checked ~ .three-news-three {
-        display: flex;
-    }
-
-    #toggle-news-2:checked ~ label[for="toggle-news-2"] {
-        display: none;
-    }
-
-    #toggle-news-2:checked ~ label[for="toggle-reset-1"] {
-        display: flex;
-    }
-
-    #toggle-reset-1:checked ~ .three-news-two,
-    #toggle-reset-1:checked ~ .three-news-three {
-        display: none;
-    }
-
-    #toggle-reset-1:checked ~ label[for="toggle-reset-1"] {
-        display: none;
-    }
-
-    #toggle-reset-1:checked ~ label[for="toggle-news-1"] {
-        display: flex;
-    }
-
-    /* secondo box sports*/
-
-    #toggle-news-3:checked ~ .three-news-two {
-        display: flex;
-    }
-
-    #toggle-news-3:checked ~ label[for="toggle-news-4"] {
-        display: flex;
-    }
-
-    #toggle-news-3:checked ~ label[for="toggle-news-3"] {
-        display: none;
-    }
-
-    #toggle-news-4:checked ~ .three-news-three {
-        display: flex;
-    }
-
-    #toggle-news-4:checked ~ label[for="toggle-news-4"] {
-        display: none;
-    }
-
-    #toggle-news-4:checked ~ label[for="toggle-reset-2"] {
-        display: flex;
-    }
-
-    #toggle-reset-2:checked ~ .three-news-two,
-    #toggle-reset-2:checked ~ .three-news-three {
-        display: none;
-    }
-
-    #toggle-reset-2:checked ~ label[for="toggle-reset-2"] {
-        display: none;
-    }
-
-    #toggle-reset-2:checked ~ label[for="toggle-news-3"] {
-        display: flex;
-    }
-
-    /*terzo box entertainment*/
-
-    #toggle-news-5:checked ~ .three-news-two {
-        display: flex;
-    }
-
-    #toggle-news-5:checked ~ label[for="toggle-news-6"] {
-        display: flex;
-    }
-
-    #toggle-news-5:checked ~ label[for="toggle-news-5"] {
-        display: none;
-    }
-
-    #toggle-news-6:checked ~ .three-news-three {
-        display: flex;
-    }
-
-    #toggle-news-6:checked ~ label[for="toggle-news-6"] {
-        display: none;
-    }
-
-    #toggle-news-6:checked ~ label[for="toggle-reset-3"] {
-        display: flex;
-    }
-
-    #toggle-reset-3:checked ~ .three-news-two,
-    #toggle-reset-3:checked ~ .three-news-three {
-        display: none;
-    }
-
-    #toggle-reset-3:checked ~ label[for="toggle-reset-3"] {
-        display: none;
-    }
-
-    #toggle-reset-3:checked ~ label[for="toggle-news-5"] {
-        display: flex;
-    }
-
-    /* quarto box life*/
-
-    #toggle-news-7:checked ~ .three-news-two {
-        display: flex;
-    }
-
-    #toggle-news-7:checked ~ label[for="toggle-news-8"] {
-        display: flex;
-    }
-
-    #toggle-news-7:checked ~ label[for="toggle-news-7"] {
-        display: none;
-    }
-
-    #toggle-news-8:checked ~ .three-news-three {
-        display: flex;
-    }
-
-    #toggle-news-8:checked ~ label[for="toggle-news-8"] {
-        display: none;
-    }
-
-    #toggle-news-8:checked ~ label[for="toggle-reset-4"] {
-        display: flex;
-    }
-
-    #toggle-reset-4:checked ~ .three-news-two,
-    #toggle-reset-4:checked ~ .three-news-three {
-        display: none;
-    }
-
-    #toggle-reset-4:checked ~ label[for="toggle-reset-4"] {
-        display: none;
-    }
-
-    #toggle-reset-4:checked ~ label[for="toggle-news-7"] {
-        display: flex;
-    }
-
-    /* quinto box money*/
-
-    #toggle-news-9:checked ~ .three-news-two {
-        display: flex;
-    }
-
-    #toggle-news-9:checked ~ label[for="toggle-news-10"] {
-        display: flex;
-    }
-
-    #toggle-news-9:checked ~ label[for="toggle-news-9"] {
-        display: none;
-    }
-
-    #toggle-news-10:checked ~ .three-news-three {
-        display: flex;
-    }
-
-    #toggle-news-10:checked ~ label[for="toggle-news-10"] {
-        display: none;
-    }
-
-    #toggle-news-10:checked ~ label[for="toggle-reset-5"] {
-        display: flex;
-    }
-
-    #toggle-reset-5:checked ~ .three-news-two,
-    #toggle-reset-5:checked ~ .three-news-three {
-        display: none;
-    }
-
-    #toggle-reset-5:checked ~ label[for="toggle-reset-5"] {
-        display: none;
-    }
-
-    #toggle-reset-5:checked ~ label[for="toggle-news-9"] {
-        display: flex;
-    }
-
-    /* sesto box tech*/
-
-    #toggle-news-11:checked ~ .three-news-two {
-        display: flex;
-    }
-
-    #toggle-news-11:checked ~ label[for="toggle-news-12"] {
-        display: flex;
-    }
-
-    #toggle-news-11:checked ~ label[for="toggle-news-11"] {
-        display: none;
-    }
-
-    #toggle-news-12:checked ~ .three-news-three {
-        display: flex;
-    }
-
-    #toggle-news-12:checked ~ label[for="toggle-news-12"] {
-        display: none;
-    }
-
-    #toggle-news-12:checked ~ label[for="toggle-reset-6"] {
-        display: flex;
-    }
-
-    #toggle-reset-6:checked ~ .three-news-two,
-    #toggle-reset-6:checked ~ .three-news-three {
-        display: none;
-    }
-
-    #toggle-reset-6:checked ~ label[for="toggle-reset-6"] {
-        display: none;
-    }
-
-    #toggle-reset-6:checked ~ label[for="toggle-news-11"] {
-        display: flex;
-    }
-
-    /* settimo box travel*/
-
-    #toggle-news-13:checked ~ .three-news-two {
-        display: flex;
-    }
-
-    #toggle-news-13:checked ~ label[for="toggle-news-14"] {
-        display: flex;
-    }
-
-    #toggle-news-13:checked ~ label[for="toggle-news-13"] {
-        display: none;
-    }
-
-    #toggle-news-14:checked ~ .three-news-three {
-        display: flex;
-    }
-
-    #toggle-news-14:checked ~ label[for="toggle-news-14"] {
-        display: none;
-    }
-
-    #toggle-news-14:checked ~ label[for="toggle-reset-7"] {
-        display: flex;
-    }
-
-    #toggle-reset-7:checked ~ .three-news-two,
-    #toggle-reset-7:checked ~ .three-news-three {
-        display: none;
-    }
-
-    #toggle-reset-7:checked ~ label[for="toggle-reset-7"] {
-        display: none;
-    }
-
-    #toggle-reset-7:checked ~ label[for="toggle-news-13"] {
-        display: flex;
-    }
-
-    /* ottavo box opinion*/
-
-    #toggle-news-15:checked ~ .three-news-two {
-        display: flex;
-    }
-
-    #toggle-news-15:checked ~ label[for="toggle-news-16"] {
-        display: flex;
-    }
-
-    #toggle-news-15:checked ~ label[for="toggle-news-15"] {
-        display: none;
-    }
-
-    #toggle-news-16:checked ~ .three-news-three {
-        display: flex;
-    }
-
-    #toggle-news-16:checked ~ label[for="toggle-news-16"] {
-        display: none;
-    }
-
-    #toggle-news-16:checked ~ label[for="toggle-reset-8"] {
-        display: flex;
-    }
-
-    #toggle-reset-8:checked ~ .three-news-two,
-    #toggle-reset-8:checked ~ .three-news-three {
-        display: none;
-    }
-
-    #toggle-reset-8:checked ~ label[for="toggle-reset-8"] {
-        display: none;
-    }
-
-    #toggle-reset-8:checked ~ label[for="toggle-news-15"] {
-        display: flex;
-    }
-
-    /* nono box most recent videos*/
-
-    #toggle-news-17:checked ~ .three-news-two {
-        display: flex;
-    }
-
-    #toggle-news-17:checked ~ label[for="toggle-news-18"] {
-        display: flex;
-    }
-
-    #toggle-news-17:checked ~ label[for="toggle-news-17"] {
-        display: none;
-    }
-
-    #toggle-news-18:checked ~ .three-news-three {
-        display: flex;
-    }
-
-    #toggle-news-18:checked ~ label[for="toggle-news-18"] {
-        display: none;
-    }
-
-    #toggle-news-18:checked ~ label[for="toggle-reset-9"] {
-        display: flex;
-    }
-
-    #toggle-reset-9:checked ~ .three-news-two,
-    #toggle-reset-9:checked ~ .three-news-three {
-        display: none;
-    }
-
-    #toggle-reset-9:checked ~ label[for="toggle-reset-9"] {
-        display: none;
-    }
-
-    #toggle-reset-9:checked ~ label[for="toggle-news-17"] {
-        display: flex;
-    }
-
-    /* decimo box most recent articles*/
-
-    #toggle-news-19:checked ~ .three-news-two {
-        display: flex;
-    }
-
-    #toggle-news-19:checked ~ label[for="toggle-news-20"] {
-        display: flex;
-    }
-
-    #toggle-news-19:checked ~ label[for="toggle-news-19"] {
-        display: none;
-    }
-
-    #toggle-news-20:checked ~ .three-news-three {
-        display: flex;
-    }
-
-    #toggle-news-20:checked ~ label[for="toggle-news-20"] {
-        display: none;
-    }
-
-    #toggle-news-20:checked ~ label[for="toggle-reset-10"] {
-        display: flex;
-    }
-
-    #toggle-reset-10:checked ~ .three-news-two,
-    #toggle-reset-10:checked ~ .three-news-three {
-        display: none;
-    }
-
-    #toggle-reset-10:checked ~ label[for="toggle-reset-10"] {
-        display: none;
-    }
-
-    #toggle-reset-10:checked ~ label[for="toggle-news-19"] {
+    .news-extra--visible {
         display: flex;
     }
 
@@ -2381,6 +1954,9 @@ button {
         display: flex;
         margin-top: 12px;
         flex-direction: row;
+        background: transparent;
+        border: none;
+        padding: 0;
     }
 
     .title {
@@ -2468,7 +2044,7 @@ button {
     margin-bottom: 20px; /* Spazio bianco sotto "Show more" */
   }
   
-  .notice-container-type {
+  .category-block__header {
     padding-top: 7px; /* Diminuisce lo spazio grigio sopra le parole delle categorie */
   }
   
