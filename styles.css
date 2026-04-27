@@ -766,7 +766,6 @@ button {
   padding-top: 0;
   padding-right: 15px;
   padding-bottom: 94px;
-  margin-bottom: 15.5px;
   padding-left: 15px; /* Padding mobile */
   width: 100%;
   
@@ -793,6 +792,8 @@ button {
   .top-stories {
     padding-left: 63px;
     padding-right: var(--spacing-sm);
+    margin-bottom: 17px;
+    padding-bottom: 73px;
   }
 
   .top-stories__grid {
@@ -1016,7 +1017,7 @@ button {
 }
 
 .feedback-card {
-  padding: 10px 0;
+  padding: 12.5px 0;
 }
 
 .cta-box {
@@ -1029,7 +1030,7 @@ button {
   max-width: 292px;
   background-color: white;
   font-family: 'Inter', Helvetica, Arial, sans-serif;
-  font-size: 15.3px;
+  font-size: 16.55px;
   color: #222;
   text-decoration: none;
 }
@@ -1552,7 +1553,6 @@ button {
 .footer {
   padding: 40px 24px var(--spacing-lg);
   background-color: #f8f8f8;
-  margin-top: -21px;
   position: relative;
   z-index: 100;
 }
@@ -1573,16 +1573,16 @@ button {
 
 .footer__nav-item:not(:last-child)::after {
   content: '\00B7';
-  margin: 0 10px;
+  margin: 0 8px;
   color: var(--color-text-main);
   font-weight: bold;
   font-size: 1.1rem;
 }
 
 .footer__nav-item a {
-  font-family: 'unify sans', Helvetica, Arial, sans-serif;
-  font-size: 15.8px;
-  font-weight: 500;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 16.4px;
+  font-weight: 400;
   color: #333;
 }
 
@@ -1605,17 +1605,6 @@ button {
   background-color: #bdbdbd;
 }
 
-.footer__nav-item--privacy {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.footer__privacy-icon {
-  flex-shrink: 0;
-  vertical-align: middle;
-}
-
 .footer__socials {
   display: flex;
   align-items: center;
@@ -1623,32 +1612,17 @@ button {
   margin-bottom: var(--spacing-md);
 }
 
-.footer__social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  transition: opacity var(--transition-speed);
-}
-
 .footer__social-link:hover,
 .footer__social-link:focus {
   opacity: 0.7;
 }
 
-.footer__social-link--facebook  { color: #1877f2; }
-.footer__social-link--x         { color: #000;    }
-.footer__social-link--snapchat  { color: #f7c600; }
-.footer__social-link--instagram { color: #e4405f; }
-.footer__social-link--linkedin  { color: #0a66c2; }
-.footer__social-link--pinterest { color: #bd081c; }
 
 .footer__copy {
-  font-family: var(--font-primary);
-  font-size: 0.8rem;
-  color: var(--color-text-main);
-  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333
 }
 /* ACADEMIC REQUIREMENT: Utility per elementi invisibili ma leggibili dai Screen Reader (WAVE compliant) */
 .visually-hidden {
@@ -1947,7 +1921,7 @@ button {
         margin: 0; /* Rimossa la margin per evitare disallineamenti laterali */
         width: auto;
         flex-direction: column;
-        box-shadow: -2px 0 3px -2px rgba(0, 0, 0, 0.15), 2px 0 3px -1px rgba(0, 0, 0, 0.15);
+        box-shadow: -1px 0 0 rgba(0, 0, 0, 0.1), 1px 0 0 rgba(0, 0, 0, 0.1); 
         text-decoration: none;
     }
 
@@ -1998,7 +1972,7 @@ button {
         justify-content: center;
         height: auto;
         width: 100%;
-        margin: 0 0 25px 0;
+        margin: 0 0 7px 0;
         padding: 0; /* Rimosso il padding che creava il distacco eccessivo */
         flex-direction: column;
     }
@@ -2471,6 +2445,7 @@ button {
         color: rgba(0, 0, 0, .87);
         text-decoration: none;
         font-size: 14px;
+        font-weight: 500;
     }
 
     .company-ad a:hover {
@@ -2482,4 +2457,29 @@ button {
     .ad-space-line {
         border: 1px solid #e0e0e0;
     }
+
+/* --- Regolazioni Responsive Extra --- */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .top-stories {
+    margin-bottom: 20px; /* Crea lo stacco grigio sotto la prima sezione del sito */
+  }
+
+  .show-more {
+    margin-bottom: 20px; /* Spazio bianco sotto "Show more" */
+  }
+  
+  .notice-container-type {
+    padding-top: 7px; /* Diminuisce lo spazio grigio sopra le parole delle categorie */
+  }
+  
+  .list-feed {
+    margin-bottom: 20px; /* Uniformato a .show-more per avere lo stesso spazio sopra tutte le categorie */
+    padding-bottom: 12px; /* Aggiunto spazio bianco interno sotto l'ultima notizia */
+  }
+  
+  .footer {
+    padding-top: 0px;
+    margin-top: -30px; /* Margine negativo per far salire il footer e "mangiare" il vuoto extra */
+  }
+}
 

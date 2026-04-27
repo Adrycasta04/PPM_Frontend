@@ -12,9 +12,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ====================================================================
-       Mobile Navigation: Hamburger Menu
-       ==================================================================== */
-    /* ====================================================================
        Mobile Navigation
        ==================================================================== */
     const hamburger = document.querySelector('[data-js="hamburger-btn"]');
@@ -76,40 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /* ====================================================================
-       Event Delegation: "Show More" Category Buttons
-       Single listener on <main>, intercepts all show-more clicks.
-       ==================================================================== */
-    const mainContent = document.querySelector('#main');
 
-    if (mainContent) {
-        mainContent.addEventListener('click', (e) => {
-            const showMoreBtn = e.target.closest('[data-js="show-more"]');
-            if (!showMoreBtn) return;
 
-            e.preventDefault();
-            const category = showMoreBtn.getAttribute('data-category');
-            const hiddenCards = document.querySelectorAll(
-                `[data-js="extra-card"][data-category="${category}"]`
-            );
-
-            const isExpanded = showMoreBtn.getAttribute('aria-expanded') === 'true';
-
-            hiddenCards.forEach(card => {
-                card.style.display = isExpanded ? 'none' : '';
-            });
-
-            showMoreBtn.setAttribute('aria-expanded', String(!isExpanded));
-            const label = showMoreBtn.querySelector('[data-js="show-more-label"]');
-            if (label) {
-                label.textContent = isExpanded ? 'Show more' : 'Show less';
-            }
-        });
-    }
-
-    /* ====================================================================
-       Keyboard: Close mobile nav with Escape key
-       ==================================================================== */
     /* ====================================================================
        ACADEMIC REQUIREMENT: Logica custom per la sparizione della Scritta "Advertisement"
        (Disaccoppiata tramite Data-JS Attributes & Element Arrays)
