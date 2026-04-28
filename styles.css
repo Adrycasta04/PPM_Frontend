@@ -96,13 +96,15 @@ button {
 
 @media (min-width: 1200px) {
   .header__top-bar {
-    padding: 0 40px; /* Padding originale per desktop */
+    padding: 0 38.5px; /* Padding originale per desktop */
   }
 }
 
 .header__menu-btn {
   padding: var(--spacing-xs);
   flex-shrink: 0;
+  position: relative; /* Per spostarlo di precisione */
+  left: 2.5px;          /* Lo spostamento che desideri */
 }
 
 .header__menu-icon {
@@ -116,6 +118,8 @@ button {
 
 .header__logo {
   flex-shrink: 0;
+  position: relative;
+  left: 2.75px; /* Lo sposti dove vuoi, l'hamburger e la nav non si muoveranno */
 }
 
 .header__logo-link {
@@ -146,7 +150,7 @@ button {
   font-size: 0.81rem;     
   font-weight: 800;       
   line-height: 0.95;      
-  letter-spacing: 0.1px; 
+  letter-spacing: 0px; 
   text-transform: uppercase;
 }
 
@@ -179,7 +183,7 @@ button {
 @media (min-width: 1200px) {
   .header__nav {
     display: block; /* La mostro solo su Desktop */
-    margin-left: 45px; 
+    margin-left: 44.2px; 
   }
 
   .header__nav-list {
@@ -762,7 +766,7 @@ button {
 
 @media (min-width: 1200px) {
   .top-stories {
-    padding-left: 63px;
+    padding-left: 60px;
     padding-right: var(--spacing-sm);
     margin-bottom: 17px;
     padding-bottom: 73px;
@@ -801,10 +805,10 @@ button {
 }
 
 .hero-card__title {
-  font-family: var(--font-primary); /* Torniamo al Sans-Serif! */
-  font-weight: 650; /* Bello spesso, come l'originale */
-  font-size: 1.25rem; /* Più piccolo su mobile */
-  line-height: 1.3;
+  font-family: 'Inter'; /* Torniamo al Sans-Serif! */
+  font-weight: 700; /* Bello spesso, come l'originale */
+  font-size: 1.4rem; /* Più piccolo su mobile */
+  line-height: 1.25; /* questo è fondamentale per lo spazio tra le righe */
   letter-spacing: 0px;
   color: #353232;
   transition: color 0.2s ease;
@@ -814,8 +818,8 @@ button {
 .hero-card__title:hover {
   text-decoration: underline;
   text-decoration-color: #009bff; /* Blu USA Today */
-  text-underline-offset: 4px;
-  text-decoration-thickness: 3px;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2.2px;
 }
 
 .hero-card__excerpt {
@@ -856,19 +860,20 @@ button {
 }
 
 .story-card__title {
-  font-family: 'unify sans', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   font-weight: 800;
   font-size: 0.97rem;
   line-height: 1.2;
-  letter-spacing: -0.4px;
+  letter-spacing: 0.1px;
   transition: color 0.2s ease;
+  word-spacing: 0rem;
 }
 
 .story-card__title:hover {
   text-decoration: underline;
   text-decoration-color: #009bff;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 1.5px;
   cursor: pointer;
 }
 
@@ -911,17 +916,18 @@ button {
   font-family: 'Inter', sans-serif;
   font-size: 1rem; /*Gandezza testo*/
   font-weight: 700;   /* Più spessi */
-  line-height: 1.2;
+  line-height: 1.25;
   color: #222;
   transition: color 0.2s ease;
   max-width: 255px; 
+  word-spacing: 0.8px;
 }
 
 .text-card__title:hover {
   text-decoration: underline;
-  text-decoration-color: #009bff;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+  text-decoration-color: #00a2ff;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 1.5px;
   cursor: pointer;
 }
 
@@ -930,7 +936,7 @@ button {
 .featured-sub-card__meta,
 .sports-hero__meta,
 .sports-strip__meta {
-  font-family: var(--font-primary);
+  font-family: 'Montserrat', sans-serif;
   font-size: 0.90rem; /* Meta leggermente più grandi */
   color: #666;
   font-weight: 400;
@@ -993,24 +999,26 @@ button {
 }
 
 .cta-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 8px solid #009BFF;
-  padding: 24px;
-  position: relative;
-  max-width: 292px;
+  display: flex; /* questo funziona così: il box viene flexbox quindi centrerà il contenuto al meglio */
+  align-items: center; 
+  justify-content: space-between; 
+  border: 8px solid #009BFF; /*questo funziona così: la linea ha lo spessore di 8px*/
+  padding: 22.5px 24px; /* questo funziona così: sopra e sotto, destra e sinistra */
+  position: relative; 
+  max-width: 292px; /*Larghezzabox*/
   background-color: white;
   font-family: 'Inter', Helvetica, Arial, sans-serif;
-  font-size: 16.55px;
+  font-size: 12.5px;
   color: #222;
   text-decoration: none;
 }
 
-.cta-box h3 {
+.cta-box h2 {
   font-weight: 800;
-  line-height: 1.45;
+  line-height: 28px; /* Spazio tra le righe del titolo */
   margin: 0;
+  word-spacing: 2px;
+  letter-spacing: 0.21px;
 }
 
 .cta-box .emphasis {
@@ -1062,8 +1070,8 @@ button {
   padding: 0; /* Rimosso il padding per ottimizzare lo spazio superiore */
   display: flex;
   flex-direction: column;
-  margin-bottom: 22px;
-  padding-bottom: 25px; /* Aumenta questo valore per avere più bianco in fondo */
+  margin-bottom: 0px;
+  padding-bottom: 25.5px; /* Aumenta questo valore per avere più bianco in fondo */
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
@@ -1116,7 +1124,7 @@ button {
 
 .feed-card__title {
     font-size: 21px;
-    font-family: "Unify Sans", Helvetica, Arial, sans-serif;
+    font-family: "Inter", Helvetica, Arial, sans-serif;
     font-weight: 675;
     line-height: 1.4;
     color: rgba(0, 0, 0, .87);
@@ -1127,7 +1135,7 @@ button {
     text-decoration: underline;
     text-decoration-color: #009BFF;
     text-underline-offset: 2px;
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: 2px;
 }
 
 .feed-card__meta {
@@ -1138,8 +1146,8 @@ button {
 }
 
 .feed-card__category {
-    font-size: 14px;
-    font-family: 'Inter', Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
     font-weight: 700;
     color: rgba(0, 0, 0, .6);
     margin: 0;
@@ -1147,9 +1155,9 @@ button {
 
 .feed-card__time {
     padding: 0 5px;
-    font-size: 14px;
-    font-family: 'Inter', Helvetica, Arial, sans-serif;
-    font-weight: 300;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    font-weight: 400;
     color: #505050;
     margin: 0;
 }
@@ -1198,7 +1206,7 @@ button {
   text-transform: none; /* USA Today usa lowercase/capitalise, non uppercase */
   font-size: 1.6rem;
   color: #000;
-  border-top: 1px solid var(--color-border);
+  border-top: none;
   padding-top: 12px;
   margin-bottom: 16px;
   letter-spacing: -0.5px;
@@ -1938,13 +1946,25 @@ button {
         flex-direction: column;
     }
 
-    /* Gestione dinamica dei bottoni Show More tramite JS */
+    @keyframes curtainReveal {
+        from {
+            opacity: 0;
+            clip-path: inset(0 0 100% 0);
+        }
+        to {
+            opacity: 1;
+            clip-path: inset(0 0 0 0);
+        }
+    }
+
     .news-extra {
         display: none;
+        overflow: hidden;
     }
 
     .news-extra--visible {
-        display: flex;
+        display: grid;
+        animation: curtainReveal 0.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
 
     .show-more-click {
@@ -1952,6 +1972,7 @@ button {
         width: auto;
         cursor: pointer;
         display: flex;
+        align-items: center; /* Allineamento verticale */
         margin-top: 12px;
         flex-direction: row;
         background: transparent;
@@ -1959,21 +1980,35 @@ button {
         padding: 0;
     }
 
+    .show-more-click.is-disabled {
+        cursor: default;
+        pointer-events: none;
+    }
+
+    .show-more-click.is-disabled .title,
+    .show-more-click.is-disabled .title2 {
+        color: #707070 !important; /* Grigio più scuro per miglior contrasto */
+    }
+
+    .show-more-click.is-disabled .more {
+        display: none;
+    }
+
     .title {
         color: #626262;
-        font-family: 'Unify Sans', Helvetica, sans-serif;
+        font-family: 'Unify Sans', Helvetica, Arial, sans-serif;
         font-size: 16px;
         font-weight: 500;
+        line-height: 1;
     }
 
     .title2 {
-        align-items: center;
         color: #303030;
-        display: flex;
         font-weight: 600;
-        font-family: 'Unify Sans', Helvetica, sans-serif;
+        font-family: 'Montserrat', Helvetica, sans-serif;
         font-size: 16px;
         padding-left: 5px;
+        line-height: 1;
     }
 
     .more {

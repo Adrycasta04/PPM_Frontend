@@ -93,29 +93,33 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mainContent) {
         mainContent.addEventListener('click', (e) => {
             const showMoreBtn = e.target.closest('[data-js="show-more-btn"]');
-            if (!showMoreBtn) return;
+            if (!showMoreBtn || showMoreBtn.classList.contains('is-disabled')) return;
 
             const categoryBlock = showMoreBtn.closest('[data-js="category-block"]');
             if (!categoryBlock) return;
 
-            const extraNews = categoryBlock.querySelectorAll('[data-js="extra-news"]');
+            // ACADEMIC REQUIREMENT: Rivelazione progressiva in due fasi
+            const hiddenBlocks = categoryBlock.querySelectorAll('.news-extra:not(.news-extra--visible)');
             
-            extraNews.forEach(newsBlock => {
-                newsBlock.classList.add('news-extra--visible');
-                // ACADEMIC REQUIREMENT: Comunica allo screen reader che il blocco è visibile
-                newsBlock.setAttribute('aria-hidden', 'false'); 
-            });
+            if (hiddenBlocks.length > 0) {
+                const blockToShow = hiddenBlocks[0];
+                
+                // Animazione e Accessibilità
+                blockToShow.classList.add('news-extra--visible');
+                blockToShow.setAttribute('aria-hidden', 'false');
 
-            // Focus management: Sposta il focus sul primo elemento svelato
-            if (extraNews.length > 0) {
-                const firstNewLink = extraNews[0].querySelector('a');
+                // Focus management: Sposta il focus sul primo elemento svelato per accessibilità
+                const firstNewLink = blockToShow.querySelector('a');
                 if (firstNewLink) {
-                    firstNewLink.focus();
+                    setTimeout(() => firstNewLink.focus(), 100); 
+                }
+
+                // Gestione stato finale (secondo scatto)
+                if (hiddenBlocks.length === 1) {
+                    showMoreBtn.classList.add('is-disabled');
+                    showMoreBtn.setAttribute('aria-expanded', 'true');
                 }
             }
-
-            // Nascondi il bottone (non serve aggiornare aria-expanded se sparisce)
-            showMoreBtn.style.display = 'none';
         });
     }
 
