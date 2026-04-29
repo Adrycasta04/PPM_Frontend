@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.requestAnimationFrame(() => {
                     const articleRect = seventhArticle.getBoundingClientRect();
                     
-                    const headerHeight = document.querySelector('.header')?.offsetHeight + 30 || 85;
+                    const headerHeight = document.querySelector('[data-js="header"]')?.offsetHeight + 30 || 85;
             if (articleRect.top <= headerHeight) {
                         const offset = articleRect.top - 85; 
                         sidebarAd.style.transform = `translateY(${offset}px)`;

@@ -211,34 +211,7 @@ button {
 /* ==========================================================================
    Mobile Nav (Sidebar) Component
    ========================================================================== */
-.mobile-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 500px;
-  max-width: 85%;
-  height: 100vh;
-  background-color: #fff;
-  z-index: 1000;
-  transform: translateX(-100%);
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.15);
-}
 
-.mobile-nav--open {
-  transform: translateX(0);
-}
-
-/* Header: Logo + Close */
-.mobile-nav__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 28px 16px 28px;
-}
 
 .mobile-nav__logo {
   display: flex;
@@ -272,97 +245,9 @@ button {
   text-transform: uppercase;
 }
 
-.mobile-nav__close-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  color: #333;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  transition: color 0.2s ease;
-}
 
-.mobile-nav__close-btn:hover {
-  color: #000;
-}
 
-/* Search Bar */
-.mobile-nav__search {
-  position: relative;
-  margin: 8px 28px 12px 28px;
-}
 
-.mobile-nav__search-input {
-  width: 100%;
-  padding: 12px 44px 12px 4px;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  color: #333;
-  background: transparent;
-  outline: none;
-  transition: border-color 0.2s ease;
-}
-
-.mobile-nav__search-input::placeholder {
-  color: #aaa;
-  font-weight: 400;
-}
-
-.mobile-nav__search-input:focus {
-  border-bottom-color: #009bff;
-}
-
-.mobile-nav__search-icon {
-  position: absolute;
-  right: 4px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-/* Menu Items */
-.mobile-nav__list {
-  padding: 8px 0 0 0;
-  overflow-y: auto;
-  flex: 1;
-}
-
-.mobile-nav__item {
-  border-bottom: none;
-}
-
-.mobile-nav__link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 28px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: #222;
-  text-decoration: none;
-  transition: background-color 0.15s ease;
-}
-
-.mobile-nav__link:hover {
-  background-color: #f5f5f5;
-}
-
-.mobile-nav__chevron {
-  color: #999;
-  flex-shrink: 0;
-  transition: transform 0.2s ease;
-}
-
-.mobile-nav__item--open .mobile-nav__chevron {
-  transform: rotate(90deg);
-}
 
 /* Overlay */
 #overlay {
@@ -385,7 +270,7 @@ button {
     height: 100%;
     width: 33.33333333%;
     width: 85%;
-  max-width: 400px;
+  max-width: 512px;
     background: #fff;
     z-index: 900;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
@@ -437,14 +322,14 @@ button {
 .search-box input {
     flex: 1;
     border: none;
-    border-bottom: 1px solid #000; /* La linea ora è solo sotto l'input */
+    border-bottom: 1px solid #999; /* La linea ora è solo sotto l'input */
     outline: none;
-    padding: 12px 0 16px 12px; /* Ridotto lo spazio "tab" da 24px a 12px */
+    padding: 12px 0 19px 12px; /* Ridotto lo spazio "tab" da 24px a 12px */
     font-size: 1rem;
     font-family: 'Inter', sans-serif;
     background: transparent;
     transition: background-color 0.2s;
-    margin-right: 10px; /* Spazio tra la linea e la lente */
+    margin-right: 0px; /* Spazio tra la linea e la lente */
 }
 
 .search-box input:hover {
@@ -455,6 +340,7 @@ button {
     display: flex;
     align-items: center;
     cursor: pointer;
+     transform: translateY(-5.5px); /* I numeri negativi (es. -4, -8) alzano l'icona */
 }
 
 .search-btn svg {
@@ -535,7 +421,7 @@ button {
     text-decoration: none;
     color: #111;
     font-size: 1.15rem; /* Aumentato per maggiore impatto visivo */
-    font-weight: 700;
+    font-weight: 750;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.15;
     transition: transform 0.3s ease;
@@ -546,7 +432,7 @@ button {
 }
 
 .menu svg {
-    fill: #999;
+    fill: #666;
 }
 
 /* Submenu Panel */
@@ -612,8 +498,8 @@ button {
 }
 
 .recent-stories h4 {
-    font-size: 0.8rem;
-    font-weight: 900;
+    font-size: 0.83rem;
+    font-weight: 750;
     color: rgba(0,0,0,0.7);
     letter-spacing: 1px;
     margin-bottom: 16px;
@@ -631,15 +517,14 @@ button {
 }
 
 .recent-story h5 {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: #111;
-    margin-bottom: 4px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .recent-story p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #666;
     line-height: 1.4;
     font-family: 'Georgia', serif;
@@ -769,11 +654,11 @@ button {
     padding-left: 60px;
     padding-right: var(--spacing-sm);
     margin-bottom: 17px;
-    padding-bottom: 73px;
+    padding-bottom: 78px;
   }
 
   .top-stories__grid {
-    grid-template-columns: 1.3fr 0.96fr 1.05fr;
+    grid-template-columns: 1.29fr 0.955fr 1.05fr;
     gap: var(--spacing-md);
   }
 }
@@ -880,10 +765,10 @@ button {
 .story-card--overlap .story-card__content {
   background-color: var(--color-bg-main);
   padding: 15px 20px 0 0; /* <--- 20px sopra, 20px a destra, 0 sotto, 0 sinistra */
-  margin-top: -25px;
+  margin-top: -22.5px;
   position: relative;
   z-index: 10;
-  width: 92%;
+  width: 91.5%;
 }
 
 /* Tertiary Text List */
@@ -914,7 +799,7 @@ button {
 
 .text-card__title {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem; /*Gandezza testo*/
+  font-size: 0.97rem; /*Gandezza testo*/
   font-weight: 700;   /* Più spessi */
   line-height: 1.25;
   color: #222;
@@ -937,9 +822,9 @@ button {
 .sports-hero__meta,
 .sports-strip__meta {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.90rem; /* Meta leggermente più grandi */
+  font-size: 0.85rem; /* Meta leggermente più grandi */
   color: #666;
-  font-weight: 400;
+  font-weight: 550;
   margin-top: 6px;
 }
 
@@ -948,32 +833,9 @@ button {
 .featured-sub-card__category,
 .sports-hero__category {
   color: #626262; /* Grigio USA Today, non nero */
-  font-weight: 700;
+  font-weight: 750;
 }
 
-/* ==========================================================================
-   Ad Banner
-   ========================================================================== */
-.ad-banner {
-  text-align: center;
-  background: var(--color-bg-alt);
-  padding: var(--spacing-md) 0;
-  margin: var(--spacing-lg) 0;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.ad-banner__label {
-  font-size: 0.7rem;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 6px;
-}
-
-.ad-banner__image {
-  margin: 0 auto;
-}
 
 /* ==========================================================================
    Sidebar
@@ -1045,14 +907,14 @@ button {
 .sidebar-ad {
   text-align: center; /* Centra la scritta Advertisement */
   position: sticky;
-  top: 85px; /* Si blocca sotto l'header (che è alto circa 55px + pading) */
+  top: 68px; /* Si blocca sotto l'header (che è alto circa 55px + pading) */
   /* Rimossa transizione per permettere allo script JS di traslarla istantaneamente senza lag */
 }
 
 .sidebar-ad__label {
-  font-family: "unify sans", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 400;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
   color: #c2c2c2; /* Grigio originale USA Today */
   text-align: center;
   display: block;
@@ -1124,9 +986,9 @@ button {
 
 .feed-card__title {
     font-size: 21px;
-    font-family: "Inter", Helvetica, Arial, sans-serif;
-    font-weight: 675;
-    line-height: 1.4;
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.15;
     color: rgba(0, 0, 0, .87);
     margin: 0;
 }
@@ -1146,18 +1008,18 @@ button {
 }
 
 .feed-card__category {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-    font-weight: 700;
+    font-weight: 750;
     color: rgba(0, 0, 0, .6);
     margin: 0;
 }
 
 .feed-card__time {
     padding: 0 5px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-    font-weight: 400;
+    font-weight: 550;
     color: #505050;
     margin: 0;
 }
@@ -1545,6 +1407,7 @@ button {
   align-items: center;
   gap: 4px 0;
   margin-bottom: var(--spacing-md);
+  padding-left: 1.75px;
 }
 
 .footer__nav-item {
@@ -1555,17 +1418,17 @@ button {
 
 .footer__nav-item:not(:last-child)::after {
   content: '\00B7';
-  margin: 0 8px;
+  margin: 0 7px;
   color: var(--color-text-main);
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 0.75rem;
 }
 
 .footer__nav-item a {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  font-size: 16.4px;
-  font-weight: 400;
-  color: #333;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-size: 15.5px;
+  font-weight: 550;
+  color: #444;
 }
 
 .footer__nav-item a:hover,
@@ -1601,9 +1464,9 @@ button {
 
 
 .footer__copy {
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13.5px;
+  font-weight: 550;
   color: #333
 }
 /* ACADEMIC REQUIREMENT: Utility per elementi invisibili ma leggibili dai Screen Reader (WAVE compliant) */
@@ -1667,15 +1530,16 @@ button {
         cursor: pointer;
         text-decoration: none;
         border-bottom: none;
+        padding-right: 22px;
     }
 
     .category-block__title {
         display: flex;
         align-items: center; /* allinea il testo e la barretta verticalmente */
         font-size: 19px;
-        font-family: "Unify Sans", Helvetica, Arial, sans-serif;
+        font-family: "Montserrat", Helvetica, Arial, sans-serif;
         color: #222222;
-        font-weight: 900;
+        font-weight: 750;
         height: 24px;
     }
 
@@ -1686,6 +1550,7 @@ button {
         margin-right: 12px;
         justify-content: center;
         background: #009bff;
+        transform: translateY(0.9px);
     }
 
     .category-block--sports .category-block__title::before {
@@ -1721,13 +1586,17 @@ button {
         flex-direction: row;
         align-items: start;
         text-decoration: none;
+        top: -16px;   /* Numeri negativi (es. -10px) spostano verso l'ALTO */
+        left: -10px;  /* Numeri negativi (es. -15px) spostano verso SINISTRA */
+        margin: 0 !important; 
+        padding: 0 !important;
     }
 
     .feed-card--principal:hover .feed-card__title {
         text-decoration: underline;
         text-decoration-color: #009BFF;
         text-underline-offset: 2px;
-        text-decoration-thickness: 3px;
+        text-decoration-thickness: 2.8px;
     }
 
     .feed-card--principal .feed-card__image-wrapper {
@@ -1779,12 +1648,10 @@ button {
         padding: 24px 20px 30px 34px; /* <--- REGOLA IL PADDING DI OPINION QUI */
     }
 
-
-
     .feed-card--principal .feed-card__title {
-        font-family: "Unify Sans", Helvetica, Arial, sans-serif;
+        font-family: "Montserrat", Helvetica, Arial, sans-serif;
         font-size: clamp(1.25rem, 2vw + 1rem, 1.75rem);
-        font-weight: 650;
+        font-weight: 700;
         line-height: 1.15;
         color: #222222;
         /* Limitazione a 4 righe per i titoli grandi */
@@ -1823,27 +1690,27 @@ button {
         }
     }
 
-    .feed-card--principal .feed-card__meta {
+    .feed-card--principal .feed-card__meta { 
         flex-direction: row;
         display: flex;
-        color: rgba(0, 0, 0, 0.6);
-        font-family: "Unify Sans", Helvetica, Arial, sans-serif;
-        margin-top: 8px;
+        color: #00000099;
+        font-family: "Montserrat", Helvetica, Arial, sans-serif;
+        margin-top: 10.5px;
         align-items: center;
         text-align: center;
     }
 
     .feed-card--principal .feed-card__category {
-        font-size: clamp(0.75rem, 0.5vw + 0.5rem, 0.875rem);
-        font-family: 'Unify Sans', Helvetica, Arial, sans-serif;
-        font-weight: 600;
+        font-size: clamp(0.75rem, 0.5vw + 0.5rem, 0.85rem);
+        font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+        font-weight: 700;
     }
 
     .feed-card--principal .feed-card__time {
         padding: 0 5px;
-        font-size: clamp(0.75rem, 0.5vw + 0.5rem, 0.875rem);
-        font-family: 'Unify Sans', Helvetica, Arial, sans-serif;
-        font-weight: 400;
+        font-size: clamp(0.75rem, 0.5vw + 0.5rem, 0.85rem);
+        font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+        font-weight: 500;
         color: #505050;
     }
 
@@ -1862,7 +1729,7 @@ button {
         margin-top: 10px;
         margin-bottom: 4px;
         min-height: 233px;
-        padding: 0 16px;
+        padding: 0 12px;
     }
 
     @media (max-width: 1200px) {
@@ -1880,9 +1747,6 @@ button {
         
     }
 
-    
-
-    
 
     .category-block__card {
         display: flex;
@@ -1899,7 +1763,7 @@ button {
         text-decoration: underline;
         text-decoration-color: #009BFF;
         text-underline-offset: 2px;
-        text-decoration-thickness: 3px;
+        text-decoration-thickness: 2px;
     }
 
     .category-block__card img {
@@ -1921,9 +1785,9 @@ button {
 
     .category-block__card-title h3 {
         color: rgba(0, 0, 0, .87);
-        font-family: 'Unify Sans', Helvetica, Arial, sans-serif;
+        font-family: 'Montserrat', Helvetica, Arial, sans-serif;
         font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
-        font-weight: 600;
+        font-weight: 725;
         /* Limitazione a 3 righe con puntini di sospensione (standard + webkit) */
         display: -webkit-box;
         -webkit-line-clamp: 3;
@@ -1996,24 +1860,25 @@ button {
 
     .title {
         color: #626262;
-        font-family: 'Unify Sans', Helvetica, Arial, sans-serif;
-        font-size: 16px;
-        font-weight: 500;
+        font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+        font-size: clamp(0.65rem, 0.5vw + 0.8rem, 0.9rem);
+        font-weight: 550;
         line-height: 1;
     }
 
     .title2 {
         color: #303030;
-        font-weight: 600;
+        font-weight: 700;
         font-family: 'Montserrat', Helvetica, sans-serif;
-        font-size: 16px;
+        font-size: clamp(0.65rem, 0.5vw + 0.8rem, 0.9rem);
         padding-left: 5px;
         line-height: 1;
     }
 
     .more {
-        height: 24px;
+        height: 28px;
         width: 24px;
+        transform: translateY(-3.25px);
     }
 
     .ad {
