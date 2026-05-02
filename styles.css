@@ -1,9 +1,7 @@
-/* ==========================================================================
-   CSS Variables & Configuration
-   ========================================================================== */
+﻿
 
 :root {
-  /* Color Palette - Basata su USA Today Brand Identity */
+  
   --color-primary: #009bff;
   --color-text-main: #231f20;
   --color-text-muted: #666666;
@@ -12,12 +10,12 @@
   --color-border: #e0e0e0;
   --color-overlay: rgba(0, 0, 0, 0.5);
 
-  /* Typography - Inter come font principale per una leggibilità moderna */
+  
   --font-primary: 'Inter', sans-serif;
   --font-headline: 'Inter', sans-serif;
   --font-serif: 'Georgia', 'Times New Roman', serif;
 
-  /* Layout & Spacing */
+  
   --max-width: 1200px;
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -28,114 +26,108 @@
   --transition-speed: 0.3s;
 }
 
-/* ==========================================================================
-   CSS Reset & Base Styles
-   ========================================================================== */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  /* Include padding e border nel calcolo della larghezza degli elementi */
+  
   margin: 0;
-  /* Reset universale dei margini */
+  
   padding: 0;
-  /* Reset universale dei padding */
+  
 }
 
 body {
   font-family: var(--font-primary);
-  /* Applica il font Inter come principale */
+  
   color: var(--color-text-main);
-  /* Colore del testo principale */
+  
   background-color: #f8f8f8;
-  /* Sfondo grigio chiaro per far risaltare i moduli bianchi (USA Today style) */
+  
   line-height: 1.6;
-  /* Migliora la leggibilità del testo */
+  
   overflow-x: hidden;
-  /* Impedisce lo scroll orizzontale indesiderato */
+  
 }
 
 img,
 picture {
   max-width: 100%;
-  /* Immagini responsive che non superano mai la larghezza del contenitore */
+  
   display: block;
-  /* Rimuove lo spazio bianco extra sotto le immagini inline */
+  
   height: auto;
-  /* Mantiene le proporzioni originali durante il ridimensionamento */
+  
 }
 
-/* ACADEMIC REQUIREMENT: Metodologia BEM (Block, Element, Modifier). 
-   Impedisce le cascate non controllate, tenendo disaccoppiato UI e logica. */
+
 
 a {
   color: inherit;
-  /* Eredita il colore dal genitore (evita il classico blu dei link) */
+  
   text-decoration: none;
-  /* Rimuove la sottolineatura di default */
+  
 }
 
 ul {
   list-style: none;
-  /* Rimuove i pallini dalle liste (gestione manuale via CSS) */
+  
 }
 
 button {
   cursor: pointer;
-  /* Mostra la "manina" al passaggio del mouse sui pulsanti */
+  
   border: none;
-  /* Rimuove il bordo di default dei browser */
+  
   background: transparent;
-  /* Rimuove lo sfondo di default dei browser */
+  
 }
 
-/* ==========================================================================
-   HEADER COMPONENT
-   Implementa la barra di navigazione principale e la logica di branding.
-   ========================================================================== */
+
 
 .header {
-  /* Contenitore principale dell'header, fisso in alto durante lo scroll */
+  
   border-bottom: 1px solid var(--color-border);
-  /* è quella sottile linea grigia che vedi proprio sotto l'header */
+  
   background: #ffffff;
-  /* Sfondo bianco */
+  
   position: sticky;
-  /* Insieme a top: 0 mantiene l'header fisso in cima */
+  
   top: 0;
-  /* Mantiene l'header fisso in cima */
+  
   z-index: 50;
-  /* Mantiene l'header sopra il contenuto */
+  
 }
 
 .header__top-bar {
-  /* Barra superiore dell'header */
+  
   display: flex;
-  /* Dispone gli elementi in linea (menu, logo, ricerca) */
+  
   align-items: center;
-  /* Allinea verticalmente gli elementi */
+  
   height: 3.4375rem;
-  /* Dato esatto: 3.4375rem */
+  
   padding: 0 0.9375rem;
-  /* Padding ridotto per mobile */
+  
   gap: 0.25rem;
-  /* Spazio tra gli elementi */
+  
 }
 
 .header__menu-btn {
-  /* Pulsante Hamburger per aprire il menu laterale */
+  
   padding: var(--spacing-xs);
-  /* Serve a rendere il pulsante più facile da cliccare con il dito (specialmente su smartphone). */
+  
   flex-shrink: 0;
-  /* Impedisce all'hamburger di ridimensionarsi */
+  
   position: relative;
-  /* Per spostarlo di precisione */
+  
   left: 0.1rem;
-  /* Lo spostamento che desideri */
+  
 }
 
 .header__menu-icon {
-  /* Icona del menu, SVG nero */
+  
   display: block;
   width: 1.5rem;
   height: 1.5rem;
@@ -143,78 +135,75 @@ button {
 }
 
 .header__logo {
-  /* Contenitore del logo: flex-shrink: 0 evita che il brand venga schiacciato da altri elementi */
+  
   flex-shrink: 0;
   position: relative;
   left: 0.1719rem;
-  /* Micro-posizionamento per allineare il logo esattamente come nell'originale */
+  
 }
 
 .header__logo-link {
-  /* Unisce cerchio e testo: il flexbox assicura l'allineamento orizzontale */
+  
   display: flex;
-  /* Allinea il cerchio e il testo sulla stessa riga */
+  
   align-items: center;
-  /* Centra verticalmente il cerchio rispetto alle scritte */
+  
   gap: 0.2rem;
-  /* Distanza millimetrica tra il cerchio e il testo */
+  
 }
 
 .header__logo-circle {
-  /* L'iconico pallino blu di USA TODAY */
+  
   display: block;
-  /* Rende l'elemento un blocco solido */
+  
   width: 1.76rem;
-  /* Diametro orizzontale esatto */
+  
   height: 1.76rem;
-  /* Diametro verticale esatto per garantire la forma circolare */
+  
   background-color: #009bff;
-  /* Il blu istituzionale del brand */
+  
   border-radius: 50%;
-  /* Arrotonda i bordi al massimo per creare un cerchio perfetto */
+  
   flex-shrink: 0;
-  /* Impedisce al cerchio di deformarsi se lo spazio diminuisce */
+  
 
 }
 
 .header__logo-text {
-  /* Gestisce la pila verticale delle scritte "USA" e "TODAY" */
+  
   display: flex;
-  /* Usa flexbox per gestire la disposizione interna */
+  
   flex-direction: column;
-  /* Dispone "USA" sopra "TODAY" in colonna */
+  
   justify-content: center;
-  /* Centra il blocco di testo verticalmente */
+  
   font-family: 'Inter', sans-serif;
-  /* Font istituzionale */
+  
   color: #353535ea;
-  /* Grigio scuro per le scritte del logo */
+  
 }
 
 .header__logo-usa,
 .header__logo-today {
-  /* Tipografia del logo */
+  
   font-size: 0.82rem;
-  /* Dimensione del carattere del brand */
+  
   font-weight: 875;
-  /* Spessore del font molto marcato (Bold) */
+  
   line-height: 0.95;
-  /* Riduce lo spazio tra le righe per compattare le parole */
+  
   text-transform: uppercase;
-  /* Forza il testo in maiuscolo */
+  
 }
 
 .header__nav {
-  /* Navigazione principale orizzontale */
+  
   display: none;
-  /* Nasconde la navigazione su mobile (default) */
+  
 }
 
 
-/* ==========================================================================
-   MOBILE NAVIGATION (SIDEBAR)
-   Menu a comparsa laterale ottimizzato per l'interazione touch.
-   ========================================================================== */
+
 
 .mobile-nav__logo {
   display: flex;
@@ -225,7 +214,7 @@ button {
 .mobile-nav__logo-circle {
   display: block;
   width: 2.5rem;
-  /* Ripristinato a 2.5rem */
+  
   height: 2.5rem;
   background-color: #009bff;
   border-radius: 50%;
@@ -243,14 +232,14 @@ button {
 .mobile-nav__logo-usa,
 .mobile-nav__logo-today {
   font-size: 1.11rem;
-  /* Ripristinato a 1.05rem */
+  
   font-weight: 900;
   line-height: 0.95;
   letter-spacing: 0.3px;
   text-transform: uppercase;
 }
 
-/* Overlay */
+
 #overlay {
   display: none;
   position: fixed;
@@ -263,7 +252,7 @@ button {
   z-index: 800;
 }
 
-/* Mobile Menu */
+
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -280,7 +269,7 @@ button {
   display: flex;
   flex-direction: column;
   overflow: visible;
-  /* Consentiamo la fuoriuscita laterale */
+  
 }
 
 .mobile-menu.open {
@@ -311,9 +300,9 @@ button {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
-  /* Aumentato spazio sotto il logo */
+  
   padding: 0;
-  /* Allineato perfettamente ai lati */
+  
 }
 
 .search-box {
@@ -331,16 +320,16 @@ button {
   min-width: 0;
   border: none;
   border-bottom: 1px solid #999;
-  /* La linea ora è solo sotto l'input */
+  
   outline: none;
   padding: 0.75rem 0 1.1875rem 0.75rem;
-  /* Ridotto lo spazio "tab" da 1.5rem a 0.75rem */
+  
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
   background: transparent;
   transition: background-color 0.2s;
   margin-right: 0px;
-  /* Spazio tra la linea e la lente */
+  
 }
 
 .search-box input:hover {
@@ -353,18 +342,18 @@ button {
   flex-shrink: 0;
   cursor: pointer;
   transform: translateY(-5.5px);
-  /* I numeri negativi (es. -4, -8) alzano l'icona */
+  
 }
 
 .search-btn svg {
   fill: #000;
-  /* Lente di ingrandimento nera */
+  
 }
 
 .scroll-menu-news {
   flex: 1;
   width: calc(100% + 2.5rem);
-  /* Larghezza extra per evitare tagli al sottomenu */
+  
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: none;
@@ -384,7 +373,7 @@ button {
 .container {
   width: 100%;
   padding-right: 2.5rem;
-  /* Compensa l'allargamento del contenitore padre */
+  
   overflow: visible;
 }
 
@@ -428,7 +417,7 @@ button {
   justify-content: space-between;
   align-items: center;
   padding: 0.6875rem 2.5rem;
-  /* Ridotto da 0.75rem a 0.5rem per avvicinare le parole */
+  
   cursor: pointer;
   transition: background-color 0.2s;
   z-index: 10;
@@ -438,7 +427,7 @@ button {
   text-decoration: none;
   color: #222;
   font-size: 1.12rem;
-  /* Aumentato per maggiore impatto visivo */
+  
   font-weight: 775;
   font-family: 'Inter', sans-serif;
   line-height: 1.15;
@@ -447,14 +436,14 @@ button {
 
 .main-menu-item:hover .menu a {
   transform: translateX(12px);
-  /* Effetto scorrimento all'hover */
+  
 }
 
 .menu svg {
   fill: #666;
 }
 
-/* Submenu Panel */
+
 .submenu {
   display: none;
   list-style: none;
@@ -477,10 +466,10 @@ button {
   font-weight: 800;
 }
 
-/* Recent Stories */
+
 .recent-stories {
   padding: 2rem 2.5rem;
-  /* Allineato ai 2.5rem delle categorie sopra */
+  
 }
 
 .recent-stories h4 {
@@ -516,7 +505,7 @@ button {
   font-family: 'Georgia', serif;
 }
 
-/* Layout split: sidebar + main feed */
+
 .layout-split {
   display: grid;
   grid-template-columns: 1fr;
@@ -524,28 +513,25 @@ button {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 0.9375rem var(--spacing-xl);
-  /* Padding mobile di base */
+  
   width: 100%;
 }
 
 
-/* ==========================================================================
-   TOP STORIES SECTION (HERO & SECONDARY)
-   Griglia principale del sito con articoli semantici e picture tags.
-   ========================================================================== */
+
 .top-stories {
   background-color: #fff;
-  /* Fondo bianco per la parte superiore */
+  
   max-width: var(--max-width);
   margin: 0 auto;
   padding-top: 0;
   padding-right: 0.9375rem;
   padding-bottom: 5.875rem;
   padding-left: 0.9375rem;
-  /* Padding mobile */
+  
   width: 100%;
 
-  /* Copre il grigio del body nella parte alta */
+  
   box-shadow: 0 0 0 100vmax #ffffff;
   clip-path: inset(0 -100vmax);
   position: relative;
@@ -558,7 +544,7 @@ button {
   gap: var(--spacing-md);
 }
 
-/* Hero Card */
+
 .hero-card {
   display: flex;
   flex-direction: column;
@@ -579,21 +565,21 @@ button {
   background-color: var(--color-bg-main);
   padding: 1.125rem 1.125rem 0 0;
   margin-top: -2.1875rem;
-  /* Deeper overlap into the image */
+  
   position: relative;
   z-index: 10;
   width: 92.5%;
-  /* Wider cutout */
+  
 }
 
 .hero-card__title {
   font-family: 'Montserrat';
   font-weight: 700;
-  /* Bello spesso, come l'originale */
+  
   font-size: 1.3rem;
-  /* Più piccolo su mobile */
+  
   line-height: 1.25;
-  /* questo è fondamentale per lo spazio tra le righe */
+  
   letter-spacing: 0px;
   color: #353232;
   transition: color 0.2s ease;
@@ -603,7 +589,7 @@ button {
 .hero-card__title:hover {
   text-decoration: underline;
   text-decoration-color: #009bff;
-  /* Blu USA Today */
+  
   text-underline-offset: 2px;
   text-decoration-thickness: 2.2px;
 }
@@ -616,19 +602,19 @@ button {
   color: #333;
 }
 
-/* Secondary Story Cards */
+
 .top-stories__secondary {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
   margin-left: 1rem;
-  /* <--- 1. SPINGE L'INIZIO VERSO "MONEY" */
+  
   margin-right: 2.1875rem;
-  /* <--- 2. TIRA LA FINE VERSO "CROSSWORD" (Opzionale) */
+  
 }
 
 .story-card {
-  /* Card per le notizie secondarie (con sovrapposizione testo/foto) */
+  
   display: flex;
   flex-direction: column;
 }
@@ -640,7 +626,7 @@ button {
 
 .story-card__image {
   width: 100%;
-  /*aspect-ratio: 16/9;*/
+  
   object-fit: cover;
 }
 
@@ -669,29 +655,29 @@ button {
 .story-card--overlap .story-card__content {
   background-color: var(--color-bg-main);
   padding: 0.9375rem 1.25rem 0 0;
-  /* <--- 1.25rem sopra, 1.25rem a destra, 0 sotto, 0 sinistra */
+  
   margin-top: -1.4062rem;
   position: relative;
   z-index: 10;
   width: 91.5%;
 }
 
-/* Tertiary Text List */
+
 .top-stories__tertiary {
   display: none;
-  /* Nascosto su Mobile e Tablet */
+  
   flex-direction: column;
   gap: 2.1875rem;
-  /* Spazio maggiore tra le notizie */
+  
   border-top: 1px solid #eee;
 }
 
 .text-card {
-  /* Notizia solo testuale (Tertiary Story) */
+  
   padding-bottom: 0;
-  /* Rimosso padding */
+  
   border-bottom: none;
-  /* Nessuna linea orizzontale */
+  
 }
 
 .text-card:last-child {
@@ -701,9 +687,9 @@ button {
 .text-card__title {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.95rem;
-  /*Gandezza testo*/
+  
   font-weight: 625;
-  /* Più spessi */
+  
   line-height: 1.25;
   color: #000000;
   transition: color 0.2s ease;
@@ -722,7 +708,7 @@ button {
 .text-card__meta {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.85rem;
-  /* Meta leggermente più grandi */
+  
   color: #666;
   font-weight: 550;
   margin-top: 0.375rem;
@@ -730,26 +716,24 @@ button {
 
 .text-card__category {
   color: #626262;
-  /* Grigio USA Today, non nero */
+  
   font-weight: 750;
 }
 
 
-/* ==========================================================================
-   Sidebar
-   ========================================================================== */
+
 .sidebar-left {
   display: none;
-  /* Nascosto su Mobile e Tablet */
+  
   flex-direction: column;
   align-items: center;
-  /* Centra orizzontalmente i box 'Inter'ni */
+  
   gap: var(--spacing-md);
   background-color: transparent;
-  /* Trasparente perché lo sfondo è gestito dal padre */
+  
   padding: 1rem;
   height: 100%;
-  /* Forza il riempimento dell'altezza della riga */
+  
 }
 
 .feedback-card {
@@ -758,16 +742,16 @@ button {
 
 .cta-box {
   display: flex;
-  /* questo funziona così: il box viene flexbox quindi centrerà il contenuto al meglio */
+  
   align-items: center;
   justify-content: space-between;
   border: 8px solid #009BFF;
-  /*questo funziona così: la linea ha lo spessore di 8px*/
+  
   padding: 1.4062rem 1.5rem;
-  /* questo funziona così: sopra e sotto, destra e sinistra */
+  
   position: relative;
   max-width: 18.25rem;
-  /*Larghezzabox*/
+  
   background-color: white;
   font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-size: 0.7812rem;
@@ -778,7 +762,7 @@ button {
 .cta-box h2 {
   font-weight: 900;
   line-height: 27.7px;
-  /* Spazio tra le righe del titolo */
+  
   margin: 0;
   word-spacing: 2px;
   letter-spacing: 0.21px;
@@ -786,10 +770,10 @@ button {
 
 .cta-box .emphasis {
   color: #0070c9;
-  /* Solo la prima parte in blu */
+  
 }
 
-/* Il quadratino che taglia la cornice */
+
 .cta-icon-box {
   background: #009BFF;
   display: flex;
@@ -804,16 +788,16 @@ button {
   border-top: 8px solid #fff;
   z-index: 1;
   padding-bottom: 0.25rem;
-  /* Aumenta questo numero per spingerla più in alto */
+  
 }
 
 .sidebar-ad {
   text-align: center;
-  /* Centra la scritta Advertisement */
+  
   position: sticky;
   top: 4.25rem;
-  /* Si blocca sotto l'header (che è alto circa 3.4375rem + pading) */
-  /* Rimossa transizione per permettere allo script JS di traslarla istantaneamente senza lag */
+  
+  
 }
 
 .sidebar-ad__label {
@@ -821,11 +805,11 @@ button {
   font-size: 0.75rem;
   font-weight: 500;
   color: #666666;
-  /* Grigio originale USA Today */
+  
   text-align: center;
   display: block;
   margin-top: 0.625rem;
-  /* Distanza bilanciata dal box sopra */
+  
 }
 
 .feed-section {
@@ -837,23 +821,21 @@ button {
 .list-feed {
   background-color: #fff;
   padding: 0;
-  /* Rimosso il padding per ottimizzare lo spazio superiore */
+  
   display: flex;
   flex-direction: column;
   margin-bottom: 0px;
   padding-bottom: 1.5938rem;
-  /* Aumenta questo valore per avere più bianco in fondo */
+  
 }
 
-/* ==========================================================================
-   Feed Card (Sostituisce .story, .news-principal, ecc.)
-   ========================================================================== */
+
 .feed-card {
   display: flex;
   flex-direction: row;
   width: auto;
   margin: 0.75rem 3.6875rem;
-  /* Spaziature standard USA Today */
+  
   text-decoration: none;
   border-bottom: none;
   align-items: flex-start;
@@ -862,11 +844,11 @@ button {
 .feed-card__content {
   display: flex;
   flex-basis: 100%;
-  /* Il testo occupa tutto lo spazio disponibile */
+  
   height: auto;
   flex-direction: column;
   padding: 0 0.625rem 0 0;
-  /* Spazio ridotto verso la foto */
+  
   overflow: hidden;
 }
 
@@ -890,7 +872,7 @@ button {
   display: flex;
   flex-direction: row;
   margin-top: 0.25rem;
-  /* Valore esatto ispezionato */
+  
   align-items: center;
 }
 
@@ -920,24 +902,21 @@ button {
 
 .feed-card__image-wrapper {
   flex-basis: 11.6875rem;
-  /* Larghezza fissa del placeholder originale */
+  
   flex-shrink: 0;
-  /* Impedisce rimpicciolimenti */
+  
   height: auto;
 }
 
 .feed-card__image {
   padding: 0 0 0 0.625rem;
-  /* Spazio a sinistra dell'immagine */
+  
   height: auto;
   width: 100%;
   display: block;
 }
 
-/* ==========================================================================
-   FOOTER COMPONENT
-   Contiene i link istituzionali, i social e il copyright.
-   ========================================================================== */
+
 .footer {
   padding: 2.5rem 1.5rem var(--spacing-lg);
   background-color: #f8f8f8;
@@ -1010,7 +989,7 @@ button {
   color: #333
 }
 
-/* ACADEMIC REQUIREMENT: Utility per elementi invisibili ma leggibili dai Screen Reader (WAVE compliant) */
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -1023,7 +1002,7 @@ button {
   border: 0;
 }
 
-/* ACADEMIC REQUIREMENT: Skip Link che appare solo al Focus o resta nascosto (Accessibilità Gold) */
+
 .skip {
   position: absolute;
   top: -6.25rem;
@@ -1041,7 +1020,7 @@ button {
 
 .skip:focus {
   top: 0;
-  /* Appare se l'utente usa la tastiera */
+  
 }
 
 .block-notices {
@@ -1054,28 +1033,28 @@ button {
 
 .news {
   background: #ffffff;
-  /* Il bianco sarà solo per le vere schede/card */
+  
   padding: 0;
-  /* Rimosso completamente il padding */
+  
   display: flex;
   flex-direction: column;
 }
 
 .category-block__header {
   background: #f8f8f8;
-  /* Ripristina il grigio dello sfondo */
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
   height: auto;
-  /* Allow natural height instead of rigid 5rem */
+  
   width: 100%;
   padding-top: 1.5625rem;
-  /* Spazio grigio SOPRA la parola (es. Sports) */
+  
   padding-bottom: 0.9375rem;
-  /* Spazio grigio SOTTO la parola, prima dell'immagine */
+  
   cursor: pointer;
   text-decoration: none;
   border-bottom: none;
@@ -1085,7 +1064,7 @@ button {
 .category-block__title {
   display: flex;
   align-items: center;
-  /* allinea il testo e la barretta verticalmente */
+  
   font-size: 1.1875rem;
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
   color: #222222;
@@ -1137,7 +1116,7 @@ button {
   align-items: start;
   text-decoration: none;
   left: -0.625rem;
-  /* Numeri negativi (es. -0.9375rem) spostano verso SINISTRA */
+  
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -1155,7 +1134,7 @@ button {
   height: auto;
   flex-direction: column;
   padding: 0;
-  /* Rimuove il padding destro e inferiore sull'immagine principale per farla "uscire" al bordo */
+  
   overflow: hidden;
 }
 
@@ -1179,28 +1158,28 @@ button {
   flex-direction: column;
 }
 
-/* Personalizzazione specifica per Sports */
+
 .section-sports .feed-card--principal .feed-card__content {
   padding: 1.5rem 1.25rem 4.0625rem 2.125rem;
-  /* <--- REGOLA IL PADDING DI SPORTS QUI */
+  
 }
 
-/* Personalizzazione specifica per Galleries */
+
 .section-galleries .feed-card--principal .feed-card__content {
   padding: 1.5rem 1.25rem 4.0625rem 2.125rem;
-  /* <--- REGOLA IL PADDING DI GALLERIES QUI */
+  
 }
 
-/* Personalizzazione specifica per Travel */
+
 .section-travel .feed-card--principal .feed-card__content {
   padding: 1.5rem 1.25rem 1.875rem 2.125rem;
-  /* <--- REGOLA IL PADDING DI TRAVEL QUI */
+  
 }
 
-/* Personalizzazione specifica per Opinion */
+
 .section-opinion .feed-card--principal .feed-card__content {
   padding: 1.5rem 1.25rem 1.875rem 2.125rem;
-  /* <--- REGOLA IL PADDING DI OPINION QUI */
+  
 }
 
 .feed-card--principal .feed-card__title {
@@ -1209,7 +1188,7 @@ button {
   font-weight: 700;
   line-height: 1.15;
   color: #222222;
-  /* Limitazione a 4 righe per i titoli grandi */
+  
   display: -webkit-box;
   -webkit-line-clamp: 4;
   line-clamp: 4;
@@ -1262,11 +1241,11 @@ button {
 .category-block__card {
   display: flex;
   flex: 1;
-  /* Le card si dividono lo spazio in proporzioni uguali, il gap ora gestisce la distanza */
+  
   min-width: 0;
-  /* Previene debordamenti se il testo è lungo */
+  
   margin: 0;
-  /* Rimossa la margin per evitare disallineamenti laterali */
+  
   width: auto;
   flex-direction: column;
   box-shadow: -1px 0 0 rgba(0, 0, 0, 0.1), 1px 0 0 rgba(0, 0, 0, 0.1);
@@ -1296,7 +1275,7 @@ button {
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
   font-weight: 725;
-  /* Limitazione a 3 righe con puntini di sospensione (standard + webkit) */
+  
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
@@ -1315,7 +1294,7 @@ button {
   width: 100%;
   margin: 0 0 0.4375rem 0;
   padding: 0;
-  /* Rimosso il padding che creava il distacco eccessivo */
+  
   flex-direction: column;
 }
 
@@ -1347,7 +1326,7 @@ button {
   cursor: pointer;
   display: flex;
   align-items: center;
-  /* Allineamento verticale */
+  
   margin-top: 0.75rem;
   flex-direction: row;
   background: transparent;
@@ -1363,7 +1342,7 @@ button {
 .show-more-click.is-disabled .title,
 .show-more-click.is-disabled .title2 {
   color: #707070 !important;
-  /* Grigio più scuro per miglior contrasto */
+  
 }
 
 .show-more-click.is-disabled .more {
@@ -1413,12 +1392,9 @@ button {
 
 
 
-/* ==========================================================================
-   GROUPED MEDIA QUERIES (RESPONSIVE ARCHITECTURE)
-   In questa sezione sono raggruppati tutti i breakpoint ufficiali del brief.
-   ========================================================================== */
 
-/* 1. MOBILE ONLY OVERRIDES (Max 639px) */
+
+
 @media (max-width: 639.98px) {
   html {
     max-width: 100vw;
@@ -1484,18 +1460,18 @@ button {
     margin: 0.75rem 1.5rem;
   }
 
-  /* 1. Nasconde i link del menù superiore */
+  
   .header__nav {
     display: none;
-    /* Rende invisibile la barra dei link (Home, U.S., etc.) */
+    
   }
 
-  /* 2. Regola l'Hero principale (Top Section) */
+  
   .hero-card {
     display: flex;
-    /* Attiva il layout flessibile */
+    
     flex-direction: column;
-    /* Impila gli elementi in verticale (immagine sopra, testo sotto) */
+    
     width: 100%;
     margin: 0 !important;
     padding: 0 !important;
@@ -1508,33 +1484,33 @@ button {
 
   .hero-card__image {
     aspect-ratio: 16 / 11;
-    /* Definisce il rapporto tra larghezza e altezza dell'immagine fluido */
+    
     width: 100%;
-    /* Forza l'immagine a occupare tutta la larghezza */
+    
     height: auto;
     object-fit: cover;
   }
 
   .hero-card__content {
-    background-color: #fff;/* Fondo bianco per il box del testo */
-    margin-top: -12%;/* Sovrapposizione proporzionale e dinamica con l'immagine */
-    margin-left: 0;/* Attacca il box bianco al bordo sinistro dello schermo */
-    width: 92%; /* Lascia una sottile striscia di immagine visibile a destra, come nell'originale */
-    padding: 1.25rem 1rem 0 0.9375rem; /* Padding interno per allineare il testo al logo e dare respiro a destra */
-    box-sizing: border-box; /* Assicura che il padding sia incluso nel 92% */
-    position: relative;/* Necessario per la sovrapposizione */
-    z-index: 2;/* Sopra l'immagine */
+    background-color: #fff;
+    margin-top: -12%;
+    margin-left: 0;
+    width: 92%; 
+    padding: 1.25rem 1rem 0 0.9375rem; 
+    box-sizing: border-box; 
+    position: relative;
+    z-index: 2;
   }
 
- /* 4. Rimettiamo il padding alle notizie secondarie per non farle appiccicare ai bordi */
+ 
   .top-stories__secondary {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
-    margin-left: 0; /* Resetta eventuali margini precedenti */
+    margin-left: 0; 
     margin-right: 0;
   }
   
-  /* Facciamo lo stesso per le notizie terziarie (se presenti su mobile) */
+  
   .top-stories__tertiary {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
@@ -1543,107 +1519,107 @@ button {
 
   .hero-card__title {
     font-family: 'Montserrat', sans-serif;
-    /* Font senza grazie per il titolo */
+    
     font-size: 1.28rem;
-    /* Dimensione generosa per il titolo mobile */
+    
     font-weight: 750;
-    /* Grassetto molto marcato stile USA Today */
+    
     line-height: 1.2;
-    /* 'Inter'linea compatta per titoli su più righe */
+    
     margin-bottom: 0.75rem;
-    /* Distanza tra titolo e testo sottostante */
+    
     color: #222222e8;
-    /* Nero pieno per massima leggibilità */
+    
   }
 
   .hero-card__excerpt {
     font-family: 'Georgia', serif;
-    /* Font con grazie per l'estratto (classico USA Today) */
+    
     font-size: 0.9rem !important;
-    /* Dimensione leggibile per il corpo del testo */
+    
     line-height: 1.25;
-    /* 'Inter'linea ariosa per facilitare la lettura */
+    
     color: #333;
-    /* Grigio molto scuro, meno aggressivo del nero */
+    
   }
 
 
-  /* Spinge logo e X verso i bordi del menù laterale */
+  
   .mobile-header {
     padding-left: 2rem;
-    /* <--- Riducendo questo, il logo si sposta a sinistra */
+    
     padding-right: 2rem;
-    /* <--- Riducendo questo, la X si sposta a destra */
+    
   }
 
-  /* Aumenta lo spazio verticale tra il logo e la barra di ricerca */
+  
   .logo-search {
     margin-bottom: 2.5rem;
-    /* <--- Più alzi questo numero, più la ricerca scende */
+    
     font-family: 'Roboto';
     font-size: 0.7rem;
   }
 
-  /* Riduce la larghezza del menù laterale su tablet */
+  
   .mobile-menu {
     width: 65%;
     overflow-x: hidden;
-    /* <--- Abbassa questa percentuale per stringerlo */
+    
     max-width: 24.875rem;
-    /* <--- Imposta un limite massimo più stretto */
+    
   }
 
-  /* Ruota le frecce del menù laterale verso il basso */
+  
   .mobile-menu .menu svg {
     transform: rotate(90deg);
-    /* Ruota l'icona di 90 gradi */
+    
     transition: transform 0.3s ease;
-    /* Rende la rotazione fluida */
+    
     width: 1.0625rem;
-    /* <--- Imposta la larghezza (es. 1.125rem invece di 1.5rem) */
+    
     height: 1.0625rem;
-    /* <--- Imposta l'altezza (deve essere uguale alla larghezza) */
+    
     fill: #626262;
     stroke: currentColor;
-    /* Usa lo stesso colore del riempimento */
+    
     stroke-width: 0.5;
   }
 
   .mobile-menu .menu a {
     font-size: 1rem;
-    /* <--- Aumenta o diminuisci per la grandezza */
+    
     font-weight: 825;
-    /* <--- Rendi il testo più o meno "grassetto" */
+    
     font-family: 'Inter', sans-serif;
-    /* Font più moderno per i titoli */
+    
     color: #222;
-    /* Colore quasi nero */
+    
     letter-spacing: -0.2px;
-    /* Opzionale: stringe leggermente le lettere */
+    
   }
 
-  /* Spinge scritte e frecce verso i bordi del menù */
+  
   .mobile-menu .menu {
     padding-left: 2.0625rem;
-    /* <--- Diminuisci questo per spostare le scritte più a sinistra */
+    
     padding-right: 2.0625rem;
-    /* <--- Diminuisci questo per spostare la freccia più a destra */
+    
     display: flex;
     justify-content: space-between;
-    /* Assicura che si spingano ai lati opposti */
+    
   }
 
-  /* Titolo della sezione (MOST RECENT STORIES) */
+  
   .recent-stories h4 {
     font-size: 0.75rem;
-    /* Molto piccolo e tutto maiuscolo */
+    
     font-weight: 800;
     color: rgba(0, 0, 0, .73);
     letter-spacing: 1.2px;
     margin-bottom: 0.75rem;
   }
 
-  /* Titoli delle singole storie (es. "Lorem", "Ipsum") */
+  
   .recent-story h5 {
     font-size: 0.9rem;
     font-weight: 650;
@@ -1652,36 +1628,34 @@ button {
     margin-bottom: 0px;
   }
 
-  /* Testo descrittivo della storia */
+  
   .recent-story p {
     font-size: 0.95rem;
     color: #555;
     font-family: 'Georgia', serif;
-    /* Font graziato per un tocco "news" */
+    
     line-height: 1.4;
   }
 
-  /* Allinea il blocco delle storie recenti alle scritte del menù sopra */
+  
   .recent-stories {
     padding-left: 2.0625rem;
-    /* <--- Lo stesso valore che hai messo al menù sopra */
+    
     padding-right: 2.0625rem;
     margin-top: 0px;
-    /* Aggiunge un po' di spazio sopra la sezione */
+    
   }
 
   .recent-story {
     margin-bottom: 0.9375rem;
-    /* <--- Crea lo spazio vuoto tra la fine di una storia e l'inizio della successiva */
+    
     display: block;
-    /* Assicurati che sia un blocco per accettare il margine */
+    
   }
 
 }
 
-/* 1.1 MOBILE REPLICA SYSTEM (0-639px)
-   Reference split: 480-639 keeps the wider mobile composition, 0-479 switches
-   the leading category cards to the narrow mobile composition. */
+
 @media (max-width: 639.98px) {
   .header {
     position: fixed;
@@ -1697,7 +1671,7 @@ button {
   }
 
   .header__top-bar {
-    /* Dimensioni barra mobile allineate al riferimento originale */
+    
     height: 3.5rem;
     gap: 0.32rem;
     justify-content: flex-start;
@@ -1917,8 +1891,23 @@ button {
   }
 }
 
-/* 1.2 WIDE MOBILE (480-639px): top story and category lead stay side-by-side. */
+
 @media (min-width: 480px) and (max-width: 639.98px) {
+  :root {
+    
+    --list-edge-x: clamp(2.8rem, 7.2vw, 3.35rem);
+    --list-row-gap: 1rem;
+    --list-row-y: 0.9rem;
+    --list-thumb-w: clamp(10.25rem, 27vw, 11rem);
+    --cat-edge-x: 0.38rem;
+    --cat-principal-img-share: 66%;
+    --cat-principal-offset-x: -2.15rem;
+    --cat-principal-offset-y: 1.1rem;
+    --cat-principal-title: 1.02rem;
+    --cat-sub-gap: 0.36rem;
+    --cat-sub-title: 0.77rem;
+  }
+
   #main {
     padding-top: 3.5rem;
   }
@@ -1941,14 +1930,13 @@ button {
   }
 
   .top-stories__grid {
-    /* Hero excerpt attaccato al primo 300x168 */
+    
     gap: 0;
     row-gap: 0;
   }
 
   .top-stories__secondary {
-    /* Replica la stessa logica del box Hero:
-       allineamento a sinistra + fascia grigia solo a destra */
+    
     gap: 1.6rem;
     padding-left: 0;
     padding-right: 0;
@@ -1956,7 +1944,7 @@ button {
   }
 
   .top-stories__secondary .story-card {
-    /* Stessa larghezza utile del testo Hero excerpt */
+    
     width: calc(100% - 6.15rem);
     margin-left: 2.4rem;
   }
@@ -1964,7 +1952,7 @@ button {
   .story-card--overlap .story-card__content {
     width: calc(100% - 2.55rem);
     margin-top: -1.38rem;
-    /* <640: il testo sotto il placeholder parte dal suo bordo sinistro */
+    
     padding: 0.78rem 1rem 0.35rem 0;
   }
 
@@ -1975,17 +1963,51 @@ button {
   }
 
   .list-feed .feed-card {
-    padding-left: clamp(2.9rem, 9vw, 3.75rem);
-    padding-right: clamp(2.9rem, 9vw, 3.75rem);
+    padding-left: var(--list-edge-x);
+    padding-right: var(--list-edge-x);
+    gap: var(--list-row-gap);
+    padding-top: var(--list-row-y);
+    padding-bottom: var(--list-row-y);
+  }
+
+  .list-feed {
+    margin-top: 0.72rem;
+    padding-top: 0.42rem;
+  }
+
+  .list-feed .feed-card__content {
+    padding-right: 0.25rem;
   }
 
   .list-feed .feed-card__title {
-    font-size: 1.01rem;
+    font-size: 1.04rem;
+    line-height: 1.14;
+    font-weight: 760;
+  }
+
+  .list-feed .feed-card__meta {
+    margin-top: 0.3rem;
+  }
+
+  .list-feed .feed-card__category {
+    font-size: 0.76rem;
+    font-weight: 730;
+  }
+
+  .list-feed .feed-card__time {
+    font-size: 0.76rem;
+    font-weight: 500;
   }
 
   .list-feed .feed-card__image-wrapper {
-    flex: 0 0 9.65rem;
-    max-width: 9.65rem;
+    flex: 0 0 var(--list-thumb-w);
+    max-width: var(--list-thumb-w);
+  }
+
+  .list-feed .feed-card__image {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    padding: 0;
   }
 
   .feed-card--principal {
@@ -2020,12 +2042,100 @@ button {
   .feed-card--principal .feed-card__meta {
     margin-top: 0.45rem;
   }
+
+  
+  .block-notices .category-block__header {
+    margin-top: 0.38rem;
+    min-height: 3.35rem;
+    padding: 0 0.95rem 0 0;
+    background: #f7f7f7;
+  }
+
+  .block-notices .category-block__title {
+    font-size: 1.02rem;
+    font-weight: 760;
+  }
+
+  .block-notices .category-block__title::before {
+    width: 1.32rem;
+    min-width: 1.32rem;
+    height: 0.64rem;
+    margin-right: 0.58rem;
+  }
+
+  .block-notices .feed-card--principal {
+    left: 0;
+    align-items: flex-start;
+    margin: 0;
+    padding-left: var(--cat-edge-x);
+    padding-right: var(--cat-edge-x);
+  }
+
+  .block-notices .feed-card--principal .feed-card__image-wrapper {
+    flex: 0 0 var(--cat-principal-img-share);
+  }
+
+  .block-notices .feed-card--principal .feed-card__image {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .block-notices .feed-card--principal .feed-card__content {
+    margin-left: var(--cat-principal-offset-x);
+    margin-top: var(--cat-principal-offset-y);
+    padding: 1rem 0.95rem 0.52rem 1.15rem;
+    max-width: none;
+    background: #fff;
+  }
+
+  .block-notices .feed-card--principal .feed-card__title {
+    font-size: var(--cat-principal-title);
+    line-height: 1.14;
+    font-weight: 760;
+  }
+
+  .block-notices .feed-card--principal .feed-card__meta {
+    margin-top: 0.33rem;
+  }
+
+  .block-notices .feed-card--principal .feed-card__category,
+  .block-notices .feed-card--principal .feed-card__time {
+    font-size: 0.77rem;
+  }
+
+  .block-notices .category-block__sub-grid,
+  .block-notices .news-extra--visible {
+    gap: var(--cat-sub-gap);
+    margin-top: 0.25rem;
+    padding: 0 var(--cat-edge-x);
+  }
+
+  .block-notices .category-block__card-title {
+    padding: 0.7rem 0.62rem 0.9rem;
+  }
+
+  .block-notices .category-block__card-title h3 {
+    font-size: var(--cat-sub-title);
+    line-height: 1.2;
+    font-weight: 710;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
+
+  .block-notices .show-more {
+    padding: 1.12rem 0 1.22rem;
+  }
+
+  .block-notices .show-more-click .title,
+  .block-notices .show-more-click .title2 {
+    font-size: 0.7rem;
+  }
 }
 
-/* 1.3 NARROW MOBILE (0-479px): category lead becomes a stacked hero card. */
+
 @media (max-width: 479.98px) {
   :root {
-    /* Valori guida per regolare rapidamente la sezione Hero + 300x168 */
+    
     --hero-left: 2.4rem;
     --hero-width: calc(100% - 2.2rem);
     --secondary-width: calc(100% - 5.55rem);
@@ -2054,14 +2164,13 @@ button {
   }
 
   .top-stories__grid {
-    /* Hero excerpt attaccato al primo 300x168 */
+    
     gap: 0;
     row-gap: 0;
   }
 
   .top-stories__secondary {
-    /* I 300x168 devono avere la stessa impronta del box Hero:
-       allineati a sinistra, con fascia grigia solo a destra */
+    
     gap: 1.55rem;
     padding-left: 0;
     padding-right: 0;
@@ -2069,7 +2178,7 @@ button {
   }
 
   .top-stories__secondary .story-card {
-    /* Stessa impronta laterale del blocco Hero */
+    
     width: var(--secondary-width);
     margin-left: var(--hero-left);
   }
@@ -2145,7 +2254,7 @@ button {
 
 @media (max-width: 479.98px) {
   .list-feed .feed-card:first-child {
-    padding-top: 0rem;   /* abbassa da 0.72rem -> avvicina al bordo superiore */
+    padding-top: 0rem;   
   }
 }
 
@@ -2186,9 +2295,9 @@ button {
 
 @media (max-width: 359px) {
   :root {
-    --ph-left: 1.5rem;   /* dove inizia il placeholder */
-    --ph-w: calc(100% - 3.65rem); /* larghezza placeholder */
-    --ph-cut-right: 0.8rem; /* fascia grigia visibile a destra sotto l'immagine */
+    --ph-left: 1.5rem;   
+    --ph-w: calc(100% - 3.65rem); 
+    --ph-cut-right: 0.8rem; 
   }
   .header__top-bar {
     height: 4rem;
@@ -2221,7 +2330,7 @@ button {
     max-width: 100%;
   }
 
-  /* <359: allinea la parte Hero e allarga i 300x168 come nel riferimento */
+  
   .hero-card__content {
     width: var(--ph-w);
     margin-top: -2rem;
@@ -2252,7 +2361,7 @@ button {
   }
 
   .list-feed .feed-card__image-wrapper {
-    /* Da 359px in giu' inizia a ridursi in modo fluido */
+    
     flex: 0 0 clamp(3.1rem, 26vw, 5.8rem);
     max-width: clamp(3.1rem, 26vw, 5.8rem);
   }
@@ -2283,15 +2392,15 @@ button {
   }
 }
 
-/* 1.4 MOBILE MENU WIDTH + STACKING FIX */
+
 @media (max-width: 639.98px) {
-  /* Quando il pannello menu è aperto, l'header non deve restare sopra */
+  
   .mobile-menu.open + .header {
     visibility: hidden;
   }
 }
 
-/* <480px: il menu deve coprire tutta la larghezza */
+
 @media (max-width: 479.98px) {
   .mobile-menu {
     width: 100vw !important;
@@ -2304,7 +2413,7 @@ button {
   }
 }
 
-/* 480-639px: menu più stretto (regolabile) */
+
 @media (min-width: 480px) and (max-width: 639.98px) {
   :root {
     --menu-right-rail: 2rem;
@@ -2343,7 +2452,7 @@ button {
     padding-right: 2rem;
   }
 
-  /* Evita che la colonna destra extra spinga/cutti le frecce */
+  
   .scroll-menu-news,
   .container {
     width: 100%;
@@ -2356,8 +2465,7 @@ button {
 }
 
 
-/* 2. SHARED TABLET & DESKTOP LOGIC (Min 640px)
-   Logiche comuni a tutte le versioni superiori allo smartphone. */
+
 @media (min-width: 640px) {
   .main-menu-item:hover .submenu {
     display: block;
@@ -2372,21 +2480,21 @@ button {
     border-radius: 2px;
   }
 
-  /* Freccia di puntamento laterale (Triangolo bianco) */
+  
   .main-menu-item:hover .submenu::before {
     content: '';
     position: absolute;
     top: 1.2rem;
-    /* Allineato visivamente alla prima voce di menù */
+    
     left: -10px;
-    /* Posizionamento preciso sul bordo sinistro */
+    
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
     border-right: 10px solid #ffffff;
-    /* Colore identico allo sfondo del menù */
+    
   }
 
-  /* Stili tipografici universali per i link dell'header */
+  
   .header__nav-link {
     font-family: 'Inter', sans-serif;
     font-size: clamp(0.8rem, 1vw + 0.5rem, 0.855rem);
@@ -2407,7 +2515,7 @@ button {
 }
 
 
-/* 3. TABLET SPECIFIC OVERRIDES (640px - 958px) */
+
 @media (min-width: 640px) and (max-width: 958.98px) {
   .layout-split {
     padding-left: 0;
@@ -2418,27 +2526,27 @@ button {
     font-size: 1.375rem;
   }
 
-  /* Header & Navigation */
+  
 
-  /* Stile del logo USA TODAY specifico per Tablet */
+  
   .header__logo-usa,
   .header__logo-today {
     font-size: 0.8rem;
-    /* Aumentalo un po' se vuoi che sia più visibile */
+    
     font-weight: 875;
-    /* Un grassetto leggermente più deciso */
+    
     letter-spacing: 0.3px;
     line-height: 0.95;
   }
 
 .header__nav-item:nth-child(n+11) { 
-    /* Nasconde dall'11° elemento in poi (Crossword e successivi) */
+    
     display: none; 
 }
 
   .header__nav {
     display: block;
-    margin-left: 2.9062rem; /* Allineato al desktop */
+    margin-left: 2.9062rem; 
     flex-grow: 1;
     height: 3.4375rem;
     overflow: hidden;
@@ -2447,7 +2555,7 @@ button {
   .header__nav-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 0; /* Allineato al desktop, nessuno stacco imprevisto */
+    gap: 0; 
     align-content: flex-start;
     justify-content: flex-start;
     padding-left: 0;
@@ -2461,81 +2569,81 @@ button {
   }
 
 
-  /* Spinge logo e X verso i bordi del menù laterale */
+  
   .mobile-header {
     padding-left: 2rem;
-    /* <--- Riducendo questo, il logo si sposta a sinistra */
+    
     padding-right: 2rem;
-    /* <--- Riducendo questo, la X si sposta a destra */
+    
   }
 
-  /* Aumenta lo spazio verticale tra il logo e la barra di ricerca */
+  
   .logo-search {
     margin-bottom: 2.5rem;
-    /* <--- Più alzi questo numero, più la ricerca scende */
+    
     font-family: 'Roboto';
     font-size: 0.7rem;
   }
 
-  /* Riduce la larghezza del menù laterale su tablet */
+  
   .mobile-menu {
     width: 65%;
-    /* <--- Abbassa questa percentuale per stringerlo */
+    
     max-width: 24.875rem;
-    /* <--- Imposta un limite massimo più stretto */
+    
   }
 
-  /* Ruota le frecce del menù laterale verso il basso */
+  
   .mobile-menu .menu svg {
     transform: rotate(90deg);
-    /* Ruota l'icona di 90 gradi */
+    
     transition: transform 0.3s ease;
-    /* Rende la rotazione fluida */
+    
     width: 1.0625rem;
-    /* <--- Imposta la larghezza (es. 1.125rem invece di 1.5rem) */
+    
     height: 1.0625rem;
-    /* <--- Imposta l'altezza (deve essere uguale alla larghezza) */
+    
     fill: #626262;
     stroke: currentColor;
-    /* Usa lo stesso colore del riempimento */
+    
     stroke-width: 0.5;
   }
 
   .mobile-menu .menu a {
     font-size: 1.05rem;
-    /* <--- Aumenta o diminuisci per la grandezza */
+    
     font-weight: 800;
-    /* <--- Rendi il testo più o meno "grassetto" */
+    
     font-family: 'Inter', sans-serif;
-    /* Font più moderno per i titoli */
+    
     color: #222;
-    /* Colore quasi nero */
+    
     letter-spacing: -0.2px;
-    /* Opzionale: stringe leggermente le lettere */
+    
   }
 
-  /* Spinge scritte e frecce verso i bordi del menù */
+  
   .mobile-menu .menu {
     padding-left: 2.0625rem;
-    /* <--- Diminuisci questo per spostare le scritte più a sinistra */
+    
     padding-right: 2.0625rem;
-    /* <--- Diminuisci questo per spostare la freccia più a destra */
+    
     display: flex;
     justify-content: space-between;
-    /* Assicura che si spingano ai lati opposti */
+    
   }
 
-  /* Titolo della sezione (MOST RECENT STORIES) */
+  
   .recent-stories h4 {
     font-size: 0.75rem;
-    /* Molto piccolo e tutto maiuscolo */
+    
     font-weight: 800;
     color: rgba(0, 0, 0, .73);
     letter-spacing: 1.2px;
     margin-bottom: 0.75rem;
   }
 
-  /* Titoli delle singole storie (es. "Lorem", "Ipsum") */
+  
   .recent-story h5 {
     font-size: 0.9rem;
     font-weight: 650;
@@ -2544,32 +2652,32 @@ button {
     margin-bottom: 0px;
   }
 
-  /* Testo descrittivo della storia */
+  
   .recent-story p {
     font-size: 0.95rem;
     color: #555;
     font-family: 'Georgia', serif;
-    /* Font graziato per un tocco "news" */
+    
     line-height: 1.4;
   }
 
-  /* Allinea il blocco delle storie recenti alle scritte del menù sopra */
+  
   .recent-stories {
     padding-left: 2.0625rem;
-    /* <--- Lo stesso valore che hai messo al menù sopra */
+    
     padding-right: 2.0625rem;
     margin-top: 0px;
-    /* Aggiunge un po' di spazio sopra la sezione */
+    
   }
 
   .recent-story {
     margin-bottom: 0.9375rem;
-    /* <--- Crea lo spazio vuoto tra la fine di una storia e l'inizio della successiva */
+    
     display: block;
-    /* Assicurati che sia un blocco per accettare il margine */
+    
   }
 
-  /* Top Stories Layout */
+  
   .top-stories {
     padding-left: 4.0625rem;
     padding-right: 1.875rem;
@@ -2582,7 +2690,7 @@ button {
     gap: 1.5063rem;
   }
 
-  /* Cards Styling */
+  
   .hero-card__image {
     aspect-ratio: 16 / 11.5;
     object-fit: cover;
@@ -2600,22 +2708,22 @@ button {
     margin-top: 0.4375rem;
   }
 
-  /* Per la notizia principale (Hero) */
+  
   .hero-card__content {
     padding-top: 0.625rem;
-    /* <--- Diminuisci questo numero per alzare il testo */
+    
   }
 
-  /* Per le due notizie a destra (300x168) */
+  
   .story-card--overlap .story-card__content {
     padding-top: 0.625rem;
-    /* <--- Diminuisci questo numero per alzare il testo */
+    
   }
 
-  /* Avvicina le due card nella colonna di destra */
+  
   .top-stories__secondary {
     gap: 1.4688rem;
-    /* <--- Diminuisci questo valore per avvicinarle ancora di più */
+    
   }
 
 
@@ -2631,7 +2739,7 @@ button {
     color: #000000d0;
   }
 
-  /* List Feed Layout */
+  
   .list-feed {
     padding-left: 2.4rem;
     padding-right: 2.375rem;
@@ -2666,47 +2774,47 @@ button {
     flex-shrink: 0;
   }
 
-  /* Titolo della sezione (es. News, Sports) con il quadratino */
+  
   .category-block__header {
     font-size: 1.55rem;
-    /* Grandezza del testo (es. "News") */
+    
     font-weight: 850;
-    /* Molto audace come l'originale */
+    
     font-family: 'Inter', sans-serif;
     color: #000;
   }
 
-  /* Titolo grande della card principale (quella con la foto 473x266) */
+  
   .feed-card--principal .feed-card__title {
     font-size: 1.5rem;
-    /* Più piccolo rispetto al desktop per il tablet */
+    
     font-weight: 700;
     line-height: 1.15;
   }
 
   .feed-card--principal .feed-card__image-wrapper {
     flex: 0 0 68%;
-    /*regolo la larghezza del placeholder*/
+    
     width: 50%;
   }
 
   .feed-card--principal .feed-card__content {
     flex: 1 1 auto;
     min-width: 0;
-    /* Permette al contenuto di restringersi se necessario */
+    
   }
 
-  /* Regola l'altezza del placeholder grande */
+  
   .feed-card--principal .feed-card__image {
     aspect-ratio: 16 / 8.5;
-    /* <--- Cambia il secondo numero per l'ALTEZZA */
+    
     object-fit: cover;
   }
 
-  /* Titoli delle tre card piccole sotto (quelle con la foto 223x125) */
+  
   .category-block__card-title h3 {
     font-size: 0.95rem;
-    /* Regola la grandezza dei titoli delle card piccole */
+    
     font-weight: 550;
     line-height: 1.25;
     font-family: 'Inter', sans-serif;
@@ -2715,19 +2823,19 @@ button {
 
   .category-block__card {
     padding-bottom: 2.125rem;
-    /* <--- Aumenta questo valore per "allungare" la scheda verso il basso */
+    
     margin-bottom: 0px;
-    /* Opzionale: aggiunge spazio esterno tra le righe */
+    
   }
 
-  /* Metadati (Categoria e Tempo) della card principale */
+  
   .feed-card--principal .feed-card__category,
   .feed-card--principal .feed-card__time {
     font-size: 0.8rem;
     font-weight: 700;
   }
 
-  /* Other Elements */
+  
   .show-more {
     margin-bottom: 1.25rem;
   }
@@ -2741,7 +2849,7 @@ button {
     margin-top: -1.875rem;
   }
 
-  /* 1. Invece di .footer__link, usa questo: */
+  
   .footer__nav-item a {
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
@@ -2750,7 +2858,7 @@ button {
     text-decoration: none;
   }
 
-  /* 2. Invece di .footer__copyright, usa questo: */
+  
   .footer__copy {
     font-size: 0.75rem;
     color: #666666;
@@ -2759,10 +2867,10 @@ button {
 
 }
 
-/* 4. DESKTOP VERSION (Min 959px) */
+
 @media (min-width: 959px) {
 
-  /* --- 4.1 HEADER & NAVIGATION --- */
+  
   .header__top-bar {
     padding: 0 2.4062rem;
   }
@@ -2790,7 +2898,7 @@ button {
     align-items: center;
   }
 
-  /* --- 4.2 TOP STORIES (La griglia principale in alto) --- */
+  
   .top-stories {
     padding-left: 3.75rem;
     padding-right: var(--spacing-sm);
@@ -2799,32 +2907,32 @@ button {
   }
 
   .top-stories__grid {
-    grid-template-columns: 36.85% 25.7% 1fr;
+    grid-template-columns: 37.5% 25.7% 1fr;
     gap: 1.8rem;
   }
 
-  /* --- 4.3 LAYOUT SPLIT (Divisione Sidebar/Feed) --- */
+  
   .layout-split {
     display: grid;
     grid-template-columns: 40.76% 1fr;
     gap: 1.2rem;
     padding: 0 3.75rem;
-    background: #f8f8f8; /* Sfondo grigio della sezione */
+    background: #f8f8f8; 
   }
 
   .sidebar-left,
   .feed-section {
-    background: white; /* Colonne bianche "appoggiate" sul grigio */
+    background: white; 
     padding: 1.5rem;
   }
 
-  /* --- 4.4 SIDEBAR: CTA BOX (Feedback) --- */
+  
   .cta-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 93.5%;
-    max-width: none; /* Rimuove il limite della versione mobile */
+    max-width: none; 
     margin: 0 auto;
     padding: 1.5rem 1.8rem;
     border: 8px solid #009cff;
@@ -2841,7 +2949,7 @@ button {
     color: #222;
   }
 
-  /* --- 4.5 MAIN FEED: NEWS LIST (La colonna di destra) --- */
+  
   .feed-card {
     padding: 1.5rem 0;
     border-bottom: 1px solid #f0f0f0;
@@ -2876,41 +2984,41 @@ button {
 
   .top-stories__tertiary {
     display: flex;
-    /* Appare solo su Desktop */
+    
     border-top: none;
     padding-top: 2rem;
     margin-left: -1.125rem;
   }
 
-  /* 1. Il Titolo (La scritta nera in grassetto) */
+  
   .text-card__title {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.99rem;
-    /* Più grande per il desktop */
+    
     font-weight: 700;
-    /* Grassetto deciso come USA Today */
+    
     line-height: 1.2;
     margin-bottom: 0.5rem;
     color: #222;
     letter-spacing: 0.6px;
   }
 
-  /* 2. La riga "Lorem | 5 minutes ago" */
+  
   .text-card__meta {
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
     color: #666;
   }
 
-  /* 3. La categoria (es. "Lorem") in grassetto */
+  
   .text-card__category {
     font-weight: 700;
     color: #444;
     text-transform: capitalize;
-    /* Prima lettera maiuscola */
+    
   }
 
-  /* 4. Spazio tra le notizie */
+  
   .text-card {
     margin-bottom: 0rem;
     padding-bottom: 0;
@@ -2918,31 +3026,31 @@ button {
 
   .sidebar-left {
     display: flex;
-    /* Appare solo su Desktop */
+    
   }
 
   .feed-card--principal .feed-card__title {
     font-size: 1.75rem;
   }
 
-  /* 1. La Hero (Grande a sinistra) */
+  
   .hero-card__image {
     width: 100%;
     aspect-ratio: 16 / 12.15;
-    /* Puoi metterla a 3 / 2 se la vuoi ancora più alta */
+    
     object-fit: cover;
   }
 
-  /* 2. Le Secondarie (Le due al centro) */
+  
   .story-card__image {
     width: 100%;
     aspect-ratio: 16 / 12.21;
-    /* Puoi metterla a 21 / 9 se le vuoi più basse e panoramiche */
+    
     object-fit: cover;
   }
 
 
-  /* EFFETTO OVERLAP PER LE STORY CARD SECONDARIE */
+  
   .story-card--overlap .story-card__content {
     margin-top: -1.5rem;
     background: #fff;
@@ -2955,12 +3063,26 @@ button {
 
 }
 
-/* 5. LARGE DESKTOP (Min 1200px) 
-   Ottimizzazioni per schermi ultra-wide per mantenere l'equilibrio visivo. */
+
 @media (min-width: 1200px) {
+  :root {
+    --lg-top-gap-center-left: clamp(0.5rem, 0.8vw, 2rem);
+    --lg-top-gap-center-right: clamp(2rem, 3.2vw, 4rem);
+    --lg-top-secondary-ratio: 16 / 9;
+    --lg-top-hero-ratio: 16 / 9;
+    --lg-split-col-left: clamp(21.7rem, 26vw, 30rem);
+    --lg-split-gap: clamp(1.28rem, 1.3vw, 1.35rem);
+    --lg-split-pad: clamp(3rem, 1.1vw, 3rem);
+    --lg-feed-thumb-w: clamp(11.6rem, 16.2vw, 13.9rem);
+    --lg-feed-title-size: clamp(0.9rem, 1vw, 1.6rem);
+    --lg-block-inline-pad: clamp(0.85rem, 1.05vw, 1.2rem);
+  }
+
   .layout-split {
+    grid-template-columns: var(--lg-split-col-left) minmax(0, 1fr);
+    gap: var(--lg-split-gap);
     padding: 0px 3.875rem;
-    /* Ripristina il padding largo */
+    
     background-position:
       62px 0,
       calc(62px + 348px + 20px) 0;
@@ -2973,5 +3095,316 @@ button {
     padding-left: 3.75rem;
   }
 
+  
+  .hero-card__image {
+    aspect-ratio: var(--lg-top-hero-ratio);
+    object-fit: cover;
+  }
+
+  .top-stories__secondary {
+    margin-left: var(--lg-top-gap-center-left);
+    margin-right: var(--lg-top-gap-center-right);
+  }
+
+  .top-stories__secondary .story-card__image {
+    width: 100%;
+    aspect-ratio: var(--lg-top-secondary-ratio);
+    object-fit: cover;
+  }
+
+  .sidebar-left,
+  .feed-section {
+    padding: var(--lg-split-pad);
+  }
+
+  .list-feed {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .list-feed .feed-card {
+    margin: 0;
+    padding: 0.7rem 0;
+    gap: clamp(0.5rem, 1.25vw, 1.35rem);
+  }
+
+  .list-feed .feed-card:last-child {
+    border-bottom: none;
+  }
+
+  .list-feed .feed-card__content {
+    padding-right: 0.45rem;
+  }
+
+  .list-feed .feed-card__title a {
+    font-size: var(--lg-feed-title-size);
+    line-height: 1.16;
+  }
+
+  .list-feed .feed-card__meta {
+    margin-top: 0.34rem;
+    flex-wrap: nowrap;
+  }
+
+  .list-feed .feed-card__category {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #4a4a4a;
+  }
+
+  .list-feed .feed-card__time {
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: #595959;
+    white-space: nowrap;
+  }
+
+  .list-feed .feed-card__image-wrapper {
+    flex: 0 0 var(--lg-feed-thumb-w);
+    max-width: var(--lg-feed-thumb-w);
+  }
+
+  .list-feed .feed-card__image {
+    width: 100%;
+    padding: 0;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  
+  .feed-section .block-notices {
+    margin-left: calc(var(--lg-split-pad) * -1);
+    margin-right: calc(var(--lg-split-pad) * -1);
+    margin-bottom: clamp(0.9rem, 1.1vw, 1.35rem);
+  }
+
+  .feed-section .block-notices .category-block__header {
+    padding: clamp(0.78rem, 0.95vw, 1rem) var(--lg-block-inline-pad) clamp(0.72rem, 0.9vw, 0.92rem);
+  }
+
+  .feed-section .block-notices .news {
+    padding: 0 var(--lg-block-inline-pad) 0.2rem;
+  }
+
+  .feed-section .block-notices .feed-card--principal {
+    left: 0;
+  }
+
+  .feed-section .block-notices .feed-card--principal .feed-card__image-wrapper {
+    flex: 0 0 65.6%;
+    max-width: 65.6%;
+  }
+
+  .feed-section .block-notices .feed-card--principal .feed-card__image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .feed-section .block-notices .feed-card--principal .feed-card__content {
+    margin-left: clamp(-8.75%, -7.5vw, -6.75%);
+    margin-top: clamp(0.92rem, 1.05vw, 1.22rem);
+    max-width: clamp(15.8rem, 21.6vw, 18.4rem);
+    padding: clamp(1.08rem, 1.16vw, 1.42rem) clamp(1rem, 1.05vw, 1.24rem) clamp(1.2rem, 1.25vw, 1.58rem) clamp(1.28rem, 1.34vw, 1.7rem);
+  }
+
+  .feed-section .block-notices .feed-card--principal .feed-card__title {
+    font-size: clamp(1rem, 0.74vw + 0.62rem, 1.26rem);
+    line-height: 1.18;
+  }
+
+  .feed-section .block-notices .feed-card--principal .feed-card__meta {
+    margin-top: clamp(0.45rem, 0.6vw, 0.66rem);
+  }
+
+  .feed-section .block-notices .category-block__sub-grid {
+    gap: clamp(0.24rem, 0.44vw, 0.5rem);
+    padding: 0 0.62rem;
+    margin-top: 0.38rem;
+    margin-bottom: 0.18rem;
+  }
+
+  .feed-section .block-notices .category-block__card-title {
+    padding: 0.84rem 0.86rem 0.95rem;
+  }
+
+  .feed-section .block-notices .category-block__card-title h3 {
+    font-size: clamp(0.94rem, 0.48vw + 0.62rem, 1.07rem);
+    font-weight: 700;
+    line-height: 1.24;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
+
+  .feed-section .block-notices .show-more {
+    margin-bottom: 0.8rem;
+  }
+
+  .feed-section .block-notices .show-more-click {
+    margin-top: 0.45rem;
+  }
+
 
 }
+
+
+@media (min-width: 959px) and (max-width: 1199.98px) {
+  :root {
+    --hdr-side-pad: clamp(1rem, 1.85vw, 3rem);
+    --hdr-logo-gap: clamp(2rem, 4vw, 5rem);
+    --hdr-link-pad: clamp(0.42rem, 1.25vw, 2rem);
+    --split-col-left: clamp(37.8%, 38.9%, 40.1%);
+    --split-gap: clamp(0.95rem, 1.2vw, 1.2rem);
+    --split-inner-pad: clamp(0.85rem, 1vw, 1.15rem);
+    --split-thumb-w: clamp(10rem, 16vw, 11.7rem);
+    --split-title-size: clamp(0.9rem, 0.5vw + 0.62rem, 2rem);
+  }
+
+  .header__top-bar {
+    padding-left: var(--hdr-side-pad);
+    padding-right: var(--hdr-side-pad);
+  }
+
+  .header__menu-btn {
+    left: 0;
+    padding-left: 0.38rem;
+    padding-right: 0.38rem;
+  }
+
+  .header__logo {
+    left: 0;
+  }
+
+  .header__nav {
+    margin-left: var(--hdr-logo-gap) !important;
+  }
+
+  .header__nav-link {
+    padding-left: var(--hdr-link-pad);
+    padding-right: var(--hdr-link-pad);
+    font-size: clamp(0.8rem, 0.25vw + 0.69rem, 0.91rem);
+  }
+
+  
+  .layout-split {
+    grid-template-columns: minmax(18rem, var(--split-col-left)) minmax(0, 1fr);
+    gap: var(--split-gap);
+  }
+
+  .sidebar-left,
+  .feed-section {
+    padding: var(--split-inner-pad);
+  }
+
+  .feedback-card {
+    width: 100%;
+    padding-top: 0.55rem;
+  }
+
+  .cta-box {
+    width: 94%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 1.35rem 1.55rem;
+  }
+
+  .cta-box h2 {
+    line-height: 1.28;
+    word-spacing: 0.5px;
+    letter-spacing: 0.1px;
+  }
+
+  .list-feed {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .list-feed .feed-card {
+    margin: 0;
+    padding: 1rem 0;
+    gap: 1.1rem;
+    border-bottom: 1px solid #ececec;
+  }
+
+  .list-feed .feed-card:last-child {
+    border-bottom: none;
+  }
+
+  .list-feed .feed-card__content {
+    padding-right: 0.3rem;
+  }
+
+  .list-feed .feed-card__title {
+    line-height: 1.18;
+  }
+
+  .list-feed .feed-card__title a {
+    font-size: var(--split-title-size);
+    line-height: 1.18;
+    font-weight: 700;
+  }
+
+  .list-feed .feed-card__meta {
+    margin-top: 0.36rem;
+    flex-wrap: nowrap;
+  }
+
+  .list-feed .feed-card__category {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #4a4a4a;
+  }
+
+  .list-feed .feed-card__time {
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: #595959;
+    white-space: nowrap;
+  }
+
+  .list-feed .feed-card__image-wrapper {
+    flex: 0 0 var(--split-thumb-w);
+    max-width: var(--split-thumb-w);
+  }
+
+  .list-feed .feed-card__image {
+    width: 100%;
+    padding: 0;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  
+  .header__nav-item:nth-child(11) {
+    display: none;
+  }
+}
+
+
+@media (min-width: 1135px) and (max-width: 1199.98px) {
+  .header__nav-item:nth-child(11) {
+    display: flex;
+  }
+}
+
+
+.cta-box .emphasis {
+  color: #005ea8 !important;
+}
+
+.sidebar-ad__label {
+  color: #595959 !important;
+}
+
+.skip,
+.skip:link,
+.skip:visited,
+.skip:focus {
+  background-color: #004c8f !important;
+  color: #ffffff !important;
+}
+

@@ -11,9 +11,9 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:wght@400;500;700;900&family=Oswald:wght@400;500;700&family=Montserrat:wght@100..900&display=swap" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
-<!-- ACADEMIC REQUIREMENT: Defer used for non-blocking Javascript loading -->
+
 <script defer="" src="index.js"></script>
-<!-- ACADEMIC REQUIREMENT (Dettaglio Gold): Iniezione del Semantic Web tramite JSON-LD metadata for SEO -->
+
 <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -30,11 +30,11 @@
     </script>
 </head>
 <body>
-<!-- ACADEMIC REQUIREMENT: Skip link as the first focusable element for screen readers (WAVE AccessibilitÃ  0 errori) -->
+
 <a class="skip visually-hidden" href="#main">Salta al contenuto principale</a>
-<!-- Mobile Nav Overlay -->
+
 <div data-js="overlay" id="overlay"></div>
-<!--MENU A COMPARSA-->
+
 <nav aria-hidden="true" aria-label="Side navigation menu" class="mobile-menu" data-js="mobile-menu" id="mobileMenu">
 <div class="mobile-header">
 <div class="logo-search">
@@ -289,19 +289,19 @@
 </nav>
 </div>
 </header>
-<!-- ACADEMIC REQUIREMENT: Unico <main id="main">, destinazione dello Skip Link -->
+
 <main id="main">
 <h1 class="visually-hidden">USA Today Top Stories</h1>
-<!-- TOP SECTION: Hero and Trending News -->
+
 <section class="top-stories">
-<!-- ACADEMIC REQUIREMENT: H2 per generare un outline logico tramite l'HTML5 Outliner -->
+
 <h2 class="visually-hidden">Featured and Trending Articles</h2>
-<!-- ACADEMIC REQUIREMENT: Macro-Layout handled exclusively with CSS Grid -->
+
 <div class="top-stories__grid">
-<!-- Col 1: Main Hero -->
-<!-- ACADEMIC REQUIREMENT: Ogni notizia Ã¨ wrappata in un <article> semantico -->
+
+
 <article class="hero-card" data-js="news-article">
-<!-- ACADEMIC REQUIREMENT: Uso imperativo di <picture> per definire l'Art Direction e Resolution Switching -->
+
 <picture class="hero-card__picture">
 <source media="(min-width: 1200px)" srcset="https://placehold.co/800x450/jpeg"/>
 <source media="(min-width: 992px)" srcset="https://placehold.co/700x394/jpeg"/>
@@ -314,12 +314,12 @@
 <p class="hero-card__excerpt">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
 </header>
 <footer>
-<!-- ACADEMIC REQUIREMENT: Utilizzo corretto del tag <time> e attributo datetime -->
+
 <time class="hero-card__time visually-hidden" datetime="2026-04-19T08:00">Apr 19, 2026</time>
 </footer>
 </div>
 </article>
-<!-- Col 2: Secondary Stories -->
+
 <div class="top-stories__secondary">
 <article class="story-card story-card--overlap" data-js="news-article">
 <picture class="story-card__picture">
@@ -340,7 +340,7 @@
 </div>
 </article>
 </div>
-<!-- Col 3: Tertiary Text List -->
+
 <div class="top-stories__tertiary">
 <article class="text-card" data-js="news-article">
 <header><h3 class="text-card__title">Curabitur pretium tincidunt lacus. Nulla gravida orci a odio</h3></header>
@@ -369,9 +369,9 @@
 </div>
 </div>
 </section>
-<!-- MAIN FEED + SIDEBAR -->
+
 <div class="layout-split">
-<!-- Sidebar -->
+
 <aside class="sidebar-left">
 <section class="feedback-card">
 <a class="cta-box" href="#">
@@ -389,7 +389,7 @@
 <span class="sidebar-ad__label">Advertisement</span>
 </div>
 </aside>
-<!-- Main Feed -->
+
 <section class="feed-section">
 <h2 class="visually-hidden">Latest News Feed</h2>
 <div class="list-feed"> <article aria-label="Read story: Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus" class="feed-card" data-js="feed-card">
@@ -1499,4 +1499,5 @@
 </footer>
 </body>
 </html>
+
 
