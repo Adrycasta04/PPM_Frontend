@@ -785,7 +785,7 @@ button {
 }
 
 .cta-box .emphasis {
-  color: #009BFF;
+  color: #0070c9;
   /* Solo la prima parte in blu */
 }
 
@@ -820,7 +820,7 @@ button {
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
-  color: #c2c2c2;
+  color: #666666;
   /* Grigio originale USA Today */
   text-align: center;
   display: block;
@@ -1029,7 +1029,7 @@ button {
   top: -6.25rem;
   left: 50%;
   transform: translateX(-50%);
-  background: #009bff;
+  background: #005ea8;
   color: white;
   padding: 0.625rem 1.25rem;
   font-weight: 700;
@@ -1693,7 +1693,7 @@ button {
   }
 
   #main {
-    padding-top: 3.4375rem;
+    padding-top: 3.5rem;
   }
 
   .header__top-bar {
@@ -1701,10 +1701,11 @@ button {
     height: 3.5rem;
     gap: 0.32rem;
     justify-content: flex-start;
+    padding-left: 0.4rem;
   }
 
   .header__menu-btn {
-    left: 0;
+    left: -0.7rem;
     padding: 0.25rem;
   }
 
@@ -1714,7 +1715,7 @@ button {
   }
 
   .header__logo {
-    left: 0;
+    left: -0.5rem;
   }
 
   .header__logo-link {
@@ -1722,14 +1723,14 @@ button {
   }
 
   .header__logo-circle {
-    width: 1.9rem;
-    height: 1.9rem;
+    width: 1.75rem;
+    height: 1.75rem;
   }
 
   .header__logo-usa,
   .header__logo-today {
-    font-size: 0.75rem;
-    line-height: 0.92;
+    font-size: 0.79rem;
+    line-height: 0.95;
   }
 
   .top-stories {
@@ -1787,10 +1788,10 @@ button {
 
   .list-feed .feed-card {
     align-items: flex-start;
-    gap: 0.9rem;
+    gap: 0.85rem;
     margin: 0;
-    padding-top: 1.05rem;
-    padding-bottom: 1.05rem;
+    padding-top: 0.95rem;
+    padding-bottom: 0.95rem;
   }
 
   .list-feed .feed-card__content {
@@ -1799,23 +1800,23 @@ button {
   }
 
   .list-feed .feed-card__title {
-    font-size: 1.125rem;
-    line-height: 1.16;
-    font-weight: 760;
+    font-size: 1.02rem;
+    line-height: 1.12;
+    font-weight: 745;
     letter-spacing: 0;
   }
 
   .list-feed .feed-card__meta {
-    margin-top: 0.42rem;
+    margin-top: 0.35rem;
   }
 
   .list-feed .feed-card__image-wrapper {
-    flex: 0 0 32%;
-    max-width: 12.75rem;
+    flex: 0 0 9.75rem;
+    max-width: 9.75rem;
   }
 
   .list-feed .feed-card__image {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
     padding: 0;
     object-fit: cover;
   }
@@ -1919,7 +1920,7 @@ button {
 /* 1.2 WIDE MOBILE (480-639px): top story and category lead stay side-by-side. */
 @media (min-width: 480px) and (max-width: 639.98px) {
   #main {
-    padding-top: 3.875rem;
+    padding-top: 3.5rem;
   }
 
   .header__top-bar {
@@ -1963,7 +1964,8 @@ button {
   .story-card--overlap .story-card__content {
     width: calc(100% - 2.55rem);
     margin-top: -1.38rem;
-    padding: 0.78rem 1rem 0.35rem 0.72rem;
+    /* <640: il testo sotto il placeholder parte dal suo bordo sinistro */
+    padding: 0.78rem 1rem 0.35rem 0;
   }
 
   .story-card__title {
@@ -1975,6 +1977,15 @@ button {
   .list-feed .feed-card {
     padding-left: clamp(2.9rem, 9vw, 3.75rem);
     padding-right: clamp(2.9rem, 9vw, 3.75rem);
+  }
+
+  .list-feed .feed-card__title {
+    font-size: 1.01rem;
+  }
+
+  .list-feed .feed-card__image-wrapper {
+    flex: 0 0 9.65rem;
+    max-width: 9.65rem;
   }
 
   .feed-card--principal {
@@ -2013,8 +2024,16 @@ button {
 
 /* 1.3 NARROW MOBILE (0-479px): category lead becomes a stacked hero card. */
 @media (max-width: 479.98px) {
+  :root {
+    /* Valori guida per regolare rapidamente la sezione Hero + 300x168 */
+    --hero-left: 2.4rem;
+    --hero-width: calc(100% - 2.2rem);
+    --secondary-width: calc(100% - 5.55rem);
+    --secondary-cut-right: 0.95rem;
+  }
+
   #main {
-    padding-top: 3.875rem;
+    padding-top: 3.5rem;
   }
 
   .header__top-bar {
@@ -2023,11 +2042,11 @@ button {
   }
 
   .hero-card__content {
-    width: calc(100% - 2.2rem);
+    width: var(--hero-width);
     margin-top: -2.35rem;
     margin-left: 0;
     margin-right: auto;
-    padding: 1.14rem 0.95rem 0 2.4rem;
+    padding: 1.14rem 0.95rem 0 var(--hero-left);
   }
 
   .hero-card__content header {
@@ -2050,15 +2069,15 @@ button {
   }
 
   .top-stories__secondary .story-card {
-    /* Stessa larghezza utile del testo Hero excerpt */
-    width: calc(100% - 5.55rem);
-    margin-left: 2.4rem;
+    /* Stessa impronta laterale del blocco Hero */
+    width: var(--secondary-width);
+    margin-left: var(--hero-left);
   }
 
   .story-card--overlap .story-card__content {
-    width: calc(100% - 2.2rem);
+    width: calc(100% - var(--secondary-cut-right));
     margin-top: -1.25rem;
-    padding: 0.72rem 0.8rem 0.25rem 0.72rem;
+    padding: 0.72rem 0.8rem 0.25rem 0;
   }
 
   .story-card__title {
@@ -2067,15 +2086,51 @@ button {
     font-weight: 750;
   }
 
+  .list-feed {
+    margin-top: 1rem;
+  }
+
   .list-feed .feed-card {
-    padding-left: clamp(1.55rem, 8vw, 2.6rem);
-    padding-right: clamp(1.55rem, 8vw, 2.6rem);
+    padding-left: 2rem;
+    padding-right: 2rem;
+    gap: 1.55rem;
+    padding-top: 1rem;
+    padding-bottom: 0.72rem;
   }
 
   .list-feed .feed-card__image-wrapper {
-    flex-basis: 31%;
-    max-width: 9.625rem;
+    flex: 0 0 7.75rem;
+    max-width: 9rem;
   }
+
+  .list-feed .feed-card__image {
+    aspect-ratio: 1 / 1;
+  }
+
+  .list-feed .feed-card__content {
+    padding-right: 0;
+  }
+
+  .list-feed .feed-card__title {
+    font-size: 0.94rem;
+    line-height: 1.12;
+    font-weight: 700;
+  }
+
+  .list-feed .feed-card__meta {
+    margin-top: 0.28rem;
+  }
+
+  .list-feed .feed-card__category {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.list-feed .feed-card__time {
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
 
   .feed-card--principal {
     left: 0;
@@ -2087,6 +2142,13 @@ button {
     flex: none;
     width: 100%;
   }
+
+@media (max-width: 479.98px) {
+  .list-feed .feed-card:first-child {
+    padding-top: 0rem;   /* abbassa da 0.72rem -> avvicina al bordo superiore */
+  }
+}
+
 
   .feed-card--principal .feed-card__image {
     aspect-ratio: 16 / 9;
@@ -2123,6 +2185,11 @@ button {
 }
 
 @media (max-width: 359px) {
+  :root {
+    --ph-left: 1.5rem;   /* dove inizia il placeholder */
+    --ph-w: calc(100% - 3.65rem); /* larghezza placeholder */
+    --ph-cut-right: 0.8rem; /* fascia grigia visibile a destra sotto l'immagine */
+  }
   .header__top-bar {
     height: 4rem;
     padding-left: 1.25rem !important;
@@ -2139,13 +2206,43 @@ button {
     font-size: 0.88rem;
   }
 
-  .hero-card__title,
+  .hero-card__title {
+    font-size: 1.05rem;
+    line-height: 1.14;
+  }
+
   .feed-card--principal .feed-card__title {
     font-size: 1.25rem;
   }
 
   .hero-card__excerpt {
-    font-size: 0.95rem !important;
+    font-size: 0.88rem !important;
+    line-height: 1.28;
+    max-width: 100%;
+  }
+
+  /* <359: allinea la parte Hero e allarga i 300x168 come nel riferimento */
+  .hero-card__content {
+    width: var(--ph-w);
+    margin-top: -2rem;
+    padding: 1rem 0.75rem 0 var(--ph-left);
+  }
+
+  .top-stories__secondary {
+    gap: 1.05rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .top-stories__secondary .story-card {
+    margin-left: var(--ph-left);
+    width: var(--ph-w);
+  }
+
+  .story-card--overlap .story-card__content {
+    width: calc(100% - var(--ph-cut-right));
+    margin-top: -1.05rem;
+    padding: 0.62rem 0.7rem 0.2rem 0;
   }
 
   .list-feed .feed-card {
@@ -2154,13 +2251,26 @@ button {
     padding-right: 1rem;
   }
 
+  .list-feed .feed-card__image-wrapper {
+    /* Da 359px in giu' inizia a ridursi in modo fluido */
+    flex: 0 0 clamp(3.1rem, 26vw, 5.8rem);
+    max-width: clamp(3.1rem, 26vw, 5.8rem);
+  }
+
+  .list-feed .feed-card__image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
+
   .list-feed .feed-card__title {
     font-size: 1rem;
   }
 
   .list-feed .feed-card__category,
   .list-feed .feed-card__time {
-    font-size: 0.76rem;
+    font-size: 0.75rem;
+    font-weight: 600;
   }
 
   .category-block__card-title {
@@ -2170,6 +2280,78 @@ button {
   .category-block__card-title h3 {
     font-size: 0.78rem;
     line-height: 1.2;
+  }
+}
+
+/* 1.4 MOBILE MENU WIDTH + STACKING FIX */
+@media (max-width: 639.98px) {
+  /* Quando il pannello menu è aperto, l'header non deve restare sopra */
+  .mobile-menu.open + .header {
+    visibility: hidden;
+  }
+}
+
+/* <480px: il menu deve coprire tutta la larghezza */
+@media (max-width: 479.98px) {
+  .mobile-menu {
+    width: 100vw !important;
+    max-width: none !important;
+    z-index: 3200;
+  }
+
+  #overlay {
+    z-index: 3100;
+  }
+}
+
+/* 480-639px: menu più stretto (regolabile) */
+@media (min-width: 480px) and (max-width: 639.98px) {
+  :root {
+    --menu-right-rail: 2rem;
+  }
+
+  .mobile-menu {
+    width: 83% !important;
+    max-width: 25rem !important;
+    z-index: 3200;
+  }
+
+  .mobile-header {
+    padding-right: var(--menu-right-rail);
+  }
+
+  .search-btn {
+    margin-right: 0;
+    right: 0;
+  }
+
+  .mobile-menu .menu {
+    position: relative;
+    padding-right: 3.2rem;
+  }
+
+  .mobile-menu .menu svg {
+    position: absolute;
+    right: var(--menu-right-rail);
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    margin-right: 0;
+    flex-shrink: 0;
+  }
+
+  .mobile-menu .menu a {
+    padding-right: 2rem;
+  }
+
+  /* Evita che la colonna destra extra spinga/cutti le frecce */
+  .scroll-menu-news,
+  .container {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  #overlay {
+    z-index: 3100;
   }
 }
 
@@ -2451,7 +2633,7 @@ button {
 
   /* List Feed Layout */
   .list-feed {
-    padding-left: 2.375rem;
+    padding-left: 2.4rem;
     padding-right: 2.375rem;
     margin-bottom: 1.25rem;
     padding-bottom: 1.0375rem;
@@ -2470,8 +2652,8 @@ button {
   }
 
   .list-feed .feed-card__category {
-    font-size: 0.8125rem;
-    font-weight: 750;
+    font-size: 0.75rem;
+    font-weight: 600;
   }
 
   .list-feed .feed-card__time {
