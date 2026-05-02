@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const trigger = e.target.closest('[data-js="menu-trigger"]');
             if (!trigger) return;
 
-            if (window.matchMedia("(max-width: 499px)").matches) {
+            if (window.matchMedia("(max-width: 640px)").matches) {
                 const item = trigger.closest('[data-js="main-menu-item"]');
                 if (!item) return;
 

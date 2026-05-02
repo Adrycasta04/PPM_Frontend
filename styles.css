@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Oswald:wght@400;700&family=Montserrat:wght@100..900&display=swap');
-
 /* ==========================================================================
    CSS Variables & Configuration
    ========================================================================== */
+
 :root {
+  /* Color Palette - Basata su USA Today Brand Identity */
   --color-primary: #009bff;
   --color-text-main: #231f20;
   --color-text-muted: #666666;
@@ -12,10 +12,12 @@
   --color-border: #e0e0e0;
   --color-overlay: rgba(0, 0, 0, 0.5);
 
+  /* Typography - Inter come font principale per una leggibilità moderna */
   --font-primary: 'Inter', sans-serif;
   --font-headline: 'Inter', sans-serif;
   --font-serif: 'Georgia', 'Times New Roman', serif;
 
+  /* Layout & Spacing */
   --max-width: 1200px;
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -29,177 +31,202 @@
 /* ==========================================================================
    CSS Reset & Base Styles
    ========================================================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  /* Include padding e border nel calcolo della larghezza degli elementi */
   margin: 0;
+  /* Reset universale dei margini */
   padding: 0;
+  /* Reset universale dei padding */
 }
 
 body {
   font-family: var(--font-primary);
+  /* Applica il font Inter come principale */
   color: var(--color-text-main);
-  background-color: #f8f8f8; /* Il grigio diventa lo sfondo base */
+  /* Colore del testo principale */
+  background-color: #f8f8f8;
+  /* Sfondo grigio chiaro per far risaltare i moduli bianchi (USA Today style) */
   line-height: 1.6;
+  /* Migliora la leggibilità del testo */
   overflow-x: hidden;
+  /* Impedisce lo scroll orizzontale indesiderato */
 }
 
-img, picture {
+img,
+picture {
   max-width: 100%;
+  /* Immagini responsive che non superano mai la larghezza del contenitore */
   display: block;
+  /* Rimuove lo spazio bianco extra sotto le immagini inline */
   height: auto;
+  /* Mantiene le proporzioni originali durante il ridimensionamento */
 }
 
 /* ACADEMIC REQUIREMENT: Metodologia BEM (Block, Element, Modifier). 
    Impedisce le cascate non controllate, tenendo disaccoppiato UI e logica. */
 
-
 a {
   color: inherit;
+  /* Eredita il colore dal genitore (evita il classico blu dei link) */
   text-decoration: none;
+  /* Rimuove la sottolineatura di default */
 }
 
 ul {
   list-style: none;
+  /* Rimuove i pallini dalle liste (gestione manuale via CSS) */
 }
 
 button {
   cursor: pointer;
+  /* Mostra la "manina" al passaggio del mouse sui pulsanti */
   border: none;
+  /* Rimuove il bordo di default dei browser */
   background: transparent;
+  /* Rimuove lo sfondo di default dei browser */
 }
 
-
-
-
 /* ==========================================================================
-   Header Component (BEM)
+   HEADER COMPONENT
+   Implementa la barra di navigazione principale e la logica di branding.
    ========================================================================== */
+
 .header {
+  /* Contenitore principale dell'header, fisso in alto durante lo scroll */
   border-bottom: 1px solid var(--color-border);
+  /* è quella sottile linea grigia che vedi proprio sotto l'header */
   background: #ffffff;
+  /* Sfondo bianco */
   position: sticky;
+  /* Insieme a top: 0 mantiene l'header fisso in cima */
   top: 0;
+  /* Mantiene l'header fisso in cima */
   z-index: 50;
-  
-  /* Trucco per il bianco a tutta larghezza sopra il grigio del body */
-  box-shadow: 0 0 0 100vmax #ffffff;
-  clip-path: inset(0 -100vmax);
+  /* Mantiene l'header sopra il contenuto */
 }
 
 .header__top-bar {
+  /* Barra superiore dell'header */
   display: flex;
+  /* Dispone gli elementi in linea (menu, logo, ricerca) */
   align-items: center;
-  height: 55px; /* Dato esatto: 55px */
-  padding: 0 15px; /* Padding ridotto per mobile */
-  gap: 4px;
-}
-
-@media (min-width: 1200px) {
-  .header__top-bar {
-    padding: 0 38.5px; /* Padding originale per desktop */
-  }
+  /* Allinea verticalmente gli elementi */
+  height: 3.4375rem;
+  /* Dato esatto: 3.4375rem */
+  padding: 0 0.9375rem;
+  /* Padding ridotto per mobile */
+  gap: 0.25rem;
+  /* Spazio tra gli elementi */
 }
 
 .header__menu-btn {
+  /* Pulsante Hamburger per aprire il menu laterale */
   padding: var(--spacing-xs);
+  /* Serve a rendere il pulsante più facile da cliccare con il dito (specialmente su smartphone). */
   flex-shrink: 0;
-  position: relative; /* Per spostarlo di precisione */
-  left: 2.5px;          /* Lo spostamento che desideri */
+  /* Impedisce all'hamburger di ridimensionarsi */
+  position: relative;
+  /* Per spostarlo di precisione */
+  left: 0.1rem;
+  /* Lo spostamento che desideri */
 }
 
 .header__menu-icon {
+  /* Icona del menu, SVG nero */
   display: block;
-  width: 24px;
-  height: 24px;
-  color: #333; /* Grigio scuro per l'hamburger */
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: rgba(0, 0, 0, .87);
 }
 
-
-
 .header__logo {
+  /* Contenitore del logo: flex-shrink: 0 evita che il brand venga schiacciato da altri elementi */
   flex-shrink: 0;
   position: relative;
-  left: 2.75px; /* Lo sposti dove vuoi, l'hamburger e la nav non si muoveranno */
+  left: 0.1719rem;
+  /* Micro-posizionamento per allineare il logo esattamente come nell'originale */
 }
 
 .header__logo-link {
+  /* Unisce cerchio e testo: il flexbox assicura l'allineamento orizzontale */
   display: flex;
+  /* Allinea il cerchio e il testo sulla stessa riga */
   align-items: center;
-  gap: 3px;
+  /* Centra verticalmente il cerchio rispetto alle scritte */
+  gap: 0.2rem;
+  /* Distanza millimetrica tra il cerchio e il testo */
 }
 
 .header__logo-circle {
+  /* L'iconico pallino blu di USA TODAY */
   display: block;
-  width: 28px; /* Dato esatto: Diametro 28px */
-  height: 28px;
-  background-color: #009bff; /* Colore esatto */
+  /* Rende l'elemento un blocco solido */
+  width: 1.76rem;
+  /* Diametro orizzontale esatto */
+  height: 1.76rem;
+  /* Diametro verticale esatto per garantire la forma circolare */
+  background-color: #009bff;
+  /* Il blu istituzionale del brand */
   border-radius: 50%;
+  /* Arrotonda i bordi al massimo per creare un cerchio perfetto */
   flex-shrink: 0;
+  /* Impedisce al cerchio di deformarsi se lo spazio diminuisce */
+
 }
 
 .header__logo-text {
+  /* Gestisce la pila verticale delle scritte "USA" e "TODAY" */
   display: flex;
+  /* Usa flexbox per gestire la disposizione interna */
   flex-direction: column;
+  /* Dispone "USA" sopra "TODAY" in colonna */
   justify-content: center;
-  font-family: 'Montserrat', sans-serif; 
-  color: #404040;
+  /* Centra il blocco di testo verticalmente */
+  font-family: 'Inter', sans-serif;
+  /* Font istituzionale */
+  color: #353535ea;
+  /* Grigio scuro per le scritte del logo */
 }
 
 .header__logo-usa,
 .header__logo-today {
-  font-size: 0.81rem;     
-  font-weight: 800;       
-  line-height: 0.95;      
-  letter-spacing: 0px; 
+  /* Tipografia del logo */
+  font-size: 0.82rem;
+  /* Dimensione del carattere del brand */
+  font-weight: 875;
+  /* Spessore del font molto marcato (Bold) */
+  line-height: 0.95;
+  /* Riduce lo spazio tra le righe per compattare le parole */
   text-transform: uppercase;
+  /* Forza il testo in maiuscolo */
 }
 
-
-
-
-@media (min-width: 1200px) {
-  .header__nav {
-    display: block; /* La mostro solo su Desktop */
-    margin-left: 44.2px; 
-  }
-
-  .header__nav-list {
-    display: flex;
-    justify-content: flex-start;
-    gap: 0; /* Ripristino lo spazio originale basato sui padding dei link */
-  }
-  
-  .header__nav-link {
-    font-weight: 675; 
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13.5px; 
-    color: #525252; 
-    padding: 0 12px; 
-    letter-spacing: -0.2px; 
-  }
-
-  .header__nav-link:hover,
-  .header__nav-link:focus {
-    font-weight: 800; 
-    color: #616161;   
-  }
+.header__nav {
+  /* Navigazione principale orizzontale */
+  display: none;
+  /* Nasconde la navigazione su mobile (default) */
 }
+
 
 /* ==========================================================================
-   Mobile Nav (Sidebar) Component
+   MOBILE NAVIGATION (SIDEBAR)
+   Menu a comparsa laterale ottimizzato per l'interazione touch.
    ========================================================================== */
-
 
 .mobile-nav__logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.3125rem;
 }
 
 .mobile-nav__logo-circle {
   display: block;
-  width: 40px; /* Ripristinato a 40px */
-  height: 40px;
+  width: 2.5rem;
+  /* Ripristinato a 2.5rem */
+  height: 2.5rem;
   background-color: #009bff;
   border-radius: 50%;
   flex-shrink: 0;
@@ -209,305 +236,285 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   color: #404040;
 }
 
 .mobile-nav__logo-usa,
 .mobile-nav__logo-today {
-  font-size: 1.15rem;     /* Ripristinato a 1.05rem */
-  font-weight: 800;       
-  line-height: 0.95;      
-  letter-spacing: 0.1px; 
+  font-size: 1.11rem;
+  /* Ripristinato a 1.05rem */
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: 0.3px;
   text-transform: uppercase;
 }
 
-
-
-
-
 /* Overlay */
 #overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(6px);
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 800;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 800;
 }
 
 /* Mobile Menu */
 .mobile-menu {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    height: 100%;
-    width: 33.33333333%;
-    width: 85%;
-  max-width: 512px;
-    background: #fff;
-    z-index: 900;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
-    transition: left 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    overflow: visible; /* Consentiamo la fuoriuscita laterale */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 33.33333333%;
+  width: 85%;
+  max-width: 32rem;
+  background: #fff;
+  z-index: 900;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  transform: translateX(calc(-100% - 3rem));
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  /* Consentiamo la fuoriuscita laterale */
 }
 
 .mobile-menu.open {
-    left: 0;
+  transform: translateX(0);
 }
 
 #closeMenu {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #closeMenu svg {
-    fill: #333;
+  fill: #333;
 }
 
 .mobile-header {
-    padding: 40px 40px 0 40px; /* Aumentato spazio sopra (40px) e ai lati (32px) */
-    border-bottom: none;
-    overflow: visible;
+  padding: 2.125rem 2.5rem 0 2.5rem;
+  border-bottom: none;
+  overflow: visible;
 }
 
 .logo-search {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 32px; /* Aumentato spazio sotto il logo */
-    padding: 0; /* Allineato perfettamente ai lati */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  /* Aumentato spazio sotto il logo */
+  padding: 0;
+  /* Allineato perfettamente ai lati */
 }
 
 .search-box {
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin-bottom: 0;
-    padding: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 0;
+  padding: 0;
+  min-width: 0;
+  width: 100%;
 }
 
 .search-box input {
-    flex: 1;
-    border: none;
-    border-bottom: 1px solid #999; /* La linea ora è solo sotto l'input */
-    outline: none;
-    padding: 12px 0 19px 12px; /* Ridotto lo spazio "tab" da 24px a 12px */
-    font-size: 1rem;
-    font-family: 'Inter', sans-serif;
-    background: transparent;
-    transition: background-color 0.2s;
-    margin-right: 0px; /* Spazio tra la linea e la lente */
+  flex: 1;
+  min-width: 0;
+  border: none;
+  border-bottom: 1px solid #999;
+  /* La linea ora è solo sotto l'input */
+  outline: none;
+  padding: 0.75rem 0 1.1875rem 0.75rem;
+  /* Ridotto lo spazio "tab" da 1.5rem a 0.75rem */
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  background: transparent;
+  transition: background-color 0.2s;
+  margin-right: 0px;
+  /* Spazio tra la linea e la lente */
 }
 
 .search-box input:hover {
-    background-color: #f8f8f8;
+  background-color: #f8f8f8;
 }
 
 .search-btn {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-     transform: translateY(-5.5px); /* I numeri negativi (es. -4, -8) alzano l'icona */
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transform: translateY(-5.5px);
+  /* I numeri negativi (es. -4, -8) alzano l'icona */
 }
 
 .search-btn svg {
-    fill: #000; /* Lente di ingrandimento nera */
+  fill: #000;
+  /* Lente di ingrandimento nera */
 }
 
 .scroll-menu-news {
-    flex: 1;
-    width: calc(100% + 40px); /* Larghezza extra per evitare tagli al sottomenu */
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    position: relative;
-    padding-top: 12px;
+  flex: 1;
+  width: calc(100% + 2.5rem);
+  /* Larghezza extra per evitare tagli al sottomenu */
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  position: relative;
+  padding-top: 0.75rem;
 }
 
 .scroll-menu-news::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .scroll-menu-news-container {
-    width: 100%;
-    overflow: visible;
+  width: 100%;
+  overflow: visible;
 }
 
 .container {
-    width: 100%;
-    padding-right: 40px; /* Compensa l'allargamento del contenitore padre */
-    overflow: visible;
+  width: 100%;
+  padding-right: 2.5rem;
+  /* Compensa l'allargamento del contenitore padre */
+  overflow: visible;
 }
 
 .main-menu-list {
-    list-style: none;
-    padding: 0; 
-    overflow: visible;
-    z-index: 100;
+  list-style: none;
+  padding: 0;
+  overflow: visible;
+  z-index: 100;
 }
 
 .main-menu-item {
-    position: relative;
-    z-index: 10;
+  position: relative;
+  z-index: 10;
 }
 
 .main-menu-item:hover {
-    background: #f8f8f8;
-    z-index: 100;
+  background: #f8f8f8;
+  z-index: 100;
 }
 
 .main-menu-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 8px;
-    height: 100%;
-    background: var(--bar-color, #009BFF);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.5rem;
+  height: 100%;
+  background: var(--bar-color, #009BFF);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 .main-menu-item:hover::before,
 .main-menu-item.open::before {
-    transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 .menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 11px 40px; /* Ridotto da 12px a 8px per avvicinare le parole */
-    cursor: pointer;
-    transition: background-color 0.2s;
-    z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6875rem 2.5rem;
+  /* Ridotto da 0.75rem a 0.5rem per avvicinare le parole */
+  cursor: pointer;
+  transition: background-color 0.2s;
+  z-index: 10;
 }
 
 .menu a {
-    text-decoration: none;
-    color: #111;
-    font-size: 1.15rem; /* Aumentato per maggiore impatto visivo */
-    font-weight: 750;
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.15;
-    transition: transform 0.3s ease;
+  text-decoration: none;
+  color: #222;
+  font-size: 1.12rem;
+  /* Aumentato per maggiore impatto visivo */
+  font-weight: 775;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.15;
+  transition: transform 0.3s ease;
 }
 
 .main-menu-item:hover .menu a {
-    transform: translateX(12px); /* Effetto scorrimento all'hover */
+  transform: translateX(12px);
+  /* Effetto scorrimento all'hover */
 }
 
 .menu svg {
-    fill: #666;
+  fill: #666;
 }
 
 /* Submenu Panel */
 .submenu {
-    display: none;
-    list-style: none;
-    background: #fff;
-}
-
-@media (min-width: 500px) {
-    .main-menu-item:hover .submenu {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 50%; /* Inizia a metà del menu principale */
-        width: 60%; /* Sporge a destra nei 40px extra */
-        background: #fff;
-        box-shadow: 0 0 22px 0 rgba(0, 0, 0, 0.13);
-        padding: 10px 0;
-        z-index: 2000;
-    }
-
-    /* Freccia di puntamento */
-    .main-menu-item:hover .submenu::before {
-        content: '';
-        position: absolute;
-        top: 12px;
-        left: -10px;
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent;
-        border-right: 10px solid #fff;
-    }
-}
-
-@media (max-width: 499px) {
-    .mobile-menu {
-        width: 100%;
-        min-width: 0;
-    }
-    .main-menu-item.open .submenu {
-        display: block;
-        background: #fcfcfc;
-    }
+  display: none;
+  list-style: none;
+  background: #fff;
 }
 
 .submenu li a {
-    display: block;
-    padding: 10px 24px;
-    text-decoration: none;
-    color: #666;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
+  display: block;
+  padding: 0.625rem 1.5rem;
+  text-decoration: none;
+  color: #666;
+  font-family: 'Inter', sans-serif;
+  font-size: calc(13px + 0.227273vw);
+  font-weight: 400;
+  padding: 0.625rem 3.2rem;
 }
 
 .submenu li a:hover {
-    color: var(--bar-color, #009BFF);
-    font-weight: 600;
+  color: #626262;
+  font-weight: 800;
 }
 
 /* Recent Stories */
 .recent-stories {
-    padding: 32px 40px; /* Allineato ai 40px delle categorie sopra */
+  padding: 2rem 2.5rem;
+  /* Allineato ai 2.5rem delle categorie sopra */
 }
 
 .recent-stories h4 {
-    font-size: 0.83rem;
-    font-weight: 750;
-    color: rgba(0,0,0,0.7);
-    letter-spacing: 1px;
-    margin-bottom: 16px;
-    font-family: 'Inter', sans-serif;
+  font-size: 0.83rem;
+  font-weight: 750;
+  color: rgba(0, 0, 0, 0.7);
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
 }
 
 .recent-story {
-    margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .recent-story a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .recent-story h5 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #111;
-    font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .recent-story p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.4;
-    font-family: 'Georgia', serif;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.4;
+  font-family: 'Georgia', serif;
 }
-
-
 
 /* Layout split: sidebar + main feed */
 .layout-split {
@@ -516,50 +523,28 @@ button {
   gap: var(--spacing-lg);
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 15px var(--spacing-xl); /* Padding mobile di base */
+  padding: 0 0.9375rem var(--spacing-xl);
+  /* Padding mobile di base */
   width: 100%;
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
-  .layout-split {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-@media (min-width: 1200px) {
-  .layout-split {
-    grid-template-columns: 348px 1fr;
-    gap: 20px; /* Canale grigio più stretto tra le colonne */
-    padding: 0px 62px 0;
-    align-items: stretch;
-    /* Effetto Faux Columns: disegna due binari bianchi sullo sfondo grigio */
-    background-image: 
-      linear-gradient(#fff, #fff), 
-      linear-gradient(#fff, #fff);
-    background-position: 
-      62px 0, 
-      calc(62px + 348px + 20px) 0;
-    background-size: 
-      348px 100%, 
-      calc(100% - 124px - 368px) 100%;
-    background-repeat: no-repeat;
-  }
-}
 
 /* ==========================================================================
-   Top Stories Section
+   TOP STORIES SECTION (HERO & SECONDARY)
+   Griglia principale del sito con articoli semantici e picture tags.
    ========================================================================== */
 .top-stories {
-  background-color: #fff; /* Fondo bianco per la parte superiore */
+  background-color: #fff;
+  /* Fondo bianco per la parte superiore */
   max-width: var(--max-width);
   margin: 0 auto;
   padding-top: 0;
-  padding-right: 15px;
-  padding-bottom: 94px;
-  padding-left: 15px; /* Padding mobile */
+  padding-right: 0.9375rem;
+  padding-bottom: 5.875rem;
+  padding-left: 0.9375rem;
+  /* Padding mobile */
   width: 100%;
-  
+
   /* Copre il grigio del body nella parte alta */
   box-shadow: 0 0 0 100vmax #ffffff;
   clip-path: inset(0 -100vmax);
@@ -571,22 +556,6 @@ button {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-md);
-}
-
-
-
-@media (min-width: 1200px) {
-  .top-stories {
-    padding-left: 60px;
-    padding-right: var(--spacing-sm);
-    margin-bottom: 17px;
-    padding-bottom: 78px;
-  }
-
-  .top-stories__grid {
-    grid-template-columns: 1.29fr 0.955fr 1.05fr;
-    gap: var(--spacing-md);
-  }
 }
 
 /* Hero Card */
@@ -608,18 +577,23 @@ button {
 
 .hero-card__content {
   background-color: var(--color-bg-main);
-  padding: 18px 18px 0 0;
-  margin-top: -35px; /* Deeper overlap into the image */
+  padding: 1.125rem 1.125rem 0 0;
+  margin-top: -2.1875rem;
+  /* Deeper overlap into the image */
   position: relative;
   z-index: 10;
-  width: 92.5%; /* Wider cutout */
+  width: 92.5%;
+  /* Wider cutout */
 }
 
 .hero-card__title {
-  font-family: 'Montserrat'; 
-  font-weight: 700; /* Bello spesso, come l'originale */
-  font-size: 1.3rem; /* Più piccolo su mobile */
-  line-height: 1.25; /* questo è fondamentale per lo spazio tra le righe */
+  font-family: 'Montserrat';
+  font-weight: 700;
+  /* Bello spesso, come l'originale */
+  font-size: 1.3rem;
+  /* Più piccolo su mobile */
+  line-height: 1.25;
+  /* questo è fondamentale per lo spazio tra le righe */
   letter-spacing: 0px;
   color: #353232;
   transition: color 0.2s ease;
@@ -628,16 +602,17 @@ button {
 
 .hero-card__title:hover {
   text-decoration: underline;
-  text-decoration-color: #009bff; /* Blu USA Today */
+  text-decoration-color: #009bff;
+  /* Blu USA Today */
   text-underline-offset: 2px;
   text-decoration-thickness: 2.2px;
 }
 
 .hero-card__excerpt {
   font-family: var(--font-serif);
-  font-size: 1rem; 
+  font-size: 1rem;
   line-height: 1.35;
-  margin-top: 12px;
+  margin-top: 0.75rem;
   color: #333;
 }
 
@@ -646,11 +621,14 @@ button {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
-  margin-left: 16px; /* <--- 1. SPINGE L'INIZIO VERSO "MONEY" */
-  margin-right: 35px; /* <--- 2. TIRA LA FINE VERSO "CROSSWORD" (Opzionale) */
+  margin-left: 1rem;
+  /* <--- 1. SPINGE L'INIZIO VERSO "MONEY" */
+  margin-right: 2.1875rem;
+  /* <--- 2. TIRA LA FINE VERSO "CROSSWORD" (Opzionale) */
 }
 
 .story-card {
+  /* Card per le notizie secondarie (con sovrapposizione testo/foto) */
   display: flex;
   flex-direction: column;
 }
@@ -667,7 +645,7 @@ button {
 }
 
 .story-card__content {
-  padding: 10px 0;
+  padding: 0.625rem 0;
 }
 
 .story-card__title {
@@ -690,8 +668,9 @@ button {
 
 .story-card--overlap .story-card__content {
   background-color: var(--color-bg-main);
-  padding: 15px 20px 0 0; /* <--- 20px sopra, 20px a destra, 0 sotto, 0 sinistra */
-  margin-top: -22.5px;
+  padding: 0.9375rem 1.25rem 0 0;
+  /* <--- 1.25rem sopra, 1.25rem a destra, 0 sotto, 0 sinistra */
+  margin-top: -1.4062rem;
   position: relative;
   z-index: 10;
   width: 91.5%;
@@ -699,24 +678,20 @@ button {
 
 /* Tertiary Text List */
 .top-stories__tertiary {
-  display: none; /* Nascosto su Mobile e Tablet */
+  display: none;
+  /* Nascosto su Mobile e Tablet */
   flex-direction: column;
-  gap: 35px; /* Spazio maggiore tra le notizie */
+  gap: 2.1875rem;
+  /* Spazio maggiore tra le notizie */
   border-top: 1px solid #eee;
 }
 
-@media (min-width: 1200px) {
-  .top-stories__tertiary {
-    display: flex; /* Appare solo su Desktop */
-    border-top: none;
-    padding-top: 32px;
-    margin-left: -18px; 
-  }
-}
-
 .text-card {
-  padding-bottom: 0; /* Rimosso padding */
-  border-bottom: none; /* Nessuna linea orizzontale */
+  /* Notizia solo testuale (Tertiary Story) */
+  padding-bottom: 0;
+  /* Rimosso padding */
+  border-bottom: none;
+  /* Nessuna linea orizzontale */
 }
 
 .text-card:last-child {
@@ -724,14 +699,16 @@ button {
 }
 
 .text-card__title {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.97rem; /*Gandezza testo*/
-  font-weight: 700;   /* Più spessi */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  /*Gandezza testo*/
+  font-weight: 625;
+  /* Più spessi */
   line-height: 1.25;
-  color: #222;
+  color: #000000;
   transition: color 0.2s ease;
-  max-width: 255px; 
-  word-spacing: 0.8px;
+  max-width: 18rem;
+  word-spacing: 0.1px;
 }
 
 .text-card__title:hover {
@@ -742,23 +719,18 @@ button {
   cursor: pointer;
 }
 
-.text-card__meta,
-.list-card__meta,
-.featured-sub-card__meta,
-.sports-hero__meta,
-.sports-strip__meta {
+.text-card__meta {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.85rem; /* Meta leggermente più grandi */
+  font-size: 0.85rem;
+  /* Meta leggermente più grandi */
   color: #666;
   font-weight: 550;
-  margin-top: 6px;
+  margin-top: 0.375rem;
 }
 
-.text-card__category,
-.list-card__category,
-.featured-sub-card__category,
-.sports-hero__category {
-  color: #626262; /* Grigio USA Today, non nero */
+.text-card__category {
+  color: #626262;
+  /* Grigio USA Today, non nero */
   font-weight: 750;
 }
 
@@ -767,50 +739,54 @@ button {
    Sidebar
    ========================================================================== */
 .sidebar-left {
-  display: none; /* Nascosto su Mobile e Tablet */
+  display: none;
+  /* Nascosto su Mobile e Tablet */
   flex-direction: column;
-  align-items: center; /* Centra orizzontalmente i box interni */
+  align-items: center;
+  /* Centra orizzontalmente i box 'Inter'ni */
   gap: var(--spacing-md);
-  background-color: transparent; /* Trasparente perché lo sfondo è gestito dal padre */
-  padding: 16px;
-  height: 100%; /* Forza il riempimento dell'altezza della riga */
-}
-
-@media (min-width: 1200px) {
-  .sidebar-left {
-    display: flex; /* Appare solo su Desktop */
-  }
+  background-color: transparent;
+  /* Trasparente perché lo sfondo è gestito dal padre */
+  padding: 1rem;
+  height: 100%;
+  /* Forza il riempimento dell'altezza della riga */
 }
 
 .feedback-card {
-  padding: 12.5px 0;
+  padding: 0.7812rem 0;
 }
 
 .cta-box {
-  display: flex; /* questo funziona così: il box viene flexbox quindi centrerà il contenuto al meglio */
-  align-items: center; 
-  justify-content: space-between; 
-  border: 8px solid #009BFF; /*questo funziona così: la linea ha lo spessore di 8px*/
-  padding: 22.5px 24px; /* questo funziona così: sopra e sotto, destra e sinistra */
-  position: relative; 
-  max-width: 292px; /*Larghezzabox*/
+  display: flex;
+  /* questo funziona così: il box viene flexbox quindi centrerà il contenuto al meglio */
+  align-items: center;
+  justify-content: space-between;
+  border: 8px solid #009BFF;
+  /*questo funziona così: la linea ha lo spessore di 8px*/
+  padding: 1.4062rem 1.5rem;
+  /* questo funziona così: sopra e sotto, destra e sinistra */
+  position: relative;
+  max-width: 18.25rem;
+  /*Larghezzabox*/
   background-color: white;
   font-family: 'Inter', Helvetica, Arial, sans-serif;
-  font-size: 12.5px;
+  font-size: 0.7812rem;
   color: #222;
   text-decoration: none;
 }
 
 .cta-box h2 {
-  font-weight: 800;
-  line-height: 28px; /* Spazio tra le righe del titolo */
+  font-weight: 900;
+  line-height: 27.7px;
+  /* Spazio tra le righe del titolo */
   margin: 0;
   word-spacing: 2px;
   letter-spacing: 0.21px;
 }
 
 .cta-box .emphasis {
-  color: #009BFF; /* Solo la prima parte in blu */
+  color: #009BFF;
+  /* Solo la prima parte in blu */
 }
 
 /* Il quadratino che taglia la cornice */
@@ -820,31 +796,36 @@ button {
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: -8px; 
-  bottom: -8px;
-  height: 52px;
-  width: 47px;
+  right: -0.5rem;
+  bottom: -0.5rem;
+  height: 3.25rem;
+  width: 2.9375rem;
   border-left: 8px solid #fff;
   border-top: 8px solid #fff;
   z-index: 1;
-  padding-bottom: 4px; /* Aumenta questo numero per spingerla più in alto */
+  padding-bottom: 0.25rem;
+  /* Aumenta questo numero per spingerla più in alto */
 }
 
 .sidebar-ad {
-  text-align: center; /* Centra la scritta Advertisement */
+  text-align: center;
+  /* Centra la scritta Advertisement */
   position: sticky;
-  top: 68px; /* Si blocca sotto l'header (che è alto circa 55px + pading) */
+  top: 4.25rem;
+  /* Si blocca sotto l'header (che è alto circa 3.4375rem + pading) */
   /* Rimossa transizione per permettere allo script JS di traslarla istantaneamente senza lag */
 }
 
 .sidebar-ad__label {
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
-  color: #c2c2c2; /* Grigio originale USA Today */
+  color: #c2c2c2;
+  /* Grigio originale USA Today */
   text-align: center;
   display: block;
-  margin-top: 10px; /* Distanza bilanciata dal box sopra */
+  margin-top: 0.625rem;
+  /* Distanza bilanciata dal box sopra */
 }
 
 .feed-section {
@@ -855,246 +836,110 @@ button {
 
 .list-feed {
   background-color: #fff;
-  padding: 0; /* Rimosso il padding per ottimizzare lo spazio superiore */
+  padding: 0;
+  /* Rimosso il padding per ottimizzare lo spazio superiore */
   display: flex;
   flex-direction: column;
   margin-bottom: 0px;
-  padding-bottom: 25.5px; /* Aumenta questo valore per avere più bianco in fondo */
+  padding-bottom: 1.5938rem;
+  /* Aumenta questo valore per avere più bianco in fondo */
 }
-
-
 
 /* ==========================================================================
    Feed Card (Sostituisce .story, .news-principal, ecc.)
    ========================================================================== */
 .feed-card {
-    display: flex;
-    flex-direction: row;
-    width: auto;
-    margin: 12px 59px; /* Spaziature standard USA Today */
-    text-decoration: none;
-    border-bottom: none;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  margin: 0.75rem 3.6875rem;
+  /* Spaziature standard USA Today */
+  text-decoration: none;
+  border-bottom: none;
+  align-items: flex-start;
 }
 
-
-
 .feed-card__content {
-    display: flex;
-    flex-basis: 100%; /* Il testo occupa tutto lo spazio disponibile */
-    height: auto;
-    flex-direction: column;
-    padding: 0 10px 0 0; /* Spazio ridotto verso la foto */
-    overflow: hidden;
+  display: flex;
+  flex-basis: 100%;
+  /* Il testo occupa tutto lo spazio disponibile */
+  height: auto;
+  flex-direction: column;
+  padding: 0 0.625rem 0 0;
+  /* Spazio ridotto verso la foto */
+  overflow: hidden;
 }
 
 .feed-card__title {
-    font-size: 21px;
-    font-family: "Montserrat", Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    line-height: 1.15;
-    color: rgba(0, 0, 0, .87);
-    margin: 0;
+  font-size: 1.3125rem;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  color: rgba(0, 0, 0, .87);
+  margin: 0;
 }
 
 .feed-card:hover .feed-card__title {
-    text-decoration: underline;
-    text-decoration-color: #009BFF;
-    text-underline-offset: 2px;
-    text-decoration-thickness: 2px;
+  text-decoration: underline;
+  text-decoration-color: #009BFF;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
 }
 
 .feed-card__meta {
-    display: flex;
-    flex-direction: row;
-    margin-top: 4px; /* Valore esatto ispezionato */
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.25rem;
+  /* Valore esatto ispezionato */
+  align-items: center;
 }
 
 .feed-card__category {
-    font-size: 0.85rem;
-    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-    font-weight: 750;
-    color: rgba(0, 0, 0, .6);
-    margin: 0;
+  font-size: 0.85rem;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-weight: 750;
+  color: rgba(0, 0, 0, .6);
+  margin: 0;
 }
 
 .feed-card__time {
-    padding: 0 5px;
-    font-size: 0.85rem;
-    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-    font-weight: 550;
-    color: #505050;
-    margin: 0;
+  padding: 0 0.3125rem;
+  font-size: 0.85rem;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-weight: 550;
+  color: #505050;
+  margin: 0;
 }
 
 .feed-card__time:before {
-    padding-left: 2px;
-    padding-right: 4px;
-    padding-bottom: 1px;
-    content: '|';
+  padding-left: 2px;
+  padding-right: 0.25rem;
+  padding-bottom: 1px;
+  content: '|';
 }
 
 .feed-card__image-wrapper {
-    flex-basis: 187px; /* Larghezza fissa del placeholder originale */
-    flex-shrink: 0;    /* Impedisce rimpicciolimenti */
-    height: auto;
+  flex-basis: 11.6875rem;
+  /* Larghezza fissa del placeholder originale */
+  flex-shrink: 0;
+  /* Impedisce rimpicciolimenti */
+  height: auto;
 }
 
 .feed-card__image {
-    padding: 0 0 0 10px; /* Spazio a sinistra dell'immagine */
-    height: auto;
-    width: 100%;
-    display: block;
-}
-
-@media (max-width: 767.98px) {
-    .feed-card {
-        margin: 12px 24px;
-    }
-}
-
-/* ==========================================================================
-   Category Blocks (common)
-   ========================================================================== */
-
-
-/* ==========================================================================
-   Sports — special layout
-   ========================================================================== */
-.sports-hero {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: var(--spacing-md);
-}
-
-.sports-hero__image {
-  width: 100%;
+  padding: 0 0 0 0.625rem;
+  /* Spazio a sinistra dell'immagine */
   height: auto;
-  object-fit: cover;
-  aspect-ratio: 16/9;
-}
-
-.sports-hero__content {
-  padding: var(--spacing-sm) 0;
-}
-
-.sports-hero__title {
-  font-family: var(--font-headline);
-  font-size: 1.6rem;
-  line-height: 1.2;
-}
-
-/* Horizontal strip of 3 cards */
-.sports-strip {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-md);
-}
-
-@media (min-width: 576px) {
-  .sports-strip {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.sports-strip__card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-}
-
-.sports-strip__image {
   width: 100%;
-  height: auto;
-  aspect-ratio: 3/2;
-  object-fit: cover;
-}
-
-.sports-strip__title {
-  font-family: var(--font-headline);
-  font-size: 0.95rem;
-  line-height: 1.3;
+  display: block;
 }
 
 /* ==========================================================================
-   Media Sections: Videos & Galleries
-   ========================================================================== */
-.media-section {
-  margin-top: var(--spacing-xl);
-}
-
-.media-section__header {
-  display: flex;
-  align-items: center;
-  font-family: var(--font-headline);
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  border-bottom: 2px solid var(--color-border);
-  padding-bottom: var(--spacing-xs);
-  margin-bottom: var(--spacing-md);
-  letter-spacing: 0.5px;
-}
-
-.category-block__indicator--videos   { background: #cc0000; }
-.category-block__indicator--galleries { background: #231f20; }
-
-/* Horizontal scrollable strip */
-.media-strip {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-md);
-}
-
-@media (min-width: 768px) {
-  .media-strip {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.media-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-  position: relative;
-}
-
-.media-card__image {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-}
-
-.media-card__play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -70%);
-  width: 36px;
-  height: 36px;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.85rem;
-  pointer-events: none;
-}
-
-.media-card__title {
-  font-family: var(--font-primary);
-  font-weight: 700;
-  font-size: 0.85rem;
-  line-height: 1.3;
-  color: var(--color-text-main);
-}
-
-/* ==========================================================================
-   Footer Component
+   FOOTER COMPONENT
+   Contiene i link istituzionali, i social e il copyright.
    ========================================================================== */
 .footer {
-  padding: 40px 24px var(--spacing-lg);
+  padding: 2.5rem 1.5rem var(--spacing-lg);
   background-color: #f8f8f8;
   position: relative;
   z-index: 100;
@@ -1104,7 +949,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px 0;
+  gap: 0.25rem 0;
   margin-bottom: var(--spacing-md);
   padding-left: 1.75px;
 }
@@ -1117,16 +962,16 @@ button {
 
 .footer__nav-item:not(:last-child)::after {
   content: '\00B7';
-  margin: 0 7px;
+  margin: 0 0.4375rem;
   color: var(--color-text-main);
   font-weight: bold;
   font-size: 0.75rem;
 }
 
 .footer__nav-item a {
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-  font-size: 15.5px;
-  font-weight: 550;
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  font-size: 0.9719rem;
+  font-weight: 512;
   color: #444;
 }
 
@@ -1137,11 +982,11 @@ button {
 
 .footer__social-placeholder {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   background-color: #e0e0e0;
-  border-radius: 4px;
-  margin-right: 12px;
+  border-radius: 0.25rem;
+  margin-right: 0.75rem;
   transition: background-color 0.2s ease;
 }
 
@@ -1152,22 +997,19 @@ button {
 .footer__socials {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
   margin-bottom: var(--spacing-md);
 }
 
 .footer__social-link:hover,
-.footer__social-link:focus {
-  opacity: 0.7;
-}
-
 
 .footer__copy {
   font-family: 'Montserrat', sans-serif;
-  font-size: 13.5px;
+  font-size: 0.8438rem;
   font-weight: 550;
   color: #333
 }
+
 /* ACADEMIC REQUIREMENT: Utility per elementi invisibili ma leggibili dai Screen Reader (WAVE compliant) */
 .visually-hidden {
   position: absolute;
@@ -1184,512 +1026,621 @@ button {
 /* ACADEMIC REQUIREMENT: Skip Link che appare solo al Focus o resta nascosto (Accessibilità Gold) */
 .skip {
   position: absolute;
-  top: -100px;
+  top: -6.25rem;
   left: 50%;
   transform: translateX(-50%);
   background: #009bff;
   color: white;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   font-weight: 700;
   z-index: 9999;
   text-decoration: none;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 0.3125rem 0.3125rem;
   transition: top 0.2s ease;
 }
 
 .skip:focus {
-  top: 0; /* Appare se l'utente usa la tastiera */
+  top: 0;
+  /* Appare se l'utente usa la tastiera */
 }
-    .block-notices {
-        background: transparent;
-        display: flex;
-        flex-direction: column;
-        min-height: 335px;
-        margin-bottom: 18px; 
-    }
 
-    .news {
-        background: #ffffff; /* Il bianco sarà solo per le vere schede/card */
-        padding: 0; /* Rimosso completamente il padding */
-        display: flex;
-        flex-direction: column;
-    }
+.block-notices {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  min-height: 20.9375rem;
+  margin-bottom: 1.125rem;
+}
 
-    .category-block__header {
-        background: #f8f8f8; /* Ripristina il grigio dello sfondo */
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-left: auto;
-        margin-right: auto;
-        height: auto; /* Allow natural height instead of rigid 80px */
-        width: 100%;
-        padding-top: 25px; /* Spazio grigio SOPRA la parola (es. Sports) */
-        padding-bottom: 15px; /* Spazio grigio SOTTO la parola, prima dell'immagine */
-        cursor: pointer;
-        text-decoration: none;
-        border-bottom: none;
-        padding-right: 22px;
-    }
+.news {
+  background: #ffffff;
+  /* Il bianco sarà solo per le vere schede/card */
+  padding: 0;
+  /* Rimosso completamente il padding */
+  display: flex;
+  flex-direction: column;
+}
 
-    .category-block__title {
-        display: flex;
-        align-items: center; /* allinea il testo e la barretta verticalmente */
-        font-size: 19px;
-        font-family: "Montserrat", Helvetica, Arial, sans-serif;
-        color: #222222;
-        font-weight: 750;
-        height: 24px;
-    }
+.category-block__header {
+  background: #f8f8f8;
+  /* Ripristina il grigio dello sfondo */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  /* Allow natural height instead of rigid 5rem */
+  width: 100%;
+  padding-top: 1.5625rem;
+  /* Spazio grigio SOPRA la parola (es. Sports) */
+  padding-bottom: 0.9375rem;
+  /* Spazio grigio SOTTO la parola, prima dell'immagine */
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: none;
+  padding-right: 1.375rem;
+}
 
-    .category-block__title::before {
-        content: ' ';
-        height: 12px;
-        min-width: 24px;
-        margin-right: 12px;
-        justify-content: center;
-        background: #009bff;
-        transform: translateY(0.9px);
-    }
+.category-block__title {
+  display: flex;
+  align-items: center;
+  /* allinea il testo e la barretta verticalmente */
+  font-size: 1.1875rem;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  color: #222222;
+  font-weight: 750;
+  height: 1.5rem;
+}
 
-    .category-block--sports .category-block__title::before {
-        background: #f03c4b;
-    }
+.category-block__title::before {
+  content: ' ';
+  height: 0.75rem;
+  min-width: 1.5rem;
+  margin-right: 0.75rem;
+  justify-content: center;
+  background: #009bff;
+  transform: translateY(0.9px);
+}
 
-    .category-block--entertainment .category-block__title::before {
-        background: #aa50e6;
-    }
+.category-block--sports .category-block__title::before {
+  background: #f03c4b;
+}
 
-    .category-block--money .category-block__title::before {
-        background: #3cc37d;
-    }
+.category-block--entertainment .category-block__title::before {
+  background: #aa50e6;
+}
 
-    .category-block--tech .category-block__title::before {
-        background: #fa9632;
-    }
+.category-block--money .category-block__title::before {
+  background: #3cc37d;
+}
 
-    .category-block--travel .category-block__title::before {
-        background: #19c8d2;
-    }
+.category-block--tech .category-block__title::before {
+  background: #fa9632;
+}
 
-    .category-block--opinion .category-block__title::before {
-        background: #7e7bf2;
-    }
+.category-block--travel .category-block__title::before {
+  background: #19c8d2;
+}
 
-    .feed-card--principal {
-        position: relative;
-        flex-wrap: nowrap;
-        display: flex;
-        height: auto;
-        width: 100%;
-        flex-direction: row;
-        align-items: start;
-        text-decoration: none;
-        left: -10px;  /* Numeri negativi (es. -15px) spostano verso SINISTRA */
-        margin: 0 !important; 
-        padding: 0 !important;
-    }
+.category-block--opinion .category-block__title::before {
+  background: #7e7bf2;
+}
 
-    .feed-card--principal:hover .feed-card__title {
-        text-decoration: underline;
-        text-decoration-color: #009BFF;
-        text-underline-offset: 2px;
-        text-decoration-thickness: 2.8px;
-    }
+.feed-card--principal {
+  position: relative;
+  flex-wrap: nowrap;
+  display: flex;
+  height: auto;
+  width: 100%;
+  flex-direction: row;
+  align-items: start;
+  text-decoration: none;
+  left: -0.625rem;
+  /* Numeri negativi (es. -0.9375rem) spostano verso SINISTRA */
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
-    .feed-card--principal .feed-card__image-wrapper {
-        display: flex;
-        flex: 2;
-        height: auto;
-        flex-direction: column;
-        padding: 0; /* Rimuove il padding destro e inferiore sull'immagine principale per farla "uscire" al bordo */
-        overflow: hidden;
-    }
+.feed-card--principal:hover .feed-card__title {
+  text-decoration: underline;
+  text-decoration-color: #009BFF;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2.8px;
+}
 
-    .feed-card--principal img {
-        display: block;
-        width: 100%;
-        flex: 2;
-    }
+.feed-card--principal .feed-card__image-wrapper {
+  display: flex;
+  flex: 2;
+  height: auto;
+  flex-direction: column;
+  padding: 0;
+  /* Rimuove il padding destro e inferiore sull'immagine principale per farla "uscire" al bordo */
+  overflow: hidden;
+}
 
-    .feed-card--principal .feed-card__content {
-        display: flex;
-        flex-wrap: nowrap;
-        position: relative;
-        flex: 1;
-        margin-left: -12%;
-        background: #ffffff;
-        max-width: 295px;
-        padding: 24px 20px 55px 34px;
-        margin-top: 25px;
-        line-height: 1.15;
-        flex-direction: column;
-    }
+.feed-card--principal img {
+  display: block;
+  width: 100%;
+  flex: 2;
+}
 
-    /* Personalizzazione specifica per Sports */
-    .section-sports .feed-card--principal .feed-card__content {
-        padding: 24px 20px 65px 34px; /* <--- REGOLA IL PADDING DI SPORTS QUI */
-    }
+.feed-card--principal .feed-card__content {
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+  flex: 1;
+  margin-left: -12%;
+  background: #ffffff;
+  max-width: 18.4375rem;
+  padding: 1.5rem 1.25rem 3.4375rem 2.125rem;
+  margin-top: 1.5625rem;
+  line-height: 1.15;
+  flex-direction: column;
+}
 
-    /* Personalizzazione specifica per Galleries */
-    .section-galleries .feed-card--principal .feed-card__content {
-        padding: 24px 20px 65px 34px; /* <--- REGOLA IL PADDING DI GALLERIES QUI */
-    }
+/* Personalizzazione specifica per Sports */
+.section-sports .feed-card--principal .feed-card__content {
+  padding: 1.5rem 1.25rem 4.0625rem 2.125rem;
+  /* <--- REGOLA IL PADDING DI SPORTS QUI */
+}
 
-    /* Personalizzazione specifica per Travel */
-    .section-travel .feed-card--principal .feed-card__content {
-        padding: 24px 20px 30px 34px; /* <--- REGOLA IL PADDING DI TRAVEL QUI */
-    }
+/* Personalizzazione specifica per Galleries */
+.section-galleries .feed-card--principal .feed-card__content {
+  padding: 1.5rem 1.25rem 4.0625rem 2.125rem;
+  /* <--- REGOLA IL PADDING DI GALLERIES QUI */
+}
 
-    /* Personalizzazione specifica per Opinion */
-    .section-opinion .feed-card--principal .feed-card__content {
-        padding: 24px 20px 30px 34px; /* <--- REGOLA IL PADDING DI OPINION QUI */
-    }
+/* Personalizzazione specifica per Travel */
+.section-travel .feed-card--principal .feed-card__content {
+  padding: 1.5rem 1.25rem 1.875rem 2.125rem;
+  /* <--- REGOLA IL PADDING DI TRAVEL QUI */
+}
 
-    .feed-card--principal .feed-card__title {
-        font-family: "Montserrat", Helvetica, Arial, sans-serif;
-        font-size: clamp(1.25rem, 2vw + 1rem, 1.75rem);
-        font-weight: 700;
-        line-height: 1.15;
-        color: #222222;
-        /* Limitazione a 4 righe per i titoli grandi */
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
+/* Personalizzazione specifica per Opinion */
+.section-opinion .feed-card--principal .feed-card__content {
+  padding: 1.5rem 1.25rem 1.875rem 2.125rem;
+  /* <--- REGOLA IL PADDING DI OPINION QUI */
+}
 
-    @media (min-width: 1200px) {
-        .feed-card--principal .feed-card__title {
-            font-size: 28px;
-        }
-    }
-    @media (min-width: 768px) and (max-width: 1199px) {
-        .feed-card--principal .feed-card__title {
-            font-size: 22px;
-        }
-    }
-    @media (max-width: 575.98px) {
-    .category-block__sub-grid {
-        display: flex;
-        overflow-x: auto;
-        gap: 16px;
-        padding-bottom: 8px; /* For scrollbar */
-        scroll-snap-type: x mandatory;
-    }
-    .category-block__sub-grid > * {
-        scroll-snap-align: start;
-        flex: 0 0 85%;
-    }
+.feed-card--principal .feed-card__title {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: clamp(1.25rem, 2vw + 1rem, 1.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #222222;
+  /* Limitazione a 4 righe per i titoli grandi */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
-        .category-block__card-title h3{
-            font-size: calc(14px + 0.909091vw);
-        }
-    }
+.feed-card--principal .feed-card__meta {
+  flex-direction: row;
+  display: flex;
+  color: #00000099;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  margin-top: 0.6562rem;
+  align-items: center;
+  text-align: center;
+}
 
-    .feed-card--principal .feed-card__meta { 
-        flex-direction: row;
-        display: flex;
-        color: #00000099;
-        font-family: "Montserrat", Helvetica, Arial, sans-serif;
-        margin-top: 10.5px;
-        align-items: center;
-        text-align: center;
-    }
+.feed-card--principal .feed-card__category {
+  font-size: clamp(0.75rem, 0.5vw + 0.5rem, 0.85rem);
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
 
-    .feed-card--principal .feed-card__category {
-        font-size: clamp(0.75rem, 0.5vw + 0.5rem, 0.85rem);
-        font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-        font-weight: 700;
-    }
+.feed-card--principal .feed-card__time {
+  padding: 0 0.3125rem;
+  font-size: clamp(0.75rem, 0.5vw + 0.5rem, 0.85rem);
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  color: #505050;
+}
 
-    .feed-card--principal .feed-card__time {
-        padding: 0 5px;
-        font-size: clamp(0.75rem, 0.5vw + 0.5rem, 0.85rem);
-        font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-        font-weight: 500;
-        color: #505050;
-    }
+.feed-card--principal .feed-card__time:before {
+  padding-left: 0.1875rem;
+  padding-right: 0.3125rem;
+  padding-bottom: 1px;
+  content: '|';
+}
 
-    .feed-card--principal .feed-card__time:before {
-        padding-left: 3px;
-        padding-right: 5px;
-        padding-bottom: 1px;
-        content: '|';
-    }
+.category-block__sub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5312rem;
+  width: 100%;
+  margin-top: 0.625rem;
+  margin-bottom: 0.25rem;
+  min-height: 14.5625rem;
+  padding: 0 0.75rem;
+}
 
-    .category-block__sub-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8.5px;
-        width: 100%;
-        margin-top: 10px;
-        margin-bottom: 4px;
-        min-height: 233px;
-        padding: 0 12px;
-    }
+.category-block__card {
+  display: flex;
+  flex: 1;
+  /* Le card si dividono lo spazio in proporzioni uguali, il gap ora gestisce la distanza */
+  min-width: 0;
+  /* Previene debordamenti se il testo è lungo */
+  margin: 0;
+  /* Rimossa la margin per evitare disallineamenti laterali */
+  width: auto;
+  flex-direction: column;
+  box-shadow: -1px 0 0 rgba(0, 0, 0, 0.1), 1px 0 0 rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
 
-    @media (max-width: 1200px) {
-        .category-block__sub-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8.5px;
-        width: 100%;
-        margin-top: 10px;
-        margin-bottom: 4px;
-        min-height: 233px;
-        padding: 0 16px;
-    }
+.category-block__card:hover .category-block__card-title h3 {
+  text-decoration: underline;
+  text-decoration-color: #009BFF;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
+}
 
-        
-    }
+.category-block__card img {
+  width: 100%;
+}
+
+.category-block__card-title {
+  text-align: start;
+  width: auto;
+  height: 100%;
+  padding: 1rem 1rem;
+}
+
+.category-block__card-title h3 {
+  color: rgba(0, 0, 0, .87);
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+  font-weight: 725;
+  /* Limitazione a 3 righe con puntini di sospensione (standard + webkit) */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.show-more {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  margin: 0 0 0.4375rem 0;
+  padding: 0;
+  /* Rimosso il padding che creava il distacco eccessivo */
+  flex-direction: column;
+}
+
+@keyframes curtainReveal {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.news-extra {
+  display: none;
+  overflow: hidden;
+}
+
+.news-extra--visible {
+  display: grid;
+  animation: curtainReveal 0.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.show-more-click {
+  height: auto;
+  width: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  /* Allineamento verticale */
+  margin-top: 0.75rem;
+  flex-direction: row;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.show-more-click.is-disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.show-more-click.is-disabled .title,
+.show-more-click.is-disabled .title2 {
+  color: #707070 !important;
+  /* Grigio più scuro per miglior contrasto */
+}
+
+.show-more-click.is-disabled .more {
+  display: none;
+}
+
+.title {
+  color: #626262;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-size: clamp(0.65rem, 0.5vw + 0.8rem, 0.9rem);
+  font-weight: 550;
+  line-height: 1;
+}
+
+.title2 {
+  color: #303030;
+  font-weight: 700;
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  font-size: clamp(0.65rem, 0.5vw + 0.8rem, 0.9rem);
+  padding-left: 0.3125rem;
+  line-height: 1;
+}
+
+.more {
+  height: 1.75rem;
+  width: 1.6rem;
+  transform: translateY(-3px);
+}
+
+.company-ad p {
+  color: #666666;
+  font-size: 0.875rem;
+}
+
+.company-ad a {
+  color: rgba(0, 0, 0, .87);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.company-ad a:hover {
+  text-decoration-line: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.87);
+  text-decoration-thickness: 1px;
+}
 
 
-    .category-block__card {
-        display: flex;
-        flex: 1; /* Le card si dividono lo spazio in proporzioni uguali, il gap ora gestisce la distanza */
-        min-width: 0; /* Previene debordamenti se il testo è lungo */
-        margin: 0; /* Rimossa la margin per evitare disallineamenti laterali */
-        width: auto;
-        flex-direction: column;
-        box-shadow: -1px 0 0 rgba(0, 0, 0, 0.1), 1px 0 0 rgba(0, 0, 0, 0.1); 
-        text-decoration: none;
-    }
 
-    .category-block__card:hover .category-block__card-title h3 {
-        text-decoration: underline;
-        text-decoration-color: #009BFF;
-        text-underline-offset: 2px;
-        text-decoration-thickness: 2px;
-    }
-
-    .category-block__card img {
-        width: 100%;
-    }
-
-    @media (max-width: 1200px) {
-        .category-block__card img {
-            width: 100%;
-        }
-    }
-
-    .category-block__card-title {
-        text-align: start;
-        width: auto;
-        height: 100%;
-        padding: 16px 16px;
-    }
-
-    .category-block__card-title h3 {
-        color: rgba(0, 0, 0, .87);
-        font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-        font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
-        font-weight: 725;
-        /* Limitazione a 3 righe con puntini di sospensione (standard + webkit) */
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        line-height: 1.3;
-        margin: 0;
-    }
-
-    .show-more {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        height: auto;
-        width: 100%;
-        margin: 0 0 7px 0;
-        padding: 0; /* Rimosso il padding che creava il distacco eccessivo */
-        flex-direction: column;
-    }
-
-    @keyframes curtainReveal {
-        from {
-            opacity: 0;
-            clip-path: inset(0 0 100% 0);
-        }
-        to {
-            opacity: 1;
-            clip-path: inset(0 0 0 0);
-        }
-    }
-
-    .news-extra {
-        display: none;
-        overflow: hidden;
-    }
-
-    .news-extra--visible {
-        display: grid;
-        animation: curtainReveal 0.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-
-    .show-more-click {
-        height: auto;
-        width: auto;
-        cursor: pointer;
-        display: flex;
-        align-items: center; /* Allineamento verticale */
-        margin-top: 12px;
-        flex-direction: row;
-        background: transparent;
-        border: none;
-        padding: 0;
-    }
-
-    .show-more-click.is-disabled {
-        cursor: default;
-        pointer-events: none;
-    }
-
-    .show-more-click.is-disabled .title,
-    .show-more-click.is-disabled .title2 {
-        color: #707070 !important; /* Grigio più scuro per miglior contrasto */
-    }
-
-    .show-more-click.is-disabled .more {
-        display: none;
-    }
-
-    .title {
-        color: #626262;
-        font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-        font-size: clamp(0.65rem, 0.5vw + 0.8rem, 0.9rem);
-        font-weight: 550;
-        line-height: 1;
-    }
-
-    .title2 {
-        color: #303030;
-        font-weight: 700;
-        font-family: 'Montserrat', Helvetica, sans-serif;
-        font-size: clamp(0.65rem, 0.5vw + 0.8rem, 0.9rem);
-        padding-left: 5px;
-        line-height: 1;
-    }
-
-    .more {
-        height: 28px;
-        width: 24px;
-        transform: translateY(-2.8px);
-    }
-
-    .ad {
-        height: auto;
-        width: auto;
-        margin-top: 16px;
-        border-top: 1px solid #e0e0e0;
-        padding-top: 16px;
-        flex-direction: column;
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-
-    .ad-container {
-        display: flex;
-        padding-top: 18px;
-        padding-bottom: 9px;
-        height: 161px;
-        flex-direction: row;
-        cursor: pointer;
-        margin-bottom: 20px;
-
-    }
-
-    .company-ad {
-        display: flex;
-        position: relative;
-        top: -10px;
-        flex-direction: column;
-        width: 100%;
-        padding-left: 10px;
-    }
-
-    .company-ad p {
-        color: #666666;
-        font-size: 14px;
-    }
-
-    .company-ad a {
-        color: rgba(0, 0, 0, .87);
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 500;
-    }
-
-    .company-ad a:hover {
-        text-decoration-line: underline;
-        text-decoration-color: rgba(0, 0, 0, 0.87);
-        text-decoration-thickness: 1px;
-    }
-
-    .ad-space-line {
-        border: 1px solid #e0e0e0;
-    }
-
-/* --- Regolazioni Responsive Extra --- */
 /* ==========================================================================
-   TABLET VERSION (768px - 1199px)
+   GROUPED MEDIA QUERIES (RESPONSIVE ARCHITECTURE)
+   In questa sezione sono raggruppati tutti i breakpoint ufficiali del brief.
    ========================================================================== */
-@media (min-width: 768px) and (max-width: 1199px) {
-  /* Header & Navigation */
 
-  .header__nav { 
-    display: block; 
+/* 1. MOBILE ONLY OVERRIDES (Max 639px) */
+@media (max-width: 639.98px) {
+  html {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  body, .container, .main, #app {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden;
   }
 
-  .header__nav-list {
+  .header__top-bar {
+    width: 100% !important;
+    padding: 0 1rem !important;
+    box-sizing: border-box;
+  }
+
+  .layout-split {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+  }
+
+  .top-stories {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    clip-path: none !important;
+  }
+
+  .category-block__sub-grid {
     display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    justify-content: center;
-    padding-left: 55px; 
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x mandatory;
   }
 
-  .header__nav-link {
-    font-size: 0.85rem; 
-    font-weight: 550;    
-    font-family: 'Inter', sans-serif; 
-    color: #363636f5;
-    letter-spacing: 0.3px;
+  .category-block__sub-grid > * {
+    scroll-snap-align: start;
+    flex: 0 0 85%;
   }
 
-  .header__nav-item:nth-child(n+8) { 
-    display: none; 
+  .category-block__card-title h3 {
+    font-size: calc(0.875rem + 0.909091vw);
+  }
+
+  .mobile-menu {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .main-menu-item.open .submenu {
+    display: block;
+    background: #fcfcfc;
+  }
+
+  .feed-card {
+    margin: 0.75rem 1.5rem;
+  }
+
+  /* 1. Nasconde i link del menù superiore */
+  .header__nav {
+    display: none;
+    /* Rende invisibile la barra dei link (Home, U.S., etc.) */
+  }
+
+  /* 2. Regola l'Hero principale (Top Section) */
+  .hero-card {
+    display: flex;
+    /* Attiva il layout flessibile */
+    flex-direction: column;
+    /* Impila gli elementi in verticale (immagine sopra, testo sotto) */
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .hero-card__picture {
+    width: 100%;
+    display: block;
+  }
+
+  .hero-card__image {
+    aspect-ratio: 16 / 11;
+    /* Definisce il rapporto tra larghezza e altezza dell'immagine fluido */
+    width: 100%;
+    /* Forza l'immagine a occupare tutta la larghezza */
+    height: auto;
+    object-fit: cover;
+  }
+
+  .hero-card__content {
+    background-color: #fff;/* Fondo bianco per il box del testo */
+    margin-top: -12%;/* Sovrapposizione proporzionale e dinamica con l'immagine */
+    margin-left: 0;/* Attacca il box bianco al bordo sinistro dello schermo */
+    width: 92%; /* Lascia una sottile striscia di immagine visibile a destra, come nell'originale */
+    padding: 1.25rem 1rem 0 0.9375rem; /* Padding interno per allineare il testo al logo e dare respiro a destra */
+    box-sizing: border-box; /* Assicura che il padding sia incluso nel 92% */
+    position: relative;/* Necessario per la sovrapposizione */
+    z-index: 2;/* Sopra l'immagine */
+  }
+
+ /* 4. Rimettiamo il padding alle notizie secondarie per non farle appiccicare ai bordi */
+  .top-stories__secondary {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    margin-left: 0; /* Resetta eventuali margini precedenti */
+    margin-right: 0;
+  }
+  
+  /* Facciamo lo stesso per le notizie terziarie (se presenti su mobile) */
+  .top-stories__tertiary {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+  }
+
+
+  .hero-card__title {
+    font-family: 'Montserrat', sans-serif;
+    /* Font senza grazie per il titolo */
+    font-size: 1.28rem;
+    /* Dimensione generosa per il titolo mobile */
+    font-weight: 750;
+    /* Grassetto molto marcato stile USA Today */
+    line-height: 1.2;
+    /* 'Inter'linea compatta per titoli su più righe */
+    margin-bottom: 0.75rem;
+    /* Distanza tra titolo e testo sottostante */
+    color: #222222e8;
+    /* Nero pieno per massima leggibilità */
+  }
+
+  .hero-card__excerpt {
+    font-family: 'Georgia', serif;
+    /* Font con grazie per l'estratto (classico USA Today) */
+    font-size: 0.9rem !important;
+    /* Dimensione leggibile per il corpo del testo */
+    line-height: 1.25;
+    /* 'Inter'linea ariosa per facilitare la lettura */
+    color: #333;
+    /* Grigio molto scuro, meno aggressivo del nero */
+  }
+
+
+  /* Spinge logo e X verso i bordi del menù laterale */
+  .mobile-header {
+    padding-left: 2rem;
+    /* <--- Riducendo questo, il logo si sposta a sinistra */
+    padding-right: 2rem;
+    /* <--- Riducendo questo, la X si sposta a destra */
+  }
+
+  /* Aumenta lo spazio verticale tra il logo e la barra di ricerca */
+  .logo-search {
+    margin-bottom: 2.5rem;
+    /* <--- Più alzi questo numero, più la ricerca scende */
+    font-family: 'Roboto';
+    font-size: 0.7rem;
   }
 
   /* Riduce la larghezza del menù laterale su tablet */
   .mobile-menu {
-    width: 65%;       /* <--- Abbassa questa percentuale per stringerlo */
-    max-width: 398px; /* <--- Imposta un limite massimo più stretto */
+    width: 65%;
+    overflow-x: hidden;
+    /* <--- Abbassa questa percentuale per stringerlo */
+    max-width: 24.875rem;
+    /* <--- Imposta un limite massimo più stretto */
   }
 
   /* Ruota le frecce del menù laterale verso il basso */
   .mobile-menu .menu svg {
-    transform: rotate(90deg); /* Ruota l'icona di 90 gradi */
-    transition: transform 0.3s ease; /* Rende la rotazione fluida */
+    transform: rotate(90deg);
+    /* Ruota l'icona di 90 gradi */
+    transition: transform 0.3s ease;
+    /* Rende la rotazione fluida */
+    width: 1.0625rem;
+    /* <--- Imposta la larghezza (es. 1.125rem invece di 1.5rem) */
+    height: 1.0625rem;
+    /* <--- Imposta l'altezza (deve essere uguale alla larghezza) */
+    fill: #626262;
+    stroke: currentColor;
+    /* Usa lo stesso colore del riempimento */
+    stroke-width: 0.5;
   }
 
- .mobile-menu .menu a {
-    font-size: 1.05rem;      /* <--- Aumenta o diminuisci per la grandezza */
-    font-weight: 725;      /* <--- Rendi il testo più o meno "grassetto" */
-    font-family: 'Montserrat', sans-serif; /* Font più moderno per i titoli */
-    color: #111;           /* Colore quasi nero */
-    letter-spacing: -0.2px; /* Opzionale: stringe leggermente le lettere */
+  .mobile-menu .menu a {
+    font-size: 1rem;
+    /* <--- Aumenta o diminuisci per la grandezza */
+    font-weight: 825;
+    /* <--- Rendi il testo più o meno "grassetto" */
+    font-family: 'Inter', sans-serif;
+    /* Font più moderno per i titoli */
+    color: #222;
+    /* Colore quasi nero */
+    letter-spacing: -0.2px;
+    /* Opzionale: stringe leggermente le lettere */
   }
 
-    /* Titolo della sezione (MOST RECENT STORIES) */
+  /* Spinge scritte e frecce verso i bordi del menù */
+  .mobile-menu .menu {
+    padding-left: 2.0625rem;
+    /* <--- Diminuisci questo per spostare le scritte più a sinistra */
+    padding-right: 2.0625rem;
+    /* <--- Diminuisci questo per spostare la freccia più a destra */
+    display: flex;
+    justify-content: space-between;
+    /* Assicura che si spingano ai lati opposti */
+  }
+
+  /* Titolo della sezione (MOST RECENT STORIES) */
   .recent-stories h4 {
-    font-size: 0.75rem;    /* Molto piccolo e tutto maiuscolo */
+    font-size: 0.75rem;
+    /* Molto piccolo e tutto maiuscolo */
     font-weight: 800;
-    color: rgba(0, 0, 0, 0.903);
+    color: rgba(0, 0, 0, .73);
     letter-spacing: 1.2px;
-    margin-bottom: 20px;
+    margin-bottom: 0.75rem;
   }
 
   /* Titoli delle singole storie (es. "Lorem", "Ipsum") */
@@ -1698,60 +1649,791 @@ button {
     font-weight: 650;
     color: #111;
     font-family: 'Montserrat', sans-serif;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
   }
 
   /* Testo descrittivo della storia */
   .recent-story p {
     font-size: 0.95rem;
     color: #555;
-    font-family: 'Georgia', serif; /* Font graziato per un tocco "news" */
+    font-family: 'Georgia', serif;
+    /* Font graziato per un tocco "news" */
     line-height: 1.4;
+  }
+
+  /* Allinea il blocco delle storie recenti alle scritte del menù sopra */
+  .recent-stories {
+    padding-left: 2.0625rem;
+    /* <--- Lo stesso valore che hai messo al menù sopra */
+    padding-right: 2.0625rem;
+    margin-top: 0px;
+    /* Aggiunge un po' di spazio sopra la sezione */
+  }
+
+  .recent-story {
+    margin-bottom: 0.9375rem;
+    /* <--- Crea lo spazio vuoto tra la fine di una storia e l'inizio della successiva */
+    display: block;
+    /* Assicurati che sia un blocco per accettare il margine */
+  }
+
+}
+
+/* 1.1 MOBILE REPLICA SYSTEM (0-639px)
+   Reference split: 480-639 keeps the wider mobile composition, 0-479 switches
+   the leading category cards to the narrow mobile composition. */
+@media (max-width: 639.98px) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1200;
+  }
+
+  #main {
+    padding-top: 3.4375rem;
+  }
+
+  .header__top-bar {
+    /* Dimensioni barra mobile allineate al riferimento originale */
+    height: 3.5rem;
+    gap: 0.32rem;
+    justify-content: flex-start;
+  }
+
+  .header__menu-btn {
+    left: 0;
+    padding: 0.25rem;
+  }
+
+  .header__menu-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .header__logo {
+    left: 0;
+  }
+
+  .header__logo-link {
+    gap: 0.22rem;
+  }
+
+  .header__logo-circle {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  .header__logo-usa,
+  .header__logo-today {
+    font-size: 0.75rem;
+    line-height: 0.92;
+  }
+
+  .top-stories {
+    padding-bottom: 1.25rem !important;
+  }
+
+  .top-stories__grid {
+    gap: 0;
+    row-gap: 0;
+    column-gap: 0;
+  }
+
+  .hero-card__image,
+  .story-card__image {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .hero-card__content,
+  .story-card--overlap .story-card__content {
+    box-shadow: none;
+  }
+
+  .hero-card__title {
+    font-size: 1.1rem;
+    line-height: 1.15;
+  }
+
+  .hero-card__excerpt {
+    font-size: 0.9rem !important;
+    line-height: 1.25;
+    margin-bottom: 0;
+  }
+
+  .top-stories__secondary {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+  }
+
+  .layout-split {
+    max-width: 100%;
+  }
+
+  .feed-section {
+    background: #f8f8f8;
+  }
+
+  .list-feed {
+    margin-top: 0.875rem;
+    padding-top: 0.625rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .list-feed .feed-card {
+    align-items: flex-start;
+    gap: 0.9rem;
+    margin: 0;
+    padding-top: 1.05rem;
+    padding-bottom: 1.05rem;
+  }
+
+  .list-feed .feed-card__content {
+    flex: 1 1 auto;
+    padding: 0;
+  }
+
+  .list-feed .feed-card__title {
+    font-size: 1.125rem;
+    line-height: 1.16;
+    font-weight: 760;
+    letter-spacing: 0;
+  }
+
+  .list-feed .feed-card__meta {
+    margin-top: 0.42rem;
+  }
+
+  .list-feed .feed-card__image-wrapper {
+    flex: 0 0 32%;
+    max-width: 12.75rem;
+  }
+
+  .list-feed .feed-card__image {
+    aspect-ratio: 1 / 1;
+    padding: 0;
+    object-fit: cover;
+  }
+
+  .block-notices {
+    margin-bottom: 0;
+    background: #fff;
+  }
+
+  .category-block__header {
+    min-height: 3.95rem;
+    padding: 0 1.15rem 0 0;
+    margin-top: 0.75rem;
+    background: #f7f7f7;
+    border-bottom: none;
+  }
+
+  .category-block__title {
+    font-size: 1.1875rem;
+    font-weight: 760;
+    letter-spacing: 0;
+  }
+
+  .category-block__title::before {
+    width: 1.5rem;
+    min-width: 1.5rem;
+    height: 0.75rem;
+    margin-right: 0.65rem;
+  }
+
+  .category-block__header .more {
+    width: 1.8rem;
+    height: 1.8rem;
+    transform: translateY(0);
+  }
+
+  .category-block__sub-grid,
+  .news-extra--visible {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.45rem;
+    overflow: visible;
+    min-height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0 0.6rem;
+    scroll-snap-type: none;
+  }
+
+  .news-extra {
+    display: none;
+  }
+
+  .news-extra.news-extra--visible {
+    display: grid;
+  }
+
+  .category-block__sub-grid > * {
+    flex: initial;
+    scroll-snap-align: none;
+  }
+
+  .category-block__card {
+    min-width: 0;
+    width: auto;
+  }
+
+  .category-block__card img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .category-block__card-title {
+    padding: 0.92rem 0.75rem 1.18rem;
+  }
+
+  .category-block__card-title h3 {
+    font-size: 1.0625rem;
+    line-height: 1.2;
+    font-weight: 730;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+  }
+
+  .show-more {
+    padding: 1.4rem 0 1.5rem;
+    margin: 0;
+  }
+
+  .show-more-click {
+    margin-top: 0;
+  }
+
+  .title,
+  .title2 {
+    font-size: 0.95rem;
+    line-height: 1.15;
+  }
+}
+
+/* 1.2 WIDE MOBILE (480-639px): top story and category lead stay side-by-side. */
+@media (min-width: 480px) and (max-width: 639.98px) {
+  #main {
+    padding-top: 3.875rem;
+  }
+
+  .header__top-bar {
+    padding-left: 1.95rem !important;
+    padding-right: 1.95rem !important;
+  }
+
+  .hero-card__content {
+    width: calc(100% - 2.55rem);
+    margin-top: -2.45rem;
+    margin-left: 0;
+    margin-right: auto;
+    padding: 1.2rem 1.2rem 0 2.4rem;
+  }
+
+  .hero-card__content header {
+    padding-left: 0;
+  }
+
+  .top-stories__grid {
+    /* Hero excerpt attaccato al primo 300x168 */
+    gap: 0;
+    row-gap: 0;
+  }
+
+  .top-stories__secondary {
+    /* Replica la stessa logica del box Hero:
+       allineamento a sinistra + fascia grigia solo a destra */
+    gap: 1.6rem;
+    padding-left: 0;
+    padding-right: 0;
+    align-items: flex-start;
+  }
+
+  .top-stories__secondary .story-card {
+    /* Stessa larghezza utile del testo Hero excerpt */
+    width: calc(100% - 6.15rem);
+    margin-left: 2.4rem;
+  }
+
+  .story-card--overlap .story-card__content {
+    width: calc(100% - 2.55rem);
+    margin-top: -1.38rem;
+    padding: 0.78rem 1rem 0.35rem 0.72rem;
+  }
+
+  .story-card__title {
+    font-size: 0.87rem;
+    line-height: 1.2;
+    font-weight: 750;
+  }
+
+  .list-feed .feed-card {
+    padding-left: clamp(2.9rem, 9vw, 3.75rem);
+    padding-right: clamp(2.9rem, 9vw, 3.75rem);
+  }
+
+  .feed-card--principal {
+    left: 0;
+    align-items: flex-start;
+  }
+
+  .feed-card--principal .feed-card__image-wrapper {
+    flex: 0 0 63%;
+  }
+
+  .feed-card--principal .feed-card__image {
+    aspect-ratio: 4 / 3;
+    padding: 0;
+    object-fit: cover;
+  }
+
+  .feed-card--principal .feed-card__content {
+    flex: 1 1 auto;
+    max-width: none;
+    margin-top: 1.45rem;
+    margin-left: -2.28rem;
+    padding: 1.35rem 1.15rem 0.9rem 1.3rem;
+  }
+
+  .feed-card--principal .feed-card__title {
+    font-size: 1.75rem;
+    line-height: 1.12;
+    font-weight: 760;
+  }
+
+  .feed-card--principal .feed-card__meta {
+    margin-top: 0.45rem;
+  }
+}
+
+/* 1.3 NARROW MOBILE (0-479px): category lead becomes a stacked hero card. */
+@media (max-width: 479.98px) {
+  #main {
+    padding-top: 3.875rem;
+  }
+
+  .header__top-bar {
+    padding-left: 1.8rem !important;
+    padding-right: 1.8rem !important;
+  }
+
+  .hero-card__content {
+    width: calc(100% - 2.2rem);
+    margin-top: -2.35rem;
+    margin-left: 0;
+    margin-right: auto;
+    padding: 1.14rem 0.95rem 0 2.4rem;
+  }
+
+  .hero-card__content header {
+    padding-left: 0;
+  }
+
+  .top-stories__grid {
+    /* Hero excerpt attaccato al primo 300x168 */
+    gap: 0;
+    row-gap: 0;
+  }
+
+  .top-stories__secondary {
+    /* I 300x168 devono avere la stessa impronta del box Hero:
+       allineati a sinistra, con fascia grigia solo a destra */
+    gap: 1.55rem;
+    padding-left: 0;
+    padding-right: 0;
+    align-items: flex-start;
+  }
+
+  .top-stories__secondary .story-card {
+    /* Stessa larghezza utile del testo Hero excerpt */
+    width: calc(100% - 5.55rem);
+    margin-left: 2.4rem;
+  }
+
+  .story-card--overlap .story-card__content {
+    width: calc(100% - 2.2rem);
+    margin-top: -1.25rem;
+    padding: 0.72rem 0.8rem 0.25rem 0.72rem;
+  }
+
+  .story-card__title {
+    font-size: 0.87rem;
+    line-height: 1.18;
+    font-weight: 750;
+  }
+
+  .list-feed .feed-card {
+    padding-left: clamp(1.55rem, 8vw, 2.6rem);
+    padding-right: clamp(1.55rem, 8vw, 2.6rem);
+  }
+
+  .list-feed .feed-card__image-wrapper {
+    flex-basis: 31%;
+    max-width: 9.625rem;
+  }
+
+  .feed-card--principal {
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .feed-card--principal .feed-card__image-wrapper {
+    flex: none;
+    width: 100%;
+  }
+
+  .feed-card--principal .feed-card__image {
+    aspect-ratio: 16 / 9;
+    padding: 0;
+    object-fit: cover;
+  }
+
+  .feed-card--principal .feed-card__content {
+    flex: none;
+    width: calc(100% - 2.2rem);
+    max-width: none;
+    margin-top: -2.02rem;
+    margin-left: 0;
+    margin-right: auto;
+    padding: 1.12rem 0.8rem 0.6rem 1.32rem;
+  }
+
+  .feed-card--principal .feed-card__title {
+    font-size: 1.62rem;
+    line-height: 1.12;
+    font-weight: 760;
+  }
+
+  .feed-card--principal .feed-card__meta {
+    margin-top: 0.42rem;
+  }
+
+  .category-block__sub-grid,
+  .news-extra--visible {
+    gap: 0.4rem;
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
+  }
+}
+
+@media (max-width: 359px) {
+  .header__top-bar {
+    height: 4rem;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .header__logo-circle {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .header__logo-usa,
+  .header__logo-today {
+    font-size: 0.88rem;
+  }
+
+  .hero-card__title,
+  .feed-card--principal .feed-card__title {
+    font-size: 1.25rem;
+  }
+
+  .hero-card__excerpt {
+    font-size: 0.95rem !important;
+  }
+
+  .list-feed .feed-card {
+    gap: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .list-feed .feed-card__title {
+    font-size: 1rem;
+  }
+
+  .list-feed .feed-card__category,
+  .list-feed .feed-card__time {
+    font-size: 0.76rem;
+  }
+
+  .category-block__card-title {
+    padding: 0.75rem 0.45rem 1rem;
+  }
+
+  .category-block__card-title h3 {
+    font-size: 0.78rem;
+    line-height: 1.2;
+  }
+}
+
+
+/* 2. SHARED TABLET & DESKTOP LOGIC (Min 640px)
+   Logiche comuni a tutte le versioni superiori allo smartphone. */
+@media (min-width: 640px) {
+  .main-menu-item:hover .submenu {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 60%;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    padding: 1rem 0;
+    z-index: 2000;
+    border-radius: 2px;
+  }
+
+  /* Freccia di puntamento laterale (Triangolo bianco) */
+  .main-menu-item:hover .submenu::before {
+    content: '';
+    position: absolute;
+    top: 1.2rem;
+    /* Allineato visivamente alla prima voce di menù */
+    left: -10px;
+    /* Posizionamento preciso sul bordo sinistro */
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #ffffff;
+    /* Colore identico allo sfondo del menù */
+  }
+
+  /* Stili tipografici universali per i link dell'header */
+  .header__nav-link {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.8rem, 1vw + 0.5rem, 0.855rem);
+    font-weight: 730;
+    line-height: 1;
+    letter-spacing: 0.1;
+    color: #626262;
+    padding: 0 0.75rem;
+    display: block;
+    transition: color 0.2s ease;
+  }
+
+  .header__nav-link:hover,
+  .header__nav-link:focus {
+    font-weight: 800;
+    color: #3e3c3cdb;
+  }
+}
+
+
+/* 3. TABLET SPECIFIC OVERRIDES (640px - 958px) */
+@media (min-width: 640px) and (max-width: 958.98px) {
+  .layout-split {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .feed-card--principal .feed-card__title {
+    font-size: 1.375rem;
+  }
+
+  /* Header & Navigation */
+
+  /* Stile del logo USA TODAY specifico per Tablet */
+  .header__logo-usa,
+  .header__logo-today {
+    font-size: 0.8rem;
+    /* Aumentalo un po' se vuoi che sia più visibile */
+    font-weight: 875;
+    /* Un grassetto leggermente più deciso */
+    letter-spacing: 0.3px;
+    line-height: 0.95;
+  }
+
+.header__nav-item:nth-child(n+11) { 
+    /* Nasconde dall'11° elemento in poi (Crossword e successivi) */
+    display: none; 
+}
+
+  .header__nav {
+    display: block;
+    margin-left: 2.9062rem; /* Allineato al desktop */
+    flex-grow: 1;
+    height: 3.4375rem;
+    overflow: hidden;
+  }
+
+  .header__nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0; /* Allineato al desktop, nessuno stacco imprevisto */
+    align-content: flex-start;
+    justify-content: flex-start;
+    padding-left: 0;
+    height: 100%;
+  }
+
+  .header__nav-item {
+    height: 3.4375rem;
+    display: flex;
+    align-items: center;
+  }
+
+
+  /* Spinge logo e X verso i bordi del menù laterale */
+  .mobile-header {
+    padding-left: 2rem;
+    /* <--- Riducendo questo, il logo si sposta a sinistra */
+    padding-right: 2rem;
+    /* <--- Riducendo questo, la X si sposta a destra */
+  }
+
+  /* Aumenta lo spazio verticale tra il logo e la barra di ricerca */
+  .logo-search {
+    margin-bottom: 2.5rem;
+    /* <--- Più alzi questo numero, più la ricerca scende */
+    font-family: 'Roboto';
+    font-size: 0.7rem;
+  }
+
+  /* Riduce la larghezza del menù laterale su tablet */
+  .mobile-menu {
+    width: 65%;
+    /* <--- Abbassa questa percentuale per stringerlo */
+    max-width: 24.875rem;
+    /* <--- Imposta un limite massimo più stretto */
+  }
+
+  /* Ruota le frecce del menù laterale verso il basso */
+  .mobile-menu .menu svg {
+    transform: rotate(90deg);
+    /* Ruota l'icona di 90 gradi */
+    transition: transform 0.3s ease;
+    /* Rende la rotazione fluida */
+    width: 1.0625rem;
+    /* <--- Imposta la larghezza (es. 1.125rem invece di 1.5rem) */
+    height: 1.0625rem;
+    /* <--- Imposta l'altezza (deve essere uguale alla larghezza) */
+    fill: #626262;
+    stroke: currentColor;
+    /* Usa lo stesso colore del riempimento */
+    stroke-width: 0.5;
+  }
+
+  .mobile-menu .menu a {
+    font-size: 1.05rem;
+    /* <--- Aumenta o diminuisci per la grandezza */
+    font-weight: 800;
+    /* <--- Rendi il testo più o meno "grassetto" */
+    font-family: 'Inter', sans-serif;
+    /* Font più moderno per i titoli */
+    color: #222;
+    /* Colore quasi nero */
+    letter-spacing: -0.2px;
+    /* Opzionale: stringe leggermente le lettere */
+  }
+
+  /* Spinge scritte e frecce verso i bordi del menù */
+  .mobile-menu .menu {
+    padding-left: 2.0625rem;
+    /* <--- Diminuisci questo per spostare le scritte più a sinistra */
+    padding-right: 2.0625rem;
+    /* <--- Diminuisci questo per spostare la freccia più a destra */
+    display: flex;
+    justify-content: space-between;
+    /* Assicura che si spingano ai lati opposti */
+  }
+
+  /* Titolo della sezione (MOST RECENT STORIES) */
+  .recent-stories h4 {
+    font-size: 0.75rem;
+    /* Molto piccolo e tutto maiuscolo */
+    font-weight: 800;
+    color: rgba(0, 0, 0, .73);
+    letter-spacing: 1.2px;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Titoli delle singole storie (es. "Lorem", "Ipsum") */
+  .recent-story h5 {
+    font-size: 0.9rem;
+    font-weight: 650;
+    color: #111;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 0px;
+  }
+
+  /* Testo descrittivo della storia */
+  .recent-story p {
+    font-size: 0.95rem;
+    color: #555;
+    font-family: 'Georgia', serif;
+    /* Font graziato per un tocco "news" */
+    line-height: 1.4;
+  }
+
+  /* Allinea il blocco delle storie recenti alle scritte del menù sopra */
+  .recent-stories {
+    padding-left: 2.0625rem;
+    /* <--- Lo stesso valore che hai messo al menù sopra */
+    padding-right: 2.0625rem;
+    margin-top: 0px;
+    /* Aggiunge un po' di spazio sopra la sezione */
+  }
+
+  .recent-story {
+    margin-bottom: 0.9375rem;
+    /* <--- Crea lo spazio vuoto tra la fine di una storia e l'inizio della successiva */
+    display: block;
+    /* Assicurati che sia un blocco per accettare il margine */
   }
 
   /* Top Stories Layout */
   .top-stories {
-    padding-left: 65px;
-    padding-right: 30px;
-    padding-bottom: 30.5px;
-    margin-bottom: 15.95px;
+    padding-left: 4.0625rem;
+    padding-right: 1.875rem;
+    padding-bottom: 1.9062rem;
+    margin-bottom: 0.9969rem;
   }
 
   .top-stories__grid {
-    grid-template-columns: 1.42fr 1.08fr; 
-    gap: 24.1px;
+    grid-template-columns: 1.42fr 1.08fr;
+    gap: 1.5063rem;
   }
 
   /* Cards Styling */
   .hero-card__image {
-    aspect-ratio: 16 / 12;
+    aspect-ratio: 16 / 11.5;
     object-fit: cover;
   }
 
   .hero-card__title {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     line-height: 1.15;
     letter-spacing: -0.5px;
   }
+
   .hero-card__excerpt {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.3;
-    margin-top: 7px;
+    margin-top: 0.4375rem;
   }
 
   /* Per la notizia principale (Hero) */
   .hero-card__content {
-    padding-top: 10px;   /* <--- Diminuisci questo numero per alzare il testo */
+    padding-top: 0.625rem;
+    /* <--- Diminuisci questo numero per alzare il testo */
   }
 
   /* Per le due notizie a destra (300x168) */
   .story-card--overlap .story-card__content {
-    padding-top: 10px;   /* <--- Diminuisci questo numero per alzare il testo */
+    padding-top: 0.625rem;
+    /* <--- Diminuisci questo numero per alzare il testo */
   }
 
   /* Avvicina le due card nella colonna di destra */
   .top-stories__secondary {
-    gap: 23.5px;      /* <--- Diminuisci questo valore per avvicinarle ancora di più */
+    gap: 1.4688rem;
+    /* <--- Diminuisci questo valore per avvicinarle ancora di più */
   }
 
 
@@ -1769,74 +2451,91 @@ button {
 
   /* List Feed Layout */
   .list-feed {
-    padding-left: 38px;
-    padding-right: 38px;
-    margin-bottom: 20px;
-    padding-bottom: 16.6px;
+    padding-left: 2.375rem;
+    padding-right: 2.375rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.0375rem;
   }
 
   .list-feed .feed-card {
-    margin: 8px 28px;
-    gap: 25px;
+    margin: 0.5rem 1.75rem;
+    gap: 1.5625rem;
     align-items: flex-start;
     justify-content: space-between;
   }
 
-  .list-feed .feed-card__title { 
-    font-size: 17.5px; font-weight: 700; 
+  .list-feed .feed-card__title {
+    font-size: 1.0938rem;
+    font-weight: 700;
   }
 
-  .list-feed .feed-card__category { 
-    font-size: 13px; font-weight: 750;
-   }
+  .list-feed .feed-card__category {
+    font-size: 0.8125rem;
+    font-weight: 750;
+  }
 
-  .list-feed .feed-card__time { 
-    font-size: 13px; font-weight: 500; 
+  .list-feed .feed-card__time {
+    font-size: 0.8125rem;
+    font-weight: 500;
   }
 
   .list-feed .feed-card__image-wrapper {
-    flex-basis: 215px;
+    flex-basis: 13.4375rem;
     flex-shrink: 0;
   }
 
   /* Titolo della sezione (es. News, Sports) con il quadratino */
   .category-block__header {
-    font-size: 1.55rem;    /* Grandezza del testo (es. "News") */
-    font-weight: 850;      /* Molto audace come l'originale */
+    font-size: 1.55rem;
+    /* Grandezza del testo (es. "News") */
+    font-weight: 850;
+    /* Molto audace come l'originale */
     font-family: 'Inter', sans-serif;
     color: #000;
   }
 
   /* Titolo grande della card principale (quella con la foto 473x266) */
   .feed-card--principal .feed-card__title {
-    font-size: 1.5rem;    /* Più piccolo rispetto al desktop per il tablet */
+    font-size: 1.5rem;
+    /* Più piccolo rispetto al desktop per il tablet */
     font-weight: 700;
     line-height: 1.15;
   }
 
   .feed-card--principal .feed-card__image-wrapper {
-    flex: 0 0 68%;    /*regolo la larghezza del placeholder*/
+    flex: 0 0 68%;
+    /*regolo la larghezza del placeholder*/
     width: 50%;
   }
 
   .feed-card--principal .feed-card__content {
     flex: 1 1 auto;
-    min-width: 0;      /* Permette al contenuto di restringersi se necessario */
+    min-width: 0;
+    /* Permette al contenuto di restringersi se necessario */
   }
 
   /* Regola l'altezza del placeholder grande */
   .feed-card--principal .feed-card__image {
-    aspect-ratio: 16 / 8.15; /* <--- Cambia il secondo numero per l'ALTEZZA */
+    aspect-ratio: 16 / 8.5;
+    /* <--- Cambia il secondo numero per l'ALTEZZA */
     object-fit: cover;
   }
 
   /* Titoli delle tre card piccole sotto (quelle con la foto 223x125) */
   .category-block__card-title h3 {
-    font-size: 0.95rem;   /* Regola la grandezza dei titoli delle card piccole */
+    font-size: 0.95rem;
+    /* Regola la grandezza dei titoli delle card piccole */
     font-weight: 550;
     line-height: 1.25;
     font-family: 'Inter', sans-serif;
     color: #000000ef;
+  }
+
+  .category-block__card {
+    padding-bottom: 2.125rem;
+    /* <--- Aumenta questo valore per "allungare" la scheda verso il basso */
+    margin-bottom: 0px;
+    /* Opzionale: aggiunge spazio esterno tra le righe */
   }
 
   /* Metadati (Categoria e Tempo) della card principale */
@@ -1847,17 +2546,24 @@ button {
   }
 
   /* Other Elements */
-  .show-more { margin-bottom: 20px; }
-  .category-block__header { padding-top: 7px; }
-  .footer {
-    padding-top: 0px;
-    margin-top: -30px;
+  .show-more {
+    margin-bottom: 1.25rem;
   }
 
-    /* 1. Invece di .footer__link, usa questo: */
+  .category-block__header {
+    padding-top: 0.4375rem;
+  }
+
+  .footer {
+    padding-top: 0px;
+    margin-top: -1.875rem;
+  }
+
+  /* 1. Invece di .footer__link, usa questo: */
   .footer__nav-item a {
-    font-size: 0.88rem;
-    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
     color: #2d2d2d;
     text-decoration: none;
   }
@@ -1866,8 +2572,224 @@ button {
   .footer__copy {
     font-size: 0.75rem;
     color: #666666;
-    margin-top: 15px;
+    margin-top: 0.9375rem;
   }
 
 }
 
+/* 4. DESKTOP VERSION (Min 959px) */
+@media (min-width: 959px) {
+
+  /* --- 4.1 HEADER & NAVIGATION --- */
+  .header__top-bar {
+    padding: 0 2.4062rem;
+  }
+
+  .header__nav {
+    display: block;
+    margin-left: 2.9062rem;
+    flex-grow: 1;
+    height: 3.4375rem;
+    overflow: hidden;
+  }
+
+  .header__nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    height: 100%;
+    gap: 0;
+  }
+
+  .header__nav-item {
+    height: 3.4375rem;
+    display: flex;
+    align-items: center;
+  }
+
+  /* --- 4.2 TOP STORIES (La griglia principale in alto) --- */
+  .top-stories {
+    padding-left: 3.75rem;
+    padding-right: var(--spacing-sm);
+    margin-bottom: 1.0625rem;
+    padding-bottom: 4.875rem;
+  }
+
+  .top-stories__grid {
+    grid-template-columns: 36.85% 25.7% 1fr;
+    gap: 1.8rem;
+  }
+
+  /* --- 4.3 LAYOUT SPLIT (Divisione Sidebar/Feed) --- */
+  .layout-split {
+    display: grid;
+    grid-template-columns: 40.76% 1fr;
+    gap: 1.2rem;
+    padding: 0 3.75rem;
+    background: #f8f8f8; /* Sfondo grigio della sezione */
+  }
+
+  .sidebar-left,
+  .feed-section {
+    background: white; /* Colonne bianche "appoggiate" sul grigio */
+    padding: 1.5rem;
+  }
+
+  /* --- 4.4 SIDEBAR: CTA BOX (Feedback) --- */
+  .cta-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 93.5%;
+    max-width: none; /* Rimuove il limite della versione mobile */
+    margin: 0 auto;
+    padding: 1.5rem 1.8rem;
+    border: 8px solid #009cff;
+    position: relative;
+    font-size: 0.8rem;
+    text-decoration: none;
+  }
+
+  .cta-box h2 {
+    margin: 0;
+    padding-right: 0rem;
+    line-height: 1.36;
+    font-weight: 850;
+    color: #222;
+  }
+
+  /* --- 4.5 MAIN FEED: NEWS LIST (La colonna di destra) --- */
+  .feed-card {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .feed-card__title a {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #222;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .feed-card__title a:hover {
+    color: #009bff;
+  }
+
+  .feed-card__meta {
+    margin-top: 0.35rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6rem;
+    color: #666;
+  }
+
+  .feed-card__category {
+    font-weight: 700;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .top-stories__tertiary {
+    display: flex;
+    /* Appare solo su Desktop */
+    border-top: none;
+    padding-top: 2rem;
+    margin-left: -1.125rem;
+  }
+
+  /* 1. Il Titolo (La scritta nera in grassetto) */
+  .text-card__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.99rem;
+    /* Più grande per il desktop */
+    font-weight: 700;
+    /* Grassetto deciso come USA Today */
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    color: #222;
+    letter-spacing: 0.6px;
+  }
+
+  /* 2. La riga "Lorem | 5 minutes ago" */
+  .text-card__meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #666;
+  }
+
+  /* 3. La categoria (es. "Lorem") in grassetto */
+  .text-card__category {
+    font-weight: 700;
+    color: #444;
+    text-transform: capitalize;
+    /* Prima lettera maiuscola */
+  }
+
+  /* 4. Spazio tra le notizie */
+  .text-card {
+    margin-bottom: 0rem;
+    padding-bottom: 0;
+  }
+
+  .sidebar-left {
+    display: flex;
+    /* Appare solo su Desktop */
+  }
+
+  .feed-card--principal .feed-card__title {
+    font-size: 1.75rem;
+  }
+
+  /* 1. La Hero (Grande a sinistra) */
+  .hero-card__image {
+    width: 100%;
+    aspect-ratio: 16 / 12.15;
+    /* Puoi metterla a 3 / 2 se la vuoi ancora più alta */
+    object-fit: cover;
+  }
+
+  /* 2. Le Secondarie (Le due al centro) */
+  .story-card__image {
+    width: 100%;
+    aspect-ratio: 16 / 12.21;
+    /* Puoi metterla a 21 / 9 se le vuoi più basse e panoramiche */
+    object-fit: cover;
+  }
+
+
+  /* EFFETTO OVERLAP PER LE STORY CARD SECONDARIE */
+  .story-card--overlap .story-card__content {
+    margin-top: -1.5rem;
+    background: #fff;
+    padding: 0.75rem;
+    position: relative;
+    margin-right: 1.25rem;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+}
+
+/* 5. LARGE DESKTOP (Min 1200px) 
+   Ottimizzazioni per schermi ultra-wide per mantenere l'equilibrio visivo. */
+@media (min-width: 1200px) {
+  .layout-split {
+    padding: 0px 3.875rem;
+    /* Ripristina il padding largo */
+    background-position:
+      62px 0,
+      calc(62px + 348px + 20px) 0;
+    background-size:
+      348px 100%,
+      calc(100% - 124px - 368px) 100%;
+  }
+
+  .top-stories {
+    padding-left: 3.75rem;
+  }
+
+
+}

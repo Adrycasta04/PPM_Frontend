@@ -9,7 +9,7 @@
 
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&amp;family=Oswald:wght@500;700&amp;family=Montserrat:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:wght@400;500;700;900&family=Oswald:wght@400;500;700&family=Montserrat:wght@100..900&display=swap" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
 <!-- ACADEMIC REQUIREMENT: Defer used for non-blocking Javascript loading -->
 <script defer="" src="index.js"></script>
@@ -63,7 +63,7 @@
 <div class="scroll-menu-news" data-js="menu-content" id="menuContent">
 <div class="scroll-menu-news-container">
 <div class="container">
-<nav class="scroll-menu">
+<nav class="scroll-menu" aria-label="Categories">
 <ul class="main-menu-list">
 <li class="main-menu-item" data-js="main-menu-item">
 <div class="menu" data-js="menu-trigger">
@@ -309,10 +309,14 @@
 <img alt="Placeholder image for top story" class="hero-card__image" sizes="(max-width: 768px) 100vw, 50vw" src="https://placehold.co/576x324/jpeg"/>
 </picture>
 <div class="hero-card__content">
+<header>
 <h3 class="hero-card__title">Lorem ipsum dolor sit amet, elite adipiscing elit sed do eiusmod</h3>
 <p class="hero-card__excerpt">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+</header>
+<footer>
 <!-- ACADEMIC REQUIREMENT: Utilizzo corretto del tag <time> e attributo datetime -->
 <time class="hero-card__time visually-hidden" datetime="2026-04-19T08:00">Apr 19, 2026</time>
+</footer>
 </div>
 </article>
 <!-- Col 2: Secondary Stories -->
@@ -322,8 +326,8 @@
 <img alt="Placeholder secondary story 1" class="story-card__image" src="https://placehold.co/300x168/jpeg"/>
 </picture>
 <div class="story-card__content">
-<h3 class="story-card__title">Duis aute irure dolor in reprehenderit in voluptate velit esse</h3>
-<time class="visually-hidden" datetime="2026-04-19T09:00">Apr 19, 2026</time>
+<header><h3 class="story-card__title">Duis aute irure dolor in reprehenderit in voluptate velit esse</h3></header>
+<footer><time class="visually-hidden" datetime="2026-04-19T09:00">Apr 19, 2026</time></footer>
 </div>
 </article>
 <article class="story-card story-card--overlap" data-js="news-article">
@@ -331,36 +335,36 @@
 <img alt="Placeholder secondary story 2" class="story-card__image" src="https://placehold.co/300x168/jpeg"/>
 </picture>
 <div class="story-card__content">
-<h3 class="story-card__title">Excepteur sint occaecat cupidatat non proident</h3>
-<time class="visually-hidden" datetime="2026-04-19T10:00">Apr 19, 2026</time>
+<header><h3 class="story-card__title">Excepteur sint occaecat cupidatat non proident</h3></header>
+<footer><time class="visually-hidden" datetime="2026-04-19T10:00">Apr 19, 2026</time></footer>
 </div>
 </article>
 </div>
 <!-- Col 3: Tertiary Text List -->
 <div class="top-stories__tertiary">
 <article class="text-card" data-js="news-article">
-<h3 class="text-card__title">Curabitur pretium tincidunt lacus. Nulla gravida orci a odio</h3>
-<div class="text-card__meta">
+<header><h3 class="text-card__title">Curabitur pretium tincidunt lacus. Nulla gravida orci a odio</h3></header>
+<footer class="text-card__meta">
 <span class="text-card__category">Lorem</span> | <time class="text-card__time" datetime="2026-04-19T10:55">5 minutes ago</time>
-</div>
+</footer>
 </article>
 <article class="text-card" data-js="news-article">
-<h3 class="text-card__title">Nullam varius, turpis et commodo pharetra, est eros bibendum elit</h3>
-<div class="text-card__meta">
+<header><h3 class="text-card__title">Nullam varius, turpis et commodo pharetra, est eros bibendum elit</h3></header>
+<footer class="text-card__meta">
 <span class="text-card__category">Ipsum</span> | <time class="text-card__time" datetime="2026-04-19T01:00">10 hours ago</time>
-</div>
+</footer>
 </article>
 <article class="text-card" data-js="news-article">
-<h3 class="text-card__title">Pellentesque habitant morbi tristique senectus et netus</h3>
-<div class="text-card__meta">
+<header><h3 class="text-card__title">Pellentesque habitant morbi tristique senectus et netus</h3></header>
+<footer class="text-card__meta">
 <span class="text-card__category">Dolor</span> | <time class="text-card__time" datetime="2026-04-19T10:00">1 hour ago</time>
-</div>
+</footer>
 </article>
 <article class="text-card" data-js="news-article">
-<h3 class="text-card__title">Aenean dignissim pellentesque felis. Vestibulum suscipit nulla quis</h3>
-<div class="text-card__meta">
+<header><h3 class="text-card__title">Aenean dignissim pellentesque felis. Vestibulum suscipit nulla quis</h3></header>
+<footer class="text-card__meta">
 <span class="text-card__category">Sit</span> | <time class="text-card__time" datetime="2026-04-19T05:00">6 hours ago</time>
-</div>
+</footer>
 </article>
 </div>
 </div>
@@ -1197,7 +1201,13 @@
 <ul aria-label="Opinion articles list" class="news">
 <li><article aria-label="Main opinion article" class="feed-card feed-card--principal" data-js="feed-card">
 <div class="feed-card__image-wrapper">
-<a aria-hidden="true" href="#" tabindex="-1"><img alt="" class="feed-card__image" src="https://placehold.co/473x266"/></a>
+<a aria-hidden="true" href="#" tabindex="-1">
+<picture>
+<source media="(min-width: 1200px)" srcset="https://placehold.co/473x266/jpeg"/>
+<source media="(min-width: 768px)" srcset="https://placehold.co/768x432/jpeg"/>
+<img alt="" class="feed-card__image" sizes="(max-width: 768px) 100vw, 473px" src="https://placehold.co/473x266/jpeg"/>
+</picture>
+</a>
 </div>
 <div class="feed-card__content">
 <header><h3 class="feed-card__title"><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae</a></h3></header>
@@ -1287,7 +1297,13 @@
 <ul aria-label="Most Recent Videos articles list" class="news">
 <li><article aria-label="Main Most Recent Videos article" class="feed-card feed-card--principal" data-js="feed-card">
 <div class="feed-card__image-wrapper">
-<a aria-hidden="true" href="#" tabindex="-1"><img alt="" class="feed-card__image" src="https://placehold.co/473x266"/></a>
+<a aria-hidden="true" href="#" tabindex="-1">
+<picture>
+<source media="(min-width: 1200px)" srcset="https://placehold.co/473x266/jpeg"/>
+<source media="(min-width: 768px)" srcset="https://placehold.co/768x432/jpeg"/>
+<img alt="" class="feed-card__image" sizes="(max-width: 768px) 100vw, 473px" src="https://placehold.co/473x266/jpeg"/>
+</picture>
+</a>
 </div>
 <div class="feed-card__content">
 <header><h3 class="feed-card__title"><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae</a></h3></header>
@@ -1377,7 +1393,13 @@
 <ul aria-label="Most Recent Galleries articles list" class="news">
 <li><article aria-label="Main Most Recent Galleries article" class="feed-card feed-card--principal" data-js="feed-card">
 <div class="feed-card__image-wrapper">
-<a aria-hidden="true" href="#" tabindex="-1"><img alt="" class="feed-card__image" src="https://placehold.co/473x266"/></a>
+<a aria-hidden="true" href="#" tabindex="-1">
+<picture>
+<source media="(min-width: 1200px)" srcset="https://placehold.co/473x266/jpeg"/>
+<source media="(min-width: 768px)" srcset="https://placehold.co/768x432/jpeg"/>
+<img alt="" class="feed-card__image" sizes="(max-width: 768px) 100vw, 473px" src="https://placehold.co/473x266/jpeg"/>
+</picture>
+</a>
 </div>
 <div class="feed-card__content">
 <header><h3 class="feed-card__title"><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae</a></h3></header>
@@ -1457,8 +1479,8 @@
 </button></div></li>
 </ul>
 </section>
-<!--</div>-->
-</section></div>
+</section>
+</div>
 </main>
 <footer class="footer">
 <h2 class="visually-hidden">Footer Information</h2>
