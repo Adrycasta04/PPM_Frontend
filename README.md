@@ -1,0 +1,2 @@
+## 📌 Nota sul Layout e sugli Ad Banner
+Il layout di riferimento è stato analizzato navigando sulla versione europea del sito (`eu.usatoday.com`) e **rifiutando i cookie opzionali**. Di conseguenza, per via delle normative GDPR e delle impostazioni di privacy, questa replica non include i banner pubblicitari e i moduli di tracciamento che sarebbero normalmente visibili nella versione statunitense completa.
